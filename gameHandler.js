@@ -330,7 +330,7 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
-    timeTilDelete = damageGifCount1;
+    timeTilDelete = tankGifCount1;
     battlePointCount = battlePointCount - 1;
  
  if(CCurrentSelected == "Tank"){
@@ -353,7 +353,7 @@ if (loadedSelectedCount == 1){
  
  
  if (loadedSelectedCount == 2){
-     timeTilDelete = damageGifCount2;
+     timeTilDelete = tankGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
         alert("Ability Unavailable");
@@ -371,7 +371,7 @@ if (loadedSelectedCount == 1){
  
  
   if (loadedSelectedCount == 3){
-     timeTilDelete = damageGifCount3;
+     timeTilDelete = tankGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
         alert("Ability Unavailable");
@@ -389,8 +389,7 @@ if (loadedSelectedCount == 1){
  
  
  
- 
- 
+
   
  setTimeout(function() {
      document.getElementById('attackPopover').style.display="none";
@@ -452,7 +451,7 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
-    timeTilDelete = damageGifCount1;
+    timeTilDelete = supportGifCount1;
     battlePointCount = battlePointCount - 1;
  
  if(CCurrentSelected == "Tank"){
@@ -475,7 +474,7 @@ if (loadedSelectedCount == 1){
  
  
  if (loadedSelectedCount == 2){
-     timeTilDelete = damageGifCount2;
+     timeTilDelete = supportGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
         alert("Ability Unavailable");
@@ -493,7 +492,7 @@ if (loadedSelectedCount == 1){
  
  
   if (loadedSelectedCount == 3){
-     timeTilDelete = damageGifCount3;
+     timeTilDelete = supportGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
         alert("Ability Unavailable");

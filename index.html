@@ -141,8 +141,8 @@ var gifLength2 = "";
 var gifLength3 = "";
 
 window.enemyHealth1 = 1500;
-window.enemyHealth2 = 1200;
-window.enemyHealth3 = 1000;
+window.enemyHealth2 = 1000;
+window.enemyHealth3 = 1200;
 
 window.battlePointCount = 20;
 
@@ -423,21 +423,8 @@ document.getElementById('matchPopup').style.display='block';
 </div>
 
 <script>
-  function thecheck(){
-    if (currentlyActive == "Support"){
-  supportSelection()
-}
 
-if (currentlyActive == "Tank"){
-  tankSelection()
-}
-
-if (currentlyActive == "Damage"){
-  damageSelection()
-}
-  }
-
-  window.ACurrentSelected = "null"
+window.ACurrentSelected = "null"
   window.BCurrentSelected = "null"
   window.CCurrentSelected = "null"
 window.DCurrentSelected = "null"
@@ -461,6 +448,22 @@ BCurrentSelected = "BSupport";
 CCurrentSelected = "Support";
 DCurrentSelected = "P2SupportIcon"
   }
+
+
+  function thecheck(){
+    if (currentlyActive == "Support"){
+  supportSelection()
+}
+
+if (currentlyActive == "Tank"){
+  tankSelection()
+}
+
+if (currentlyActive == "Damage"){
+  damageSelection()
+}
+  }
+
 
 </script>
 
