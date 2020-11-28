@@ -395,6 +395,7 @@ if (loadedSelectedCount == 1){
  setTimeout(function() {
      document.getElementById('attackPopover').style.display="none";
      details.open = false;
+     details.removeAttribute("open");
      document.getElementById(BCurrentSelected).classList.remove("popIn");
      document.getElementById(BCurrentSelected).classList.add("shake");
      document.getElementById(BCurrentSelected).style.display="none";
