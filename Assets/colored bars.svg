@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="380" height="275" viewBox="0 0 380 275">
+  <defs>
+    <filter id="Rectangle_30" x="-21" y="77" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur"/>
+      <feFlood flood-color="#0008e9"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_31" x="95" y="77" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur-2"/>
+      <feFlood flood-color="#e82020" flood-opacity="0.871"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_32" x="211" y="77" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur-3"/>
+      <feFlood flood-color="#24e831"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-colored_bars">
+      <rect width="380" height="275"/>
+    </clipPath>
+  </defs>
+  <g id="colored_bars" data-name="colored bars" clip-path="url(#clip-colored_bars)">
+    <rect width="380" height="275" fill="#fff"/>
+    <rect id="Rectangle_33" data-name="Rectangle 33" width="375" height="276" fill="#fcfcfc"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_30)">
+      <rect id="Rectangle_30-2" data-name="Rectangle 30" width="76" height="5" rx="2.5" transform="translate(36 124)" fill="#2d6bff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_31)">
+      <rect id="Rectangle_31-2" data-name="Rectangle 31" width="76" height="5" rx="2.5" transform="translate(152 124)" fill="#e20f0f"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_32)">
+      <rect id="Rectangle_32-2" data-name="Rectangle 32" width="76" height="5" rx="2.5" transform="translate(268 124)" fill="#14e35f"/>
+    </g>
+  </g>
+</svg>

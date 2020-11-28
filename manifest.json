@@ -1,0 +1,17 @@
+{
+    "name": "Ultimate Anime Showdown",
+    "short_name": "UAS",
+    "description": "Play as your favorite anime characters with classes like tank, support, and damage.",
+    "lang": "en-US",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "/assets/UAs.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }

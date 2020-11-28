@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="310" height="289" viewBox="0 0 310 289">
+  <defs>
+    <filter id="Rectangle_131" x="85.5" y="-57.5" width="373" height="396.5" filterUnits="userSpaceOnUse">
+      <feOffset dy="-172" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="49.5" result="blur"/>
+      <feFlood flood-color="#07de72" flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_130" x="-31.5" y="-57.5" width="373" height="396.5" filterUnits="userSpaceOnUse">
+      <feOffset dy="-172" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="49.5" result="blur-2"/>
+      <feFlood flood-color="#c10000" flood-opacity="0.529"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_129" x="-148.5" y="-57.5" width="373" height="396.5" filterUnits="userSpaceOnUse">
+      <feOffset dy="-172" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="49.5" result="blur-3"/>
+      <feFlood flood-color="#1548f0" flood-opacity="0.549"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-color_outline">
+      <rect width="310" height="289"/>
+    </clipPath>
+  </defs>
+  <g id="color_outline" data-name="color outline" clip-path="url(#clip-color_outline)">
+    <rect width="310" height="289" fill="#fff"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_131)">
+      <rect id="Rectangle_131-2" data-name="Rectangle 131" width="76" height="76" transform="translate(234 263)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_130)">
+      <rect id="Rectangle_130-2" data-name="Rectangle 130" width="76" height="76" transform="translate(117 263)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_129)">
+      <rect id="Rectangle_129-2" data-name="Rectangle 129" width="76" height="76" transform="translate(0 263)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

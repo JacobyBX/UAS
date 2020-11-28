@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="110" viewBox="0 0 85 110">
+  <defs>
+    <clipPath id="clip-tankicon">
+      <rect width="85" height="110"/>
+    </clipPath>
+  </defs>
+  <g id="tankicon" clip-path="url(#clip-tankicon)">
+    <g id="Rectangle_119" data-name="Rectangle 119" transform="translate(5 14)" fill="#fff" stroke="#2d6bff" stroke-width="3">
+      <rect width="76" height="76" rx="38" stroke="none"/>
+      <rect x="1.5" y="1.5" width="73" height="73" rx="36.5" fill="none"/>
+    </g>
+    <path id="shield" d="M10.839,0,0,4.129V14.452C0,22.71,4.336,25.806,10.839,28.9c6.5-3.1,10.839-6.194,10.839-14.452V4.129L10.839,0ZM9.032,19.871,3.613,14.452l2.71-2.71L9.11,14.529l5.871-5.871,2.632,2.632Z" transform="translate(32.218 38)" fill="#2d6bff"/>
+    <rect id="Rectangle_120" data-name="Rectangle 120" width="20" height="14" rx="7" transform="translate(33 44)" fill="#2d6bff"/>
+  </g>
+</svg>

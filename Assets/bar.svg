@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="342" height="98" viewBox="0 0 342 98">
+  <defs>
+    <filter id="Rectangle_30" x="-46" y="-6" width="202" height="131" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="21" result="blur"/>
+      <feFlood flood-color="#0008e9" flood-opacity="0.671"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_31" x="76" y="0" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur-2"/>
+      <feFlood flood-color="#e82020" flood-opacity="0.871"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_32" x="192" y="0" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur-3"/>
+      <feFlood flood-color="#24e831"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-bar">
+      <rect width="342" height="98"/>
+    </clipPath>
+  </defs>
+  <g id="bar" clip-path="url(#clip-bar)">
+    <rect width="342" height="98" fill="rgba(255,255,255,0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_30)">
+      <rect id="Rectangle_30-2" data-name="Rectangle 30" width="76" height="5" rx="2.5" transform="translate(17 47)" fill="#2d6bff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_31)">
+      <rect id="Rectangle_31-2" data-name="Rectangle 31" width="76" height="5" rx="2.5" transform="translate(133 47)" fill="#e20f0f"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_32)">
+      <rect id="Rectangle_32-2" data-name="Rectangle 32" width="76" height="5" rx="2.5" transform="translate(249 47)" fill="#14ce57"/>
+    </g>
+  </g>
+</svg>

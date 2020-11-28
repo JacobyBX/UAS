@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="142" height="98" viewBox="0 0 142 98">
+  <defs>
+    <filter id="Rectangle_31" x="-24" y="-8" width="190" height="119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19" result="blur"/>
+      <feFlood flood-color="#e82020" flood-opacity="0.871"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-redbar">
+      <rect width="142" height="98"/>
+    </clipPath>
+  </defs>
+  <g id="redbar" clip-path="url(#clip-redbar)">
+    <rect width="142" height="98" fill="rgba(255,255,255,0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_31)">
+      <rect id="Rectangle_31-2" data-name="Rectangle 31" width="76" height="5" rx="2.5" transform="translate(33 39)" fill="#e20f0f"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Ultimate Anime Showdown!</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel=" stylesheet" href="vivify.min.css">
+        <script src="//code.jquery.com/jquery-2.0.3.min.js"></script><!-- online jquery.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script><!-- online handlebars.js-->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+          var template = Handlebars.compile($('#item-template2').html())
+          $('#anchor2').html(template(data.characters))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-template2" type="text/x-handlebars-template">
+
+<div class="character-overflow">
+{{#each this}}
+<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';var {{name}}Health = '{{health}}'">
+<a>
+  <img class="" src="Characters/{{imageLink}}">
+  <h5>{{name}}</h5>
+  <p id="{{id}}lvl">lvl: 0</p>
+</a>
+
+</li>
+
+{{/each}}
+</div>
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+            var template = Handlebars.compile($('#item-template').html())
+            $('#anchor').html(template(data.characters))
+        })
+    })
+</script>
+
+<script>
+</script>
+
+<script id="item-template" type="text/x-handlebars-template">
+
+  <ul id="myMenu" class="result-list vivify fadeIn  "
+  style="padding-left-start {0px;}">
+{{#each this}}
+<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';">
+  <a>
+    <img class="" src="Characters/{{imageLink}}">
+    <h5>{{name}}</h5>
+    <p id="{{id}}lvl">lvl: 0</p>
+  </a>
+
+</li>
+
+{{/each}}
+</ul>
+</script>
+    </head>
+    <body>
+    
+      <script>
+function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health ){
+  document.getElementById('battle-card').style.display='block';
+document.getElementById('memberName').innerHTML = memberName;
+document.getElementById('card-img').src= image;
+document.getElementById('ability1Stat').innerHTML = ability1Stat;
+document.getElementById('ability1StatText').innerHTML = " " + ability1StatText;
+document.getElementById('ability1Name').innerHTML = abilityName1;
+document.getElementById('ability1Type').innerHTML = ability1StatText;
+document.getElementById('ability2Stat').innerHTML = ability2Stat;
+document.getElementById('ability2StatText').innerHTML = " " + ability2StatText;
+document.getElementById('ability2Name').innerHTML = abilityName2;
+document.getElementById('ability2Type').innerHTML = ability2StatText;
+document.getElementById('ability3Stat').innerHTML = ability3Stat;
+document.getElementById('ability3StatText').innerHTML = " " + ability3StatText;
+document.getElementById('ability3Name').innerHTML = abilityName3;
+document.getElementById('ability3Type').innerHTML = ability3StatText;
+document.getElementById('ability4Stat').innerHTML = ability4Stat;
+document.getElementById('ability4StatText').innerHTML = " " + ability4StatText;
+document.getElementById('ability4Name').innerHTML = abilityName4;
+document.getElementById('ability4Type').innerHTML = ability4StatText;
+document.getElementById('ultimateStat').innerHTML = ultimateStat;
+document.getElementById('ultimateStatText').innerHTML = " " + ultimateType;
+document.getElementById('ultimateName').innerHTML = ultimateName;
+document.getElementById('ultimateType').innerHTML = ultimateType;
+document.getElementById('TheHP').innerHTML = health;
+document.getElementById("swapButton").style.display="none";
+currentCharacterClick = memberName; 
+currentCharacterHealthClick = health;
+}
+
+
+function closeBattleCard(){
+  document.getElementById('battle-card').style.display='none'
+}
+
+var selectedCharacter = "";
+var selectedImage = "";
+
+function swapBattleCard(){
+document.getElementById("favorites").style.display="none"
+document.getElementById("addToBattleTeam").style.display="none"
+document.getElementById("swapButton").style.display="block"
+}
+      </script>
+
+      
+
+     
+      <div class="connect-screean" style="display:none">
+        <h1>Peer-to-Peer Cue System</h1>
+	
+        <div style="position: relative; top: 10px; margin-left: 40px; line-height: 20px;">
+          <a href="receive.html" target="_blank">receive.html</a>
+          
+          <br><br>
+          
+          <a href="send.html" target="_blank">send.html</a>
+          
+          <br><br><br>
+          
+        
+        </div>
+      </div>
+	
+<script>
+  var currentCharacterClick = ""
+ var currentCharacterHealthClick = ""
+</script>
+    <div id="character-select" class="choose-character">
+
+<div class="hero-preview">
+  <img class="hero-logo" src="Assets/logo.svg">
+<div class="hero-gallery">
+  <div  class="hero-item">
+<img id="I5"  class="vivify popIn" src="Assets/empty.png">
+  </div>
+  <div class="hero-item">
+    <img id="I4" class="vivify popIn" src="Assets/empty.png">
+  </div>
+  <div class="hero-item">
+    <img id="I3" class="vivify popIn" src="Assets/empty.png">
+  </div>
+  <div  class="hero-item">
+    <img id ="I2" class="vivify popIn" style="-webkit-transform: scaleX(-1);
+    transform: scaleX(-1) !important;" src="Assets/empty.png">
+  </div>
+  <div  class="hero-item" style="">
+    <img id="I1" class="vivify popIn"  style="  -webkit-transform: scaleX(-1);
+    transform: scaleX(-1) !important; " src="Assets/empty.png">
+  </div>
+</div>
+</div>
+
+<div class="search-wrapper">
+  <div class="search-input-container"> 
+
+    <br>
+    <input autocomplete="off" 
+          class="search-input" type="search" id="mySearch" onkeyup="myFunction();searchStart()" onclick="document.getElementById('tapclose').play();self.location.href = '#'; document.getElementById('search-clear').style.display='block';window.navigator.vibrate(20);"  onload="myFunction()"
+          placeholder="Assemble Your Team Search..." title="Click To Search For Your Character">
+           
+        </div>
+      
+</div>
+
+
+
+<div id="anchor"></div>
+
+
+    </div>
+
+    <div id="battle-card" class="battle-card ">
+      <button onclick="closeBattleCard()" class="large-close "></button>
+      <div class="vivify fadeInBottom duration-300" style="margin-top: 400px;">
+<div class="battle-card-item ">
+
+ <div class="card-top">
+   <img id="card-img" src="Characters/todoroki.png">
+   <div class="card-top-text">
+     <h5>Battle Card | Health: <span id="TheHP"></span></h5>
+     <h2 id="memberName">Character Name</h2>
+     <p>Level: <span id="charLevel"></span></p>
+   </div>
+ </div>
+
+<div class="card-stats">
+<div class="card-stat-item">
+  <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
+  <h2 id="ability1Name">Ability Name</h2>
+  <p id="ability1Type">Ability Type</p>
+</div>
+
+<div class="card-stat-item">
+  <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
+  <h2 id="ability2Name">Ability Name</h2>
+  <p id="ability2Type">Ability Type</p>
+</div>
+
+<div class="card-stat-item">
+  <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
+  <h2 id="ability3Name">Ability Name</h2>
+  <p id="ability3Type">Ability Type</p>
+</div>
+
+<div class="card-stat-item">
+  <h5><span id="ability4Stat">15</span><span id="ability4StatText"> Placeholder</span></h5>
+  <h2 id="ability4Name">Ability Name</h2>
+  <p id="ability4Type">Ability Type</p>
+</div>
+</div>
+
+
+<div class="card-ultimate-container">
+  <img src="/Assets/mini ult icon.svg"></img>
+  <div class="card-stat-item">
+    <h5><span id="ultimateStat">15</span><span id="ultimateStatText"> Placeholder</span></h5>
+    <h2 id="ultimateName">Ability Name</h2>
+    <p id="ultimateType">Ultimate Ability</p>
+  </div>
+</div>
+
+
+<div class="card-btn">
+  <button id="favorites" class="card-btn-item">Add To Favorites</button>
+  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
+
+  <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
+</div>
+</div>
+</div>
+    </div>
+		<script>
+      function myFunction() {
+          var e, s, t;
+          for (e = document.getElementById("mySearch").value.toUpperCase(), s = document.getElementById("myMenu")
+              .getElementsByTagName("li"), t = 0; t < s.length; t++) - 1 < s[t].getElementsByTagName("a")[0]
+              .innerHTML.toUpperCase().indexOf(e) ? s[t].style.display = "inline-block" : s[t].style.display = "none"
+      }
+
+    
+  </script>
+  <script>
+    var characterCount = 6
+function addMember(name, imageUrl,){
+
+if(characterCount > 1){
+  characterCount = characterCount - 1
+console.log(characterCount)
+ var theCount = characterCount
+ var n = theCount.toString()
+ var ex = "I" + n 
+ document.getElementById(ex).src= imageUrl;
+ document.getElementById(ex).style.display="block";
+ document.getElementById("jm" + name).style.display="inline-block"
+}else{
+  alert("That's the max amount of characters on your team.")
+}
+
+if (characterCount == 1){
+  document.getElementById('matchSelect').style.display= 'block'
+}
+
+}
+  </script>
+
+
+<div id="matchPopup" class="match-popup ">
+  <button onclick="document.getElementById('matchPopup').style.display='none';" class="large-close "></button>
+  <div style="margin-top: 400px;" class="vivify fadeInBottom duration-300">
+  <div class="match-popup-container ">
+
+    
+<h2>Friend Match</h2>
+
+<div class="match-popup-btns">
+  <button onclick="startMatch()">Start Match</button>
+  <button>Join Match</button>
+</div>
+    <div class="join-session">
+        <td><div id="status" class="status"></div></td>
+        <tr>
+            <td>
+                <span style="font-weight: bold">ID: </span>
+                <input type="text" id="receiver-id" title="Input the ID from receive.html">
+                <button id="connect-button">Connect</button>
+            </td>
+        
+        </tr>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+  <div class="match-select vivify fadeInBottom" id="matchSelect">
+    <div class="match-select-container">
+      <div class="match-item">
+        <i class="material-icons">play_arrow</i>
+        <p>Quick Match</p>
+      </div>
+      <div class="match-item" onclick="friendMatch()">
+        <i class="material-icons">people</i>
+        <p>Friend Match</p>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <script> 
+  function friendMatch(){
+document.getElementById('matchPopup').style.display='block';
+  }
+  </script>
+
+  <script>
+    function startMatch(){
+    document.getElementById('gameZone').style.display="block";
+    document.getElementById('matchPopup').style.display="none"
+    }
+    </script>
+
+  <div class="gameZone" id="gameZone">
+    <div class="gameView">
+     <div id="status" class="status"></div>
+<div class="player-container">
+  <div id="player1" class="players">
+    <div class="health-container">
+     <h4 id="player1Name">Player Name</h4> <p ><span id="player1Health">1000</span >Hp</p>
+      <div class="player-bar">
+        <div id="player1BarHealth" class="bar-inner"></div>
+      </div>
+    </div>
+   <img id="player1Image" class="vivify pulsate infinite duration-1000" src="/Characters/asta.png">
+  </div>
+
+
+  <div id="player2" class="players">
+    <div class="health-container">
+      <h4 id="player2Name">Player 2 Name</h4> <p><span id="player2Health">1000</span > Hp</p>
+      <div class="player-bar">
+        <div id="player2BarHealth" class="bar-inner"></div>
+      </div>
+    </div>
+   <img id="player2Image" style="float:right" src="/Characters/deku.png">
+  </div>
+
+</div>
+
+<div class="ability-container">
+  
+    <button id="ability1Button" class="ability-button"><span id="ability1NameButton">Ability Name</span ><span id="ability1NameSpan" class="abilityDescription">Ability</span></button>
+
+    <button id="ability2Button" class="ability-button"><span id="ability2NameButton">Ability Name</span ><span id="ability2NameSpan" class="abilityDescription">Ability</span></button>
+ 
+
+    <button id="ability3Button" class="ability-button"><span id="ability3NameButton">Ability Name</span ><span id="ability3NameSpan" class="abilityDescription">Ability</span></button>
+ 
+
+    <button id="ability4Button" class="ability-button"><span id="ability4NameButton">Ability Name</span ><span id="ability4NameSpan" class="abilityDescription">Ability</span></button>
+ 
+ 
+</div>
+
+<div class="swap-container">
+  <h2><i class="material-icons">swap_horizontal_circle</i>Swap Out</h2>
+  <div id="anchor2"></div>
+</div>
+
+<div class="message-container">
+  <td>
+    <input type="text" id="sendMessageBox" placeholder="Enter a message..." autofocus="true" />
+    <button type="button" id="sendButton">Send</button>
+    <button type="button" id="clearMsgsButton">Clear Msgs (Local)</button>
+</td>
+
+</div>
+
+
+
+<table class="display">
+  <tr>
+      <td class="title">Status:</td>
+      <td class="title">Messages:</td>
+  </tr>
+  <tr>
+      <td>
+         
+      </td>
+     
+  </tr>
+  <tr>
+      
+      <td><div class="message" id="message"></div></td>
+  </tr>
+  <tr>
+      <td style="display: none;" class="display-box standby" id="standby"></td>
+      <td style="display: none;" class="display-box hidden" id="go"></td>
+  </tr>
+  <tr>
+      <td style="display: none;" class="display-box hidden" id="fade"></td>
+      <td style="display: none;" class="display-box hidden" id="off"></td>
+  </tr>
+</table>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.2.0/dist/peerjs.min.js"></script>
+<script type="text/javascript">
+ 
+</script>
+   
+    </div>
+  </div>
+
+  <script src="send.js" id="commuicationScript">
+
+  </script>
+
+    </body>
+</html>
