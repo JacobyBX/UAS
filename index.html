@@ -200,7 +200,7 @@ document.getElementById("swapButton").style.display="block"
   <h1>Assemble Your Team</h1>
 <div class="hero-gallery">
   
-  <div  class="hero-item">
+  <div  class="hero-item hero-item-first">
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="titleTank">Select</h3>
@@ -399,6 +399,17 @@ document.getElementById('matchPopup').style.display='block';
 <!-----------------------------------------Game Zone------------------------------------->
 
   <div class="gameZone" id="gameZone">
+
+<div id="endGame" class="endGame">
+  <div class="endGame-banner">
+    <h3>You Lost</h3>
+    <h2>Player1 Name</h2>
+    <h3>You Lost</h3>
+  </div>
+</div>
+
+
+
     <div class="gameView">
 
       <div id="attackPopover" class="attack-popover ">
@@ -451,6 +462,9 @@ DCurrentSelected = "P2SupportIcon"
 
 
   function thecheck(){
+    document.getElementById(BCurrentSelected).classList.remove("popIn");
+     document.getElementById(BCurrentSelected).classList.add("shake");
+
     if (currentlyActive == "Support"){
   supportSelection()
 }
@@ -498,8 +512,14 @@ if (currentlyActive == "Damage"){
  <p>Opponent</p>
   <h1 id="enemy-name">Player 2</h1>
 <div class="hero-gallery">
+
+  <div class="killed-overlay">
+    <img id="dead1" class="first" src="Assets/eliminated.svg">
+    <img id="dead2" src="Assets/eliminated.svg">
+    <img id="dead3" src="Assets/eliminated.svg">
+  </div>
   
-  <div  class="hero-item">
+  <div  class="hero-item hero-item-first">
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="BtitleTank">Select</h3>
@@ -539,7 +559,7 @@ if (currentlyActive == "Damage"){
 
   <div class="hero-gallery">
   
-    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item">
+    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item hero-item-first">
       <div class="hero-text">
        <button style="background-color: #2D6BFF;" class="shield" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>

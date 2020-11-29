@@ -274,8 +274,7 @@ if (loadedSelectedCount == 2){
 setTimeout(function() {
     document.getElementById('attackPopover').style.display="none";
     details.open = false;
-    document.getElementById(BCurrentSelected).classList.remove("popIn");
-    document.getElementById(BCurrentSelected).classList.add("shake");
+
     document.getElementById(BCurrentSelected).style.display="none";
     document.getElementById(BCurrentSelected).style.display="inline-block";
     document.getElementById(DCurrentSelected).style.display="none";
@@ -334,17 +333,17 @@ if (loadedSelectedCount == 1){
     battlePointCount = battlePointCount - 1;
  
  if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - 185;
+     enemyHealth1 = enemyHealth1 - 18000;
      document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth1 = enemyHealth1 - 185;
+    enemyHealth1 = enemyHealth1 - 18000;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth1 = enemyHealth1 - 185;
+    enemyHealth1 = enemyHealth1 - 18000;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }   
  }
@@ -395,8 +394,7 @@ if (loadedSelectedCount == 1){
      document.getElementById('attackPopover').style.display="none";
      details.open = false;
      details.removeAttribute("open");
-     document.getElementById(BCurrentSelected).classList.remove("popIn");
-     document.getElementById(BCurrentSelected).classList.add("shake");
+
      document.getElementById(BCurrentSelected).style.display="none";
      document.getElementById(BCurrentSelected).style.display="inline-block";
      document.getElementById(DCurrentSelected).style.display="none";
@@ -428,7 +426,7 @@ window.supportSelectionCount = 0;
 
 
 
-function supportSelection(name){
+function supportSelection(){
 
 document.getElementById('selection').style.display="none";
 window.tankSelectionCount = 0;
@@ -516,8 +514,6 @@ if (loadedSelectedCount == 1){
  setTimeout(function() {
      document.getElementById('attackPopover').style.display="none";
      details.open = false;
-     document.getElementById(BCurrentSelected).classList.remove("popIn");
-     document.getElementById(BCurrentSelected).classList.add("shake");
      document.getElementById(BCurrentSelected).style.display="none";
      document.getElementById(BCurrentSelected).style.display="inline-block";
      document.getElementById(DCurrentSelected).style.display="none";
