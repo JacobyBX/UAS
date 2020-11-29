@@ -272,8 +272,8 @@ if (loadedSelectedCount == 2){
 
  
 setTimeout(function() {
-    eliminationHandler()
-    alert(timeTilDelete);
+    
+   
     document.getElementById('attackPopover').style.display="none";
     details.open = false;
 
