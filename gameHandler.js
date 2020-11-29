@@ -354,15 +354,15 @@ if (loadedSelectedCount == 1){
      timeTilDelete = tankGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
-        alert("Ability Unavailable");
+       
      }
      
      if(CCurrentSelected == "Damage"){
-        alert("Ability Unavailable");
+      
      }
      
      if(CCurrentSelected == "Support"){
-        alert("Ability Unavailable");
+      
      }   
   }
  
@@ -372,15 +372,15 @@ if (loadedSelectedCount == 1){
      timeTilDelete = tankGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
-        alert("Ability Unavailable");
+        
      }
      
      if(CCurrentSelected == "Damage"){
-        alert("Ability Unavailable");
+       
      }
      
      if(CCurrentSelected == "Support"){
-        alert("Ability Unavailable");
+     
      }   
   }
  
@@ -475,15 +475,15 @@ if (loadedSelectedCount == 1){
      timeTilDelete = supportGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
-        alert("Ability Unavailable");
+       
      }
      
      if(CCurrentSelected == "Damage"){
-        alert("Ability Unavailable");
+      
      }
      
      if(CCurrentSelected == "Support"){
-        alert("Ability Unavailable");
+       
      }   
   }
  
@@ -493,15 +493,15 @@ if (loadedSelectedCount == 1){
      timeTilDelete = supportGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
-        alert("Ability Unavailable");
+       
      }
      
      if(CCurrentSelected == "Damage"){
-        alert("Ability Unavailable");
+     
      }
      
      if(CCurrentSelected == "Support"){
-        alert("Ability Unavailable");
+      
      }   
   }
  
