@@ -273,16 +273,13 @@ if (loadedSelectedCount == 2){
  
 setTimeout(function() {
 
-   
     document.getElementById('attackPopover').style.display="none";
-    details.open = false;
-
     document.getElementById(BCurrentSelected).style.display="none";
     document.getElementById(BCurrentSelected).style.display="inline-block";
     document.getElementById(DCurrentSelected).style.display="none";
     document.getElementById("battlePointCountWrapper").style.display = "none";
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
- 
+    details.open = false;
     setTimeout(function() {
         document.getElementById(DCurrentSelected).style.display="block";
 
@@ -396,14 +393,14 @@ if (loadedSelectedCount == 1){
     eliminationHandler();
    
      document.getElementById('attackPopover').style.display="none";
-     details.open = false;
+    
      details.removeAttribute("open");
      document.getElementById(BCurrentSelected).style.display="none";
      document.getElementById(BCurrentSelected).style.display="inline-block";
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     
+     details.open = false;
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
  
@@ -518,13 +515,12 @@ if (loadedSelectedCount == 1){
     eliminationHandler();
     
      document.getElementById('attackPopover').style.display="none";
-     details.open = false;
      document.getElementById(BCurrentSelected).style.display="none";
      document.getElementById(BCurrentSelected).style.display="inline-block";
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     
+     details.open = false;
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
  
