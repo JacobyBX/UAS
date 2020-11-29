@@ -323,6 +323,14 @@ loadedSelectedCount = number
    document.getElementById('battlePointM').innerHTML = document.getElementById("battlePoint" + number ).innerHTML
     closeBattleCard()
   }
+
+
+  function eliminationHandler(){
+    if(enemyHealth1 < 1){
+      document.getElementById("dead1").style.display = block; 
+
+    }
+  }
   </script>
 
 
