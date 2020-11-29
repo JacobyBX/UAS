@@ -282,7 +282,7 @@ setTimeout(function() {
     document.getElementById(DCurrentSelected).style.display="none";
     document.getElementById("battlePointCountWrapper").style.display = "none";
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
-    alert(timeTilDelete)
+ 
     setTimeout(function() {
         document.getElementById(DCurrentSelected).style.display="block";
 
