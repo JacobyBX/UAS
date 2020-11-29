@@ -327,8 +327,15 @@ loadedSelectedCount = number
 
   function eliminationHandler(){
     if(enemyHealth1 < 1){
-      document.getElementById("dead1").style.display = block; 
+      document.getElementById("dead1").style.display = "block"; 
+    }
 
+    if(enemyHealth2 < 1){
+      document.getElementById("dead2").style.display = "block"; 
+    }
+
+    if(enemyHealth3 < 1){
+      document.getElementById("dead3").style.display = "block"; 
     }
   }
   </script>
