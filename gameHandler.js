@@ -272,7 +272,7 @@ if (loadedSelectedCount == 2){
 
  
 setTimeout(function() {
-    
+
    
     document.getElementById('attackPopover').style.display="none";
     details.open = false;
@@ -394,7 +394,7 @@ if (loadedSelectedCount == 1){
   
  setTimeout(function() {
     eliminationHandler();
-    alert(timeTilDelete);
+   
      document.getElementById('attackPopover').style.display="none";
      details.open = false;
      details.removeAttribute("open");
@@ -516,7 +516,7 @@ if (loadedSelectedCount == 1){
   
  setTimeout(function() {
     eliminationHandler();
-     alert(timeTilDelete);
+    
      document.getElementById('attackPopover').style.display="none";
      details.open = false;
      document.getElementById(BCurrentSelected).style.display="none";
