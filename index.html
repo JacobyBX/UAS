@@ -47,7 +47,7 @@
 
 <div class="character-overflow">
 {{#each this}}
-<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';var {{name}}Health = '{{health}}';">
+<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';var {{name}};Health = '{{health}}';">
 <a>
   <img class="" src="Characters/{{imageLink}}">
   <h5>{{name}}</h5>
@@ -327,19 +327,22 @@ loadedSelectedCount = number
 
   function eliminationHandler(){
     if(enemyHealth1 <= 1){
-      document.getElementById("dead1").style.display = "block"; 
+      document.getElementById("enemyh1Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh1Container").style.opacity="0.5"; 
+      document.getElementById("enemyh1Container").style.pointerEvents = "none"; 
+   
     }else{
       console.log("Character Not Eliminated By Action")
     }
 
     if(enemyHealth2 <= 1){
-      document.getElementById("dead2").style.display = "block"; 
+      document.getElementById("dead2").style.display = "inline-block"; 
     }else{
       console.log("Character Not Eliminated By Action")
     }
 
     if(enemyHealth3 <= 1){
-      document.getElementById("dead3").style.display = "block"; 
+      document.getElementById("dead3").style.display = "inline-block"; 
     }else{
       console.log("Character Not Eliminated By Action")
     }
@@ -540,7 +543,7 @@ if (currentlyActive == "Damage"){
     <img id="dead3" src="Assets/eliminated.svg">
   </div>
   
-  <div  class="hero-item hero-item-first">
+  <div id="enemyh1Container" class="hero-item hero-item-first">
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="BtitleTank">Select</h3>
@@ -548,7 +551,7 @@ if (currentlyActive == "Damage"){
       </div>
 <img id="BTank"  class="vivify popIn delay-100" src="Characters/chad.png">
   </div>
-  <div class="hero-item">
+  <div id="enemyh2Container" class="hero-item">
     <div class="hero-text">
       <img src="Assets/redbar.svg">
       <h3 id="BtitleDamage">Select</h3>
@@ -556,7 +559,7 @@ if (currentlyActive == "Damage"){
     </div>
     <img id="BDamage" class="vivify popIn delay-200" src="Characters/ichigo bankai.png">
   </div>
-  <div class="hero-item">
+  <div id="enemyh3Container" class="hero-item">
     <div class="hero-text">
       <img src="Assets/greenbar.svg">
       <h3 id="BtitleSupport">Select</h3>
@@ -670,19 +673,19 @@ if (currentlyActive == "Damage"){
   <script>
   var battleStarted = false;
 
-  oponentHealth(1300, 1200, 1000, "Chad", )
-    oponentTankHealth = 1300;
+  oponentHealth(1500, 1200, 1000, "Chad", "Support", "Damage" )
+    oponentTankHealth = 1500;
 
-    var oponentTankHealth = 1300;
+    var oponentTankHealth = 1500;
     var oponentSupportHealth = 1000;
     var oponentDamageHealth = 1200;
 
     oponentHealth(oponentTankHealth, oponentSupportHealth, oponentDamageHealth )
 
-    function oponentHealth(tank, support, damage, tankName, supportName, damageName){
-    document.getElementById('P2TankHealth').innerHTML = tank;
-    document.getElementById('P2SupportHealth').innerHTML = support;
-    document.getElementById('P2DamageHealth').innerHTML = damage;
+    function oponentHealth(tankHP, supportHP, damageHP, tankName, supportName, damageName){
+    document.getElementById('P2TankHealth').innerHTML = tankHP;
+    document.getElementById('P2SupportHealth').innerHTML = supportHP;
+    document.getElementById('P2DamageHealth').innerHTML = damageHP;
     }
     
     </script>
