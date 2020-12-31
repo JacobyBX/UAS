@@ -6,6 +6,14 @@
 
 .visit-select {display: none;width: 100%; height: 100vh; background-color: white;}
 
+.center-startup {position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);}
+
+  .center-startup > img  {width: 220px;}
+
 #attackPopover {display: none;}
 
 .attack-popover {position: fixed; left: 0px;top: 0px; width: 100%; height: 100vh; background-color: #000000f2;z-index: 150;}
@@ -16,7 +24,11 @@
 
 .slash-top {position: absolute; top: 0px; left: 0px; width: 100%;;}
 
-.slash-bottom {position: absolute;bottom: 0px; left: 0px; width: 100%;;}
+.slash-bottom {position: absolute;bottom: -1px; left: 0px; width: 100%;;}
+
+.tapIndicatorS {position: absolute; bottom: 150px; left: 0px; width: 100%; text-align: center;;}
+
+
 
 body {
   margin: 0px;
