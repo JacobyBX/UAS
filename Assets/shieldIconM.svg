@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="11.7" viewBox="0 0 9 11.7">
+  <defs>
+    <clipPath id="clip-shieldIconM">
+      <rect width="9" height="11.7"/>
+    </clipPath>
+  </defs>
+  <g id="shieldIconM" clip-path="url(#clip-shieldIconM)">
+    <path id="shield" d="M4.284,0,0,1.632v4.08C0,8.975,1.713,10.2,4.284,11.423,6.854,10.2,8.567,8.975,8.567,5.712V1.632L4.284,0ZM3.57,7.853,1.428,5.712,2.5,4.641l1.1,1.1,2.32-2.32,1.04,1.04Z" transform="translate(0.218 0.077)" fill="#fff"/>
+    <rect id="Rectangle_139" data-name="Rectangle 139" width="7" height="5" rx="2.5" transform="translate(1 3)" fill="#fff"/>
+  </g>
+</svg>
