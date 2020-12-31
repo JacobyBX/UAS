@@ -107,7 +107,7 @@ window.theCurrentCharacterHealthClick = currentCharacterHealthClick;
 currentAbility1 = abilityName1;
 currentAbility2 = abilityName2;
 currentAbility3 = ultimateName;
-
+document.getElementById("battleCardOpen").play()
 gifLength1 = tgif1
 gifLength2 = tgif2
 gifLength3 = tgif3
@@ -191,7 +191,7 @@ document.getElementById("swapButton").style.display="block"
  var health5 = 1000
 </script>
 
-
+<!---
 <div class="visit-handler">
   <div id="visit-container" class="visit-handler-container">
    <img id="visit-loader" class= "visit-loader vivify duration-10000" src=""> 
@@ -309,7 +309,7 @@ setTimeout(function() {
 }, 11000);
 </script>
 
-
+--->
 
     <div id="character-select" class="choose-character">
 
@@ -828,6 +828,12 @@ if (currentlyActive == "Damage"){
   <audio id="connectedSound" controls>
  
     <source src="Assets/connected.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <audio id="battleCardOpen" controls>
+ 
+    <source src="Sound Effects/50561__broumbroum__sf3-sfx-menu-select.wav" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 <script src="gameHandler.js"></script>
