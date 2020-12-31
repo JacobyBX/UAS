@@ -125,7 +125,7 @@ function closeBattleCard(){
   document.getElementById("ATank").style.display="block";
 document.getElementById("ASupport").style.display="block";
 document.getElementById("ADamage").style.display="block";
-
+document.getElementById("battleCardClose").play()
 }
 
 var selectedCharacter = "";
@@ -834,6 +834,12 @@ if (currentlyActive == "Damage"){
   <audio id="battleCardOpen" controls>
  
     <source src="Sound Effects/50561__broumbroum__sf3-sfx-menu-select.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <audio id="battleCardClose" controls>
+ 
+    <source src="Sound Effects/close.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 <script src="gameHandler.js"></script>
