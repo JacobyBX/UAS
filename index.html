@@ -216,65 +216,11 @@ document.getElementById("swapButton").style.display="block"
   </div>
 
 <script>
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const ctx = new AudioContext();
-const audioPaths = [
-    "Audio/Opener.mp3",
-    "Audio/Opener.mp3",
-    "Audio/Opener.mp3"
-];
-let promises = [];
-
-
-// utility function to load an audio file and resolve it as a decoded audio buffer
-function getBuffer(url, audioCtx) {
-    return new Promise((resolve, reject) => {
-        if (!url) {
-            reject("Missing url!");
-            return;
-        }
-
-        if (!audioCtx) {
-            reject("Missing audio context!");
-            return;
-        }
-
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
-        xhr.responseType = "arraybuffer";
-
-        xhr.onload = function() {
-            let arrayBuffer = xhr.response;
-            audioCtx.decodeAudioData(arrayBuffer, decodedBuffer => {
-                resolve(decodedBuffer);
-            });
-        };
-
-        xhr.onerror = function() {
-            reject("An error occurred.");
-        };
-
-        xhr.send();
-    });
-}
-
-
-audioPaths.forEach(p => {
-    promises.push(getBuffer(p, ctx));
-});
 
 
 // Once all your sounds are loaded, create an AudioBufferSource for each one and start sound
 function startGame(){
-  Promise.all(promises).then(buffers => {
-    buffers.forEach(b => {
-        let source = ctx.createBufferSource();
-        source.buffer = b;
-        source.connect(ctx.destination);
-        source.start();
-    })
-});
-
+document.getElementById("opener").play()
 
 var delayInMilliseconds = 0;
  var delayInMilliseconds2 = 3000;
@@ -851,6 +797,11 @@ if (currentlyActive == "Damage"){
   <audio id="battleCardClose" controls>
  
     <source src="Sound Effects/close.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio id="opener" controls>
+ 
+    <source src="Audio/Opener.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 <script src="gameHandler.js"></script>
