@@ -144,6 +144,8 @@ window.enemyHealth1 = 1500;
 window.enemyHealth2 = 1000;
 window.enemyHealth3 = 1200;
 
+window.ability1action = "Select an Enemy to Attack"
+
 window.battlePointCount = 20;
 
 function swapBattleCard(){
@@ -191,7 +193,7 @@ document.getElementById("swapButton").style.display="block"
  var health5 = 1000
 </script>
 
-<!---
+<button onclick="startGame()" class="startBTN">Start Game</button>
 <div class="visit-handler">
   <div id="visit-container" class="visit-handler-container">
    <img id="visit-loader" class= "visit-loader vivify duration-10000" src=""> 
@@ -263,7 +265,8 @@ audioPaths.forEach(p => {
 
 
 // Once all your sounds are loaded, create an AudioBufferSource for each one and start sound
-Promise.all(promises).then(buffers => {
+function startGame(){
+  Promise.all(promises).then(buffers => {
     buffers.forEach(b => {
         let source = ctx.createBufferSource();
         source.buffer = b;
@@ -271,27 +274,26 @@ Promise.all(promises).then(buffers => {
         source.start();
     })
 });
-</script>
 
-<script>
- var delayInMilliseconds = 2000;
- var delayInMilliseconds2 = 4000;
- var delayInMilliseconds3 = 6000;
- var delayInMilliseconds4 = 8000;
- var delayInMilliseconds5 = 11000; //1 second
+
+var delayInMilliseconds = 0;
+ var delayInMilliseconds2 = 3000;
+ var delayInMilliseconds3 = 4000;
+ var delayInMilliseconds4 = 7000;
+ var delayInMilliseconds5 = 10000; //1 second
 
 setTimeout(function() {
   document.getElementById("visit-loader").src="/Assets/developed.svg"
-}, 2000);
+}, 1000);
 
 
 setTimeout(function() {
   document.getElementById("visit-loader").src="/Assets/online.svg"
-}, 4000);
+}, 3000);
 
 setTimeout(function() {
   document.getElementById("visit-loader").src="/Assets/privacy.svg";
-}, 6000);
+}, 5000);
 
 setTimeout(function() { 
   document.getElementById("visit-loader").src="/Assets/startup.png"; 
@@ -300,13 +302,18 @@ setTimeout(function() {
   document.getElementById("visit-loader").style.display="block";
 
 
-}, 8000);
+}, 7000);
 
 setTimeout(function() { 
 
   document.getElementById("visit-container").style.display="none";
   document.getElementById("start-up").style.display="block";
-}, 11000);
+}, 10000);
+}
+
+</script>
+
+<script>
 </script>
 
 --->
@@ -472,6 +479,10 @@ loadedSelectedCount = number
       console.log("Character Not Eliminated By Action")
     }
   }
+
+  function shieldHandler(){
+document.getElementById("selectionText").innerHTML="Select Teamate To Give Shield"
+  }
   </script>
 
 
@@ -633,7 +644,7 @@ if (currentlyActive == "Damage"){
   <div class="select-cover vivify fadeIn"></div>
  
   <div class="selection-container vivify fadeInBottom duration-300">
-<p>Select an Enemy to Attack</p>
+<p id="selectionText">Select an Enemy to Attack</p>
 
 
     <div class="selection-popup">

@@ -372,7 +372,7 @@ if (loadedSelectedCount == 1){
      timeTilDelete = tankGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
-        
+        document.getElementById("selectionText").innerHTML="Select Teamate To Give Shield"
      }
      
      if(CCurrentSelected == "Damage"){
