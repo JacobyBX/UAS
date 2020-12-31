@@ -337,12 +337,12 @@ if (loadedSelectedCount == 1){
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth1 = enemyHealth1 - 18000;
+    enemyHealth2 = enemyHealth2 - 18000;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth1 = enemyHealth1 - 18000;
+    enemyHealth3 = enemyHealth3 - 18000;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }   
  }

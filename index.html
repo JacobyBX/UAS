@@ -326,7 +326,7 @@ loadedSelectedCount = number
 
 
   function eliminationHandler(){
-    if(enemyHealth1 <= 1){
+    if(enemyHealth1 < 1){
       document.getElementById("enemyh1Container").style.filter="saturate(0)"; 
       document.getElementById("enemyh1Container").style.opacity="0.5"; 
       document.getElementById("enemyh1Container").style.pointerEvents = "none"; 
@@ -335,14 +335,18 @@ loadedSelectedCount = number
       console.log("Character Not Eliminated By Action")
     }
 
-    if(enemyHealth2 <= 1){
-      document.getElementById("dead2").style.display = "inline-block"; 
+    if(enemyHealth2 < 1){
+      document.getElementById("enemyh2Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh2Container").style.opacity="0.5"; 
+      document.getElementById("enemyh2Container").style.pointerEvents = "none";  
     }else{
       console.log("Character Not Eliminated By Action")
     }
 
-    if(enemyHealth3 <= 1){
-      document.getElementById("dead3").style.display = "inline-block"; 
+    if(enemyHealth3 < 1){
+      document.getElementById("enemyh3Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh3Container").style.opacity="0.5"; 
+      document.getElementById("enemyh3Container").style.pointerEvents = "none";
     }else{
       console.log("Character Not Eliminated By Action")
     }
