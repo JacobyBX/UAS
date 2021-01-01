@@ -84,18 +84,19 @@ function shieldCheck(){
         function healingHandler(healingAmount,){
   
             if (healingAmount == 1){
-              alert("You can't heal yourself. ")
+                alert("Healing Activated")
+                supportSelection();
+                document.getElementById("healingBadgeTank").style.display="block";
             }
             if (healingAmount == 2){
                 alert("Healing Activated")
               supportSelection();
-          
+              document.getElementById("healingBadgeDamage").style.display="block"
             }
           
             if (healingAmount == 3){
-                alert("Healing Activated")
-              supportSelection();
-          
+               
+              alert("You can't heal yourself. ")
           
             }
             

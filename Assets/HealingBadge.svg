@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <clipPath id="clip-HealingBadge">
+      <rect width="56" height="56"/>
+    </clipPath>
+  </defs>
+  <g id="HealingBadge" clip-path="url(#clip-HealingBadge)">
+    <rect id="Rectangle_153" data-name="Rectangle 153" width="56" height="56" rx="28" fill="#1dc55a"/>
+    <path id="Path_32" data-name="Path 32" d="M34.433,43.474h-11.5v11.5H16.9v-11.5H5.346V37.412H16.9V25.854h6.032V37.412h11.5Z" transform="translate(7.79 -12)" fill="#fff"/>
+  </g>
+</svg>
