@@ -374,7 +374,7 @@ margin-top: -24px;
 
 .grid-button{ background-color:transparent;border: none;opacity: 0;;}
 
-.grid-button > img {opacity: 0;}
+.grid-button > img {opacity: 0 !important;}
 
 .grid-button:focus {outline: none;}
 
@@ -389,7 +389,15 @@ margin-top: -24px;
   .selection-shield-wrapper {    position: fixed;
     bottom: 171px;
     left: 0px;
-    width: 100%;}
+    width: 100%;display: none;}
+
+    .selection-support-wrapper {
+      position: fixed;
+      bottom: 171px;
+      left: 0px;
+      width: 100%;
+      display: none;
+    }
 
 .grid-button:first-of-type {margin-left: 0px;}
 
