@@ -89,9 +89,9 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
           
     
           document.getElementById("ability2Stat").innerHTML="135"
-          document.getElementById("ability2StatText").innerHTML=" Health";
+          document.getElementById("ability2StatText").innerHTML=" Damage";
           document.getElementById("ability2Name").innerHTML = ability2;
-          document.getElementById("ability2Type").innerHTML = "Create a barrier around 1 character for 1 round. ";
+          document.getElementById("ability2Type").innerHTML = "Do damage to any enemy you select. ";
     
           document.getElementById("ability3Stat").innerHTML="400"
           document.getElementById("ability3StatText").innerHTML=" Health";
@@ -342,18 +342,18 @@ if (loadedSelectedCount == 1){
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
  
  if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - 18000;
+     enemyHealth1 = enemyHealth1 - 185;
      document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - 18000;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+    enemyHealth2 = enemyHealth2 - 185;
+    document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - 18000;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+    enemyHealth3 = enemyHealth3 - 185;
+    document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
  }   
  }
  
@@ -366,15 +366,18 @@ if (loadedSelectedCount == 1){
      battlePointCount = battlePointCount - 1;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      if(CCurrentSelected == "Tank"){
-       
+        enemyHealth1 = enemyHealth1 - 135;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
      }
      
      if(CCurrentSelected == "Damage"){
-      
+        enemyHealth2 = enemyHealth2 - 135;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
      }
      
      if(CCurrentSelected == "Support"){
-      
+        enemyHealth3 = enemyHealth3 - 135;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
      }   
   }
  
@@ -474,13 +477,13 @@ if (loadedSelectedCount == 1){
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth1 = enemyHealth1 - 185;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+    enemyHealth2 = enemyHealth2 - 185;
+    document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth1 = enemyHealth1 - 185;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+    enemyHealth3 = enemyHealth3 - 185;
+    document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
  }   
  }
  

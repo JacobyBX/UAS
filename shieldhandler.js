@@ -8,6 +8,7 @@ function shieldCheck(){
       document.getElementById("selectionText").innerHTML="Select Teamate Shield";
       document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
       document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "block";
+      document.getElementsByClassName("selection-support-wrapper")[0].style.display = "none";
        timeTilDelete = tankGifCount3;
 
        if(CCurrentSelected == "Tank"){
@@ -57,11 +58,13 @@ function shieldCheck(){
 
 
     function healingCheck(){
-     
-        if (loadedSelectedCount == 3 && currentlyActive == "Support"){
+
+        if (loadedSelectedCount == 2 && currentlyActive == "Support"){
+            window.healingAmountTotal = 135;
           document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
           document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
           document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
+          document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
         
            if(CCurrentSelected == "Tank"){
            
@@ -75,32 +78,52 @@ function shieldCheck(){
            
            }   
         }else{
-          document.getElementsByClassName("select-cover")[0].style.marginTop = "0";
-          document.getElementById("selectionText").innerHTML="Select Enemy to Attack";
-          document.getElementsByClassName("selection-support-wrapper")[0].style.display = "none";
+      
+        }
+     
+        if (loadedSelectedCount == 3 && currentlyActive == "Support"){
+            window.healingAmountTotal = 400
+          document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
+          document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
+          document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
+          document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
+        
+           if(CCurrentSelected == "Tank"){
+           
+           }
+           
+           if(CCurrentSelected == "Damage"){
+             
+           }
+           
+           if(CCurrentSelected == "Support"){
+           
+           }   
+        }else{
+      
         }
         }
 
-        function healingHandler(healingAmount,){
+        function healingHandler(healingAmount, amount){
   
             if (healingAmount == 1){
-                alert("Healing Activated")
+             
                 supportSelection();
                 document.getElementById("healingBadgeTank").style.display="block";
                 setTimeout(function(){
                     document.getElementById("healingBadgeTank").style.display="none";;
                 }, 10000);
-                tankP1Health = tankP1Health + 400;
+                tankP1Health = tankP1Health + healingAmountTotal;
                 document.getElementById("P1TankHealth").innerHTML = tankP1Health;
             }
             if (healingAmount == 2){
-                alert("Healing Activated")
+               
               supportSelection();
               document.getElementById("healingBadgeDamage").style.display="block";
               setTimeout(function(){
                 document.getElementById("healingBadgeDamage").style.display="none";;
             }, 10000);
-            damageP1Health = damageP1Health + 400;
+            damageP1Health = damageP1Health + healingAmountTotal;
             document.getElementById("P1DamageHealth").innerHTML = damageP1Health;
             }
           
