@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
       <link rel="manifest" href="manifest.json">
 <script type="text/javascript" src="gifffer.min.js"></script>
 <meta name="mobile-web-app-capable" content="yes">
@@ -31,6 +36,43 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/news', function (data) {
+          var template = Handlebars.compile($('#item-template7').html())
+          $('#anchornews').html(template(data.news))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-template7" type="text/x-handlebars-template">
+
+
+  
+{{#each this}}
+
+
+    <div class="swiper-slide">
+        <a href="#newsPopover">
+        <div onclick="document.getElementById('titleNews').innerHTML = '{{title}}';document.getElementById('titleDescription').innerHTML = '{{description}}';" class="update-container">
+          <img src="{{image}}">
+          <div class="update-text {{align}}">
+            <h3>News & Updates</h3>
+            <h2>{{title}}</h2>
+            <p>Tap To Learn More</p>
+          </div>
+      
+        </div>
+      </a>
+      </div>
+
+{{/each}}
+
+</script>
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -315,7 +357,67 @@ setTimeout(function() {
       
 </div>
 
+<!-- Slider main container -->
 
+
+
+
+
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper" id="anchornews">
+
+
+</div>
+<!-- If we need pagination -->
+<div class="swiper-pagination"></div>
+
+<!-- If we need navigation buttons -->
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+
+<!-- If we need scrollbar -->
+<div class="swiper-scrollbar"></div>
+</div>
+
+
+<div class="news-popover" id="newsPopover">
+  <a href="#"><button class="wide-close"></button></a>
+  <div class="new-popover-center">
+    <div class="news-item delay-100 vivify fadeInBottom duration-500">
+      <div class="item-text">
+        <h3>News & Updates</h3>
+        <h2 id="titleNews">New Character Available | Ichigo</h2>
+        <p id="titleDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et mi ut nisi congue sollicitudin et ut massa. Duis semper nunc vitae porttitor efficitur. Mauris pretium commodo sagittis. Duis volutpat turpis eu libero tempor vestibulum. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+ 
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+})
+  </script>
 
 <div id="anchor"></div>
 
@@ -355,21 +457,21 @@ setTimeout(function() {
   </script>
 
 <div class="card-stats">
-<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1')">
+<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck()">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
   <h2 id="ability1Name">Ability Name</h2>
   <p id="ability1Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2')">
+<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck()">
   <h6><span id="battlePoint2"></span> Battle Points</h6>
   <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
   <h2 id="ability2Name">Ability Name</h2>
   <p id="ability2Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3')" id="ultimate-item">
+<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck()" id="ultimate-item">
   <h6><span id="battlePoint3"></span> Battle Points</h6>
   <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
   <h2 id="ability3Name" id="ultimate-item-text">Ability Name</h2>
@@ -380,7 +482,7 @@ setTimeout(function() {
 </div>
 
 <script>
-
+window.shieldedTeam = "null"
 window.loadedSelectedCount = "null"
   function selector(number){
 window.loadedDamage = document.getElementById("ability" + number + "Stat").innerHTML;
@@ -427,9 +529,7 @@ loadedSelectedCount = number
     }
   }
 
-  function shieldHandler(){
-document.getElementById("selectionText").innerHTML="Select Teamate To Give Shield"
-  }
+ 
   </script>
 
 
@@ -539,6 +639,15 @@ document.getElementById('matchPopup').style.display='block';
   <button onclick="damageAttacking(),thecheck()"  class="grid-button vivify blink"><img id="damageSelectGrid" src="Assets/DamageSelect.svg"></button>
   <button onclick="supportAttacking(),thecheck()"  class="grid-button starter vivify blink"><img id="supportSelectGrid"  src="Assets/DamageSelect.svg"></button>
 </div>
+
+<div class="selection-shield-wrapper">
+  <div class="selection-shield">
+    <button onclick="shieldHandler(1)" class="shield-item"></button>
+    <button onclick="shieldHandler(2)" class="shield-item"></button>
+    <button onclick="shieldHandler(3)" class="shield-item"></button>
+  </div>
+</div>
+
 
 <script>
 
@@ -670,7 +779,7 @@ if (currentlyActive == "Damage"){
   
     <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item hero-item-first">
       <div class="hero-text">
-       <button style="background-color: #2D6BFF;" class="shield" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
+       <button style="background-color: #2D6BFF;" class="shield vivify popIn" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>
         <p ><span id="P1TankHealth">1500</span> HP</p>
         </div>
@@ -682,7 +791,7 @@ if (currentlyActive == "Damage"){
     </div>
     <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;" class="hero-item">
       <div class="hero-text">
-        <button style="background-color: #E20F0F;" class="shield" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
+        <button style="background-color: #E20F0F;" class="shield vivify popIn delay-2000" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleDamage">Select</h3>
         <p><span id="P1DamageHealth">1200 </span> HP</p>
       </div>
@@ -694,7 +803,7 @@ if (currentlyActive == "Damage"){
     </div>
     <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;" class="hero-item">
       <div class="hero-text">
-        <button style="background-color: #14E35F" class="shield" id="supportShield"><img src="Assets/shieldIcon.svg"><p ><span id="supportShieldHealth">100</span>HP Shield</p></button>
+        <button style="background-color: #14E35F" class="shield vivify popIn delay-2000" id="supportShield"><img src="Assets/shieldIcon.svg"><p ><span id="supportShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleSupport">Select</h3>
         <p><span id="P1SupportHealth">1000</span> HP</p>
       </div>
@@ -805,6 +914,7 @@ if (currentlyActive == "Damage"){
     <source src="Audio/Opener.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
+  <script src="shieldhandler.js"></script>
 <script src="gameHandler.js"></script>
   <script src="receive.js" id="commuicationScript">
 

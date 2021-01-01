@@ -203,6 +203,7 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
    timeTilDelete = damageGifCount1;
    battlePointCount = battlePointCount - 1;
 
@@ -226,6 +227,7 @@ if(CCurrentSelected == "Support"){
 
 
 if (loadedSelectedCount == 2){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = damageGifCount2;
     battlePointCount = battlePointCount - 1
     if(CCurrentSelected == "Tank"){
@@ -247,6 +249,7 @@ if (loadedSelectedCount == 2){
 
 
  if (loadedSelectedCount == 3){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = damageGifCount3;
     battlePointCount = battlePointCount - 5
     if(CCurrentSelected == "Tank"){
@@ -272,7 +275,7 @@ if (loadedSelectedCount == 2){
 
  
 setTimeout(function() {
-
+    eliminationHandler();
     document.getElementById('attackPopover').style.display="none";
     document.getElementById(BCurrentSelected).style.display="none";
     document.getElementById(BCurrentSelected).style.display="inline-block";
@@ -328,6 +331,7 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = tankGifCount1;
     battlePointCount = battlePointCount - 1;
  
@@ -351,6 +355,7 @@ if (loadedSelectedCount == 1){
  
  
  if (loadedSelectedCount == 2){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = tankGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
@@ -369,10 +374,12 @@ if (loadedSelectedCount == 1){
  
  
   if (loadedSelectedCount == 3){
+
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = tankGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
-        document.getElementById("selectionText").innerHTML="Select Teamate To Give Shield"
+     
      }
      
      if(CCurrentSelected == "Damage"){
@@ -446,7 +453,7 @@ function detailsSupport(){
 
 
 var timeTilDelete = 0;
-
+document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
 
 if (loadedSelectedCount == 1){
     timeTilDelete = supportGifCount1;
@@ -472,6 +479,7 @@ if (loadedSelectedCount == 1){
  
  
  if (loadedSelectedCount == 2){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount2;
      battlePointCount = battlePointCount - 1
      if(CCurrentSelected == "Tank"){
@@ -490,6 +498,7 @@ if (loadedSelectedCount == 1){
  
  
   if (loadedSelectedCount == 3){
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount3;
      battlePointCount = battlePointCount - 5
      if(CCurrentSelected == "Tank"){
