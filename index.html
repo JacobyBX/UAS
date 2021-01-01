@@ -235,9 +235,9 @@ document.getElementById("swapButton").style.display="block"
  var health4 = 1000
  var health5 = 1000
 </script>
-<!---
+
 <button onclick="startGame()" class="startBTN">Start Game</button>
-<div class="visit-handler">
+<div id="visit-handler" class="visit-handler">
   <div id="visit-container" class="visit-handler-container">
    <img id="visit-loader" class= "visit-loader vivify duration-10000" src=""> 
   </div>
@@ -245,8 +245,23 @@ document.getElementById("swapButton").style.display="block"
   
 </div>
 
+<script>
 
-<div class="startup-screen" id="start-up">
+  function startup(){
+    document.getElementById('visit-handler').style.display= "none";
+    document.getElementById('start-up').style.display= "none";
+    document.getElementById('opener').pause()
+    document.getElementById('quickClick').play();
+    document.getElementById('character-select').style.display="block";
+    setTimeout(function(){
+      document.getElementById('quickClick').pause();
+      document.getElementById('menu').play();
+            }, 1000);
+
+  }
+  </script>
+
+<div onclick="startup()" class="startup-screen" id="start-up">
 
 <div class="center-startup">
   
@@ -264,7 +279,7 @@ document.getElementById("swapButton").style.display="block"
 // Once all your sounds are loaded, create an AudioBufferSource for each one and start sound
 function startGame(){
 document.getElementById("opener").play()
-
+document.getElementById('character-select').style.display="none";
 var delayInMilliseconds = 0;
  var delayInMilliseconds2 = 3000;
  var delayInMilliseconds3 = 4000;
@@ -305,7 +320,7 @@ setTimeout(function() {
 <script>
 </script>
 
---->
+
 
     <div id="character-select" class="choose-character">
 
@@ -939,6 +954,16 @@ if (currentlyActive == "Damage"){
   <audio id="opener" controls>
  
     <source src="Audio/Opener.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio id="quickClick" controls>
+ 
+    <source src="Sound Effects/322228__doty21__sci-fi-button-click.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio id="menu" controls>
+ 
+    <source src="Audio/396458__patricklieberkind__futuristic-rhythmic-game-ambience.wav" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
   <script src="shieldhandler.js"></script>
