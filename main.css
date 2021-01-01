@@ -403,7 +403,7 @@ margin-top: -24px;
     .healing-overlay { 
       height: 99px;
       width: 99px;
-      border-radius: 7px;position: absolute;margin-top: -100px}
+      border-radius: 7px;position: absolute;margin-top: -100px;display: none;}
 
       .healing-box {    position: absolute;
         width: 100%;

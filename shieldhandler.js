@@ -9,7 +9,7 @@ function shieldCheck(){
       document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
       document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "block";
        timeTilDelete = tankGifCount3;
-       battlePointCount = battlePointCount - 5
+
        if(CCurrentSelected == "Tank"){
        
        }
@@ -62,7 +62,7 @@ function shieldCheck(){
           document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
           document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
           document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
-           battlePointCount = battlePointCount - 5
+        
            if(CCurrentSelected == "Tank"){
            
            }
@@ -87,11 +87,21 @@ function shieldCheck(){
                 alert("Healing Activated")
                 supportSelection();
                 document.getElementById("healingBadgeTank").style.display="block";
+                setTimeout(function(){
+                    document.getElementById("healingBadgeTank").style.display="none";;
+                }, 10000);
+                tankP1Health = tankP1Health + 400;
+                document.getElementById("P1TankHealth").innerHTML = tankP1Health;
             }
             if (healingAmount == 2){
                 alert("Healing Activated")
               supportSelection();
-              document.getElementById("healingBadgeDamage").style.display="block"
+              document.getElementById("healingBadgeDamage").style.display="block";
+              setTimeout(function(){
+                document.getElementById("healingBadgeDamage").style.display="none";;
+            }, 10000);
+            damageP1Health = damageP1Health + 400;
+            document.getElementById("P1DamageHealth").innerHTML = damageP1Health;
             }
           
             if (healingAmount == 3){

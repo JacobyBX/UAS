@@ -80,7 +80,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
     
           document.getElementById("battlePoint1").innerHTML="-1";
           document.getElementById("battlePoint2").innerHTML="-1";
-          document.getElementById("battlePoint3").innerHTML="-4";
+          document.getElementById("battlePoint3").innerHTML="-5";
     
           document.getElementById("ability1Stat").innerHTML="185";
           document.getElementById("ability1StatText").innerHTML=" Damage";
@@ -114,7 +114,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
     
           document.getElementById("battlePoint1").innerHTML="-1";
           document.getElementById("battlePoint2").innerHTML="-1";
-          document.getElementById("battlePoint3").innerHTML="-4";
+          document.getElementById("battlePoint3").innerHTML="-5";
     
           document.getElementById("ability1Stat").innerHTML="85"
           document.getElementById("ability1StatText").innerHTML=" Damage";
@@ -146,7 +146,7 @@ window.currentlyActive = "Support"
     
           document.getElementById("battlePoint1").innerHTML="-1";
           document.getElementById("battlePoint2").innerHTML="-1";
-          document.getElementById("battlePoint3").innerHTML="-4";
+          document.getElementById("battlePoint3").innerHTML="-5";
     
           document.getElementById("ability1Stat").innerHTML="185"
           document.getElementById("ability1StatText").innerHTML=" Damage";
