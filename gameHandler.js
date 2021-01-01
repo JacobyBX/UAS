@@ -126,10 +126,10 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
           document.getElementById("ability2Name").innerHTML = ability2;
           document.getElementById("ability2Type").innerHTML = "Strong, slow attack with a 32% chance of missing.";
     
-          document.getElementById("ability3Stat").innerHTML="320"
+          document.getElementById("ability3Stat").innerHTML="420"
           document.getElementById("ability3StatText").innerHTML=" Damage";
           document.getElementById("ability3Name").innerHTML = ultimate;
-          document.getElementById("ability3Type").innerHTML = "Massive blast of energy doing damage to any two characters you choose. ";
+          document.getElementById("ability3Type").innerHTML = "Massive blast of energy doing a large amount of damage ";
     
           document.getElementById("role-indicator").innerHTML ="Damage"
           document.getElementById("role-indicator-icon").src="/assets/Damage.svg"
@@ -258,17 +258,17 @@ if (loadedSelectedCount == 2){
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
     if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - 520;
+        enemyHealth1 = enemyHealth1 - 420;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
     }
     
     if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - 520;
+        enemyHealth2 = enemyHealth2 - 420;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
     }
     
     if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 - 520;
+        enemyHealth3 = enemyHealth3 - 420;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
     }   
  }
