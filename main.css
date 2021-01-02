@@ -22,7 +22,7 @@ a {
 
 .dev-menu {position: fixed; left: 0px; bottom: 0px; background-color: black; z-index: 10000;width: fit-content;color: white;height: 200px;overflow: scroll;white-space: nowrap;}
 
-.dev-menu > ul > li > button {    padding: 4px;
+.dev-menu > ul > li > button {    padding: 9px;
   background-color:rgb(34, 34, 34);
   border: none;
   font-weight: 600;color: white;}

@@ -5,7 +5,7 @@ if (mediaQuery.matches) {
   details.removeAttribute("open");
 }
 
-function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3){
+function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3){
     if(mcCount == 1){
       document.getElementById("ATank").src= imageUrl;
       document.getElementById("CTank").src= imageUrl;
@@ -25,9 +25,13 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.tankAbilityStat2 = abilitystat2;
      window.tankAbilityStat3 = abilitystat3;
 
-     window.tankAbilityType1 = abilitytype1
-     window.tankAbilityType2 = abilitytype2
-     window.tankAbilityType3 = abilitytype3
+     window.tankAbilityType1 = abilitytype1;
+     window.tankAbilityType2 = abilitytype2;
+     window.tankAbilityType3 = abilitytype3;
+
+     window.tankBattlePoint1 = bpoint1; 
+     window.tankBattlePoint2 = bpoint2; 
+     window.tankBattlePoint3 = bpoint3; 
 
     }
     if(mcCount == 3){
@@ -49,9 +53,13 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportAbilityStat2 = abilitystat2;
      window.supportAbilityStat3 = abilitystat3;
 
-     window.supportAbilityType1 = abilitytype1
-     window.supportAbilityType2 = abilitytype2
-     window.supportAbilityType3 = abilitytype3
+     window.supportAbilityType1 = abilitytype1;
+     window.supportAbilityType2 = abilitytype2;
+     window.supportAbilityType3 = abilitytype3;
+
+     window.supportBattlePoint1 = bpoint1; 
+     window.supportBattlePoint2 = bpoint2; 
+     window.supportBattlePoint3 = bpoint3; 
     }
     if(mcCount == 2){
       document.getElementById("ADamage").src= imageUrl;
@@ -75,6 +83,10 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.damageAbilityType1 = abilitytype1
      window.damageAbilityType2 = abilitytype2
      window.damageAbilityType3 = abilitytype3
+
+     window.damageBattlePoint1 = bpoint1; 
+     window.damageBattlePoint2 = bpoint2; 
+     window.dammageBattlePoint3 = bpoint3; 
     }
     var DataDamage = document.getElementById("titleDamage").innerHTML
     var DataTank = document.getElementById("titleTank").innerHTML
@@ -121,7 +133,7 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
           document.getElementById("ATank").style.display="none";
     
          
-          document.getElementById("battlePoint2").innerHTML="-1";
+     
           document.getElementById("battlePoint3").innerHTML="-5";
     
        
@@ -130,13 +142,12 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
           document.getElementById("ability1Type").innerHTML = "Strong slow attack doing less damage to other tanks.";
           
     
-          document.getElementById("ability2Stat").innerHTML="135"
-          document.getElementById("ability2StatText").innerHTML=" Damage";
+          
+      
           document.getElementById("ability2Name").innerHTML = ability2;
           document.getElementById("ability2Type").innerHTML = "Do damage to any enemy you select. ";
     
-          document.getElementById("ability3Stat").innerHTML="400"
-          document.getElementById("ability3StatText").innerHTML=" Health";
+    
           document.getElementById("ability3Name").innerHTML = ultimate;
           document.getElementById("ability3Type").innerHTML = "Create a barrier around one character for 2 rounds. This barrier can be broken.";
     
