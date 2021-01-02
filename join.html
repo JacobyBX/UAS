@@ -134,9 +134,47 @@
 {{/each}}
 </ul>
 </script>
+
+
     </head>
     <body>
     
+      <div style="transition: 0.2s ease;" class="dev-menu" id="devmenu">
+        <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
+        <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-127px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
+      
+      <h5 style="padding: 7px;"> Developer Menu</h5>
+      <p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
+          <ul>
+            <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('battleCardOpen').play()">Show GameZone</button></li>
+            <li> <button onclick= "document.getElementById('gameZone').style.display='none';document.getElementById('battleCardOpen').play()">Close GameZone</button></li>
+            <li> <button onclick= "document.getElementById('matchPopup').style.display='block';document.getElementById('battleCardOpen').play()">Show Connection Screen</button></li>
+            <li> <button onclick= "document.getElementById('matchPopup').style.display='none';document.getElementById('battleCardOpen').play()">Close Connection Screen</button></li>
+            <li> <button onclick= "document.getElementById('startTheBattle').style.display='none';document.getElementById('battleCardOpen').play()">Close Lockin Popup</button></li>
+          </ul> 
+      <hr>
+          <div class="localStore">
+            <ul>
+              <label>Health Character 1</label>
+              <li id="localStoreHealth1">Null</li>
+              <label>Name Character 1</label>
+              <li id="localStoreName1">Null</li>
+              <label>Character 1 Ability 1</label>
+              <li id="localStoreCharacter1AbilityName1">Null</li>
+              <label>Character 1 Ability Value 1</label>
+              <li id="localStoreCH1Value1">Null</li>
+              <label>Character 1 Ability 1 Battle Points</label>
+              <li id="localStoreCharacter1AbilityName1">Null</li>
+              <label>Character 1 Ability 1</label>
+              <li id="localStoreCH1Type1">Null</li>
+              <hr>
+            </ul>
+          </div>
+         
+        
+      </div>
+      
+
       <script>
 function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3 ){
   document.getElementById('battle-card').style.display='block';

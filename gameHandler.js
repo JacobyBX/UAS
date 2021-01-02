@@ -5,7 +5,7 @@ if (mediaQuery.matches) {
   details.removeAttribute("open");
 }
 
-function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3){
+function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3, health){
     if(mcCount == 1){
       document.getElementById("ATank").src= imageUrl;
       document.getElementById("CTank").src= imageUrl;
@@ -32,6 +32,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.tankBattlePoint1 = bpoint1; 
      window.tankBattlePoint2 = bpoint2; 
      window.tankBattlePoint3 = bpoint3; 
+
+     window.UtankHealth1 = health;
 
     }
     if(mcCount == 3){
@@ -60,6 +62,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportBattlePoint1 = bpoint1; 
      window.supportBattlePoint2 = bpoint2; 
      window.supportBattlePoint3 = bpoint3; 
+
+     window.UtankHealth1 = health;
     }
     if(mcCount == 2){
       document.getElementById("ADamage").src= imageUrl;
@@ -86,7 +90,9 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
 
      window.damageBattlePoint1 = bpoint1; 
      window.damageBattlePoint2 = bpoint2; 
-     window.dammageBattlePoint3 = bpoint3; 
+     window.dammageBattlePoint3 = bpoint3;
+     
+     window.UtankHealth1 = health;
     }
     var DataDamage = document.getElementById("titleDamage").innerHTML
     var DataTank = document.getElementById("titleTank").innerHTML
