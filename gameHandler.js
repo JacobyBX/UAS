@@ -140,7 +140,7 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
     
          
      
-          document.getElementById("battlePoint3").innerHTML="-5";
+
     
        
       
@@ -171,10 +171,7 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
             window.currentlyActive = "Damage";
     document.getElementById("ADamage").style.display="none";
     
-          document.getElementById("battlePoint1").innerHTML="-1";
-          document.getElementById("battlePoint2").innerHTML="-1";
-          document.getElementById("battlePoint3").innerHTML="-5";
-    
+   
         
   
           document.getElementById("ability1Name").innerHTML = ability1;
@@ -201,9 +198,6 @@ window.currentlyActive = "Support"
 
           document.getElementById("ASupport").style.display="none";
     
-          document.getElementById("battlePoint1").innerHTML="-1";
-          document.getElementById("battlePoint2").innerHTML="-1";
-          document.getElementById("battlePoint3").innerHTML="-5";
     
 
       
