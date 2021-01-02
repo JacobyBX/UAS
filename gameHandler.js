@@ -63,7 +63,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportBattlePoint2 = bpoint2; 
      window.supportBattlePoint3 = bpoint3; 
 
-     window.UtankHealth1 = health;
+     window.UsupportHealth1 = health;
     }
     if(mcCount == 2){
       document.getElementById("ADamage").src= imageUrl;
@@ -80,7 +80,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.damageGifCount2 = gif2
      window.damageGifCount3 = gif3
 
-     window.damageabilityStat1 = abilitystat1;
+     window.damageAbilityStat1 = abilitystat1;
      window.damageAbilityStat2 = abilitystat2;
      window.damageAbilityStat3 = abilitystat3;
 
@@ -90,9 +90,9 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
 
      window.damageBattlePoint1 = bpoint1; 
      window.damageBattlePoint2 = bpoint2; 
-     window.dammageBattlePoint3 = bpoint3;
+     window.damageBattlePoint3 = bpoint3;
      
-     window.UtankHealth1 = health;
+     window.UdamageHealth1 = health;
     }
     var DataDamage = document.getElementById("titleDamage").innerHTML
     var DataTank = document.getElementById("titleTank").innerHTML
