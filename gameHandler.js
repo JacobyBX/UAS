@@ -5,8 +5,8 @@ if (mediaQuery.matches) {
   details.removeAttribute("open");
 }
 
-function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3){
-    if(role == "Tank"){
+function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3){
+    if(mcCount == 1){
       document.getElementById("ATank").src= imageUrl;
       document.getElementById("CTank").src= imageUrl;
       document.getElementById("CtitleTank").innerHTML = name;
@@ -17,11 +17,20 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.tankAbility2 = ability2;
      window.tankAbility3 = ability3;
 
-     window.tankGifCount1 = gif1
-     window.tankGifCount2 = gif2
-     window.tankGifCount3 = gif3
+     window.tankGifCount1 = gif1;
+     window.tankGifCount2 = gif2;
+     window.tankGifCount3 = gif3;
+
+     window.tankAbilityStat1 = abilitystat1;
+     window.tankAbilityStat2 = abilitystat2;
+     window.tankAbilityStat3 = abilitystat3;
+
+     window.tankAbilityType1 = abilitytype1
+     window.tankAbilityType2 = abilitytype2
+     window.tankAbilityType3 = abilitytype3
+
     }
-    if(role == "Support"){
+    if(mcCount == 3){
       document.getElementById("ASupport").src= imageUrl;
       document.getElementById("CSupport").src= imageUrl;
       document.getElementById("CtitleSupport").innerHTML = name;
@@ -35,8 +44,16 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportGifCount1 = gif1
      window.supportGifCount2 = gif2
      window.supportGifCount3 = gif3
+
+     window.supportbilityStat1 = abilitystat1;
+     window.supportAbilityStat2 = abilitystat2;
+     window.supportAbilityStat3 = abilitystat3;
+
+     window.supportAbilityType1 = abilitytype1
+     window.supportAbilityType2 = abilitytype2
+     window.supportAbilityType3 = abilitytype3
     }
-    if(role == "Damage"){
+    if(mcCount == 2){
       document.getElementById("ADamage").src= imageUrl;
       document.getElementById("CDamage").src= imageUrl;
       document.getElementById("CtitleDamage").innerHTML = name;
@@ -50,6 +67,14 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.damageGifCount1 = gif1
      window.damageGifCount2 = gif2
      window.damageGifCount3 = gif3
+
+     window.damageabilityStat1 = abilitystat1;
+     window.damageAbilityStat2 = abilitystat2;
+     window.damageAbilityStat3 = abilitystat3;
+
+     window.damageAbilityType1 = abilitytype1
+     window.damageAbilityType2 = abilitytype2
+     window.damageAbilityType3 = abilitytype3
     }
     var DataDamage = document.getElementById("titleDamage").innerHTML
     var DataTank = document.getElementById("titleTank").innerHTML
@@ -95,12 +120,12 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
 
           document.getElementById("ATank").style.display="none";
     
-          document.getElementById("battlePoint1").innerHTML="-1";
+         
           document.getElementById("battlePoint2").innerHTML="-1";
           document.getElementById("battlePoint3").innerHTML="-5";
     
-          document.getElementById("ability1Stat").innerHTML="185";
-          document.getElementById("ability1StatText").innerHTML=" Damage";
+       
+      
           document.getElementById("ability1Name").innerHTML = ability1;
           document.getElementById("ability1Type").innerHTML = "Strong slow attack doing less damage to other tanks.";
           
@@ -133,8 +158,8 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
           document.getElementById("battlePoint2").innerHTML="-1";
           document.getElementById("battlePoint3").innerHTML="-5";
     
-          document.getElementById("ability1Stat").innerHTML="85"
-          document.getElementById("ability1StatText").innerHTML=" Damage";
+        
+  
           document.getElementById("ability1Name").innerHTML = ability1;
           document.getElementById("ability1Type").innerHTML = "Quick, weaker attack with an 95% chance of hitting";
     
@@ -165,8 +190,8 @@ window.currentlyActive = "Support"
           document.getElementById("battlePoint2").innerHTML="-1";
           document.getElementById("battlePoint3").innerHTML="-5";
     
-          document.getElementById("ability1Stat").innerHTML="185"
-          document.getElementById("ability1StatText").innerHTML=" Damage";
+
+      
           document.getElementById("ability1Name").innerHTML = ability1;
           document.getElementById("ability1Type").innerHTML = "Quick Strong Strike to one character.";
     

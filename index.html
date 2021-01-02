@@ -74,6 +74,40 @@
 
 </script>
 
+<div style="transition: 0.2s ease;" class="dev-menu" id="devmenu">
+  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
+  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-127px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
+
+<h5 style="padding: 7px;"> Developer Menu</h5>
+    <ul>
+      <li> <button onclick= "document.getElementById('gameZone').style.display='block'">Show GameZone</button></li>
+      <li> <button onclick= "document.getElementById('gameZone').style.display='none'">Close GameZone</button></li>
+      <li> <button onclick= "document.getElementById('matchPopup').style.display='block'">Show Connection Screen</button></li>
+      <li> <button onclick= "document.getElementById('matchPopup').style.display='none'">Close Connection Screen</button></li>
+      <li> <button onclick= "document.getElementById('startTheBattle').style.display='none'">Close Lockin Popup</button></li>
+    </ul> 
+<hr>
+    <div class="localStore">
+      <ul>
+        <label>Health Character 1</label>
+        <li id="localStoreHealth1">Null</li>
+        <label>Name Character 1</label>
+        <li id="localStoreName1">Null</li>
+        <label>Character 1 Ability 1</label>
+        <li id="localStoreCharacter1AbilityName1">Null</li>
+        <label>Character 1 Ability Value 1</label>
+        <li id="localStoreCH1Value1">Null</li>
+        <label>Character 1 Ability 1 Battle Points</label>
+        <li id="localStoreCharacter1AbilityName1">Null</li>
+        <label>Character 1 Ability 1</label>
+        <li id="localStoreCH1Type1">Null</li>
+        <hr>
+      </ul>
+    </div>
+   
+  
+</div>
+
 <script type="text/javascript">
   $(document).ready(function () {
       $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
@@ -122,7 +156,7 @@
   style="padding-left-start {0px;}">
   <h4>My Skins</h4>
 {{#each this}}
-<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
   <a>
     <img class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
@@ -137,43 +171,62 @@
     </head>
     <body>
 
-      <script>
-        alert(window.location.href)
-        </script>
+ <script>
+   window.metaCharacterCount = 0
+   window.globalCharacterSelected1 = "null";
+   window.globalCharacterSelected2 = "null";
+   window.globalCharacterSelected3 = "null";
+   </script>
     
       <script>
-function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3 ){
+function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3,health,battlepoint1 ){
   document.getElementById('battle-card').style.display='block';
 document.getElementById('memberName').innerHTML = memberName;
 document.getElementById('card-img').src= image;
 document.getElementById("swapButton").style.display="none";
-document.getElementById("battleBanner").src = "/Banner/" + memberName + ".png"
+document.getElementById("battleBanner").src = "/Banner/" + memberName + ".png";
+document.getElementById("ability1Stat").innerHTML = ability1Stat;
+document.getElementById("ability1StatText").innerHTML = " " + ability1StatText;
+document.getElementById("battlePoint1").innerHTML = battlepoint1;
 currentCharacterClick = memberName; 
 currentCharacterHealthClick = health;
 window.theCurrentCharacterHealthClick = currentCharacterHealthClick;
 currentAbility1 = abilityName1;
 currentAbility2 = abilityName2;
 currentAbility3 = ultimateName;
+
+currentAbilityStat1 = ability1Stat;
+currentAbilityStat2 = ability2Stat;
+currentAbilityStat3 = ability3Stat;
+
+currentAbilityType1 = ability1StatText;
+currentAbilityType2 = ability2StatText;
+currentAbilityType3 =ability3StatText;
+
 document.getElementById("battleCardOpen").play()
-gifLength1 = tgif1
-gifLength2 = tgif2
-gifLength3 = tgif3
+gifLength1 = tgif1;
+gifLength2 = tgif2;
+gifLength3 = tgif3;
+
+
 
 var someObj = {};
 var foo = memberName + "Health";
 someObj[foo] = health
-
-
+document.getElementById("charHealth").innerHTML = health
+metaCharacterCount = metaCharacterCount + 1;
+ 
 
 }
 
 
 function closeBattleCard(){
+
   document.getElementById('battle-card').style.display='none';
   document.getElementById("ATank").style.display="block";
 document.getElementById("ASupport").style.display="block";
 document.getElementById("ADamage").style.display="block";
-document.getElementById("battleCardClose").play()
+document.getElementById("battleCardClose").play();
 }
 
 var selectedCharacter = "";
@@ -448,7 +501,7 @@ var mySwiper = new Swiper('.swiper-container', {
       <div class="vivify fadeInBottom duration-300" style="">
 <div class="battle-card-item ">
 
-<button onclick="closeBattleCard()" class="battle-card-close"><i class="material-icons">close</i></button>
+<button onclick="closeBattleCard(); metaCharacterCount = metaCharacterCount - 1;" class="battle-card-close"><i class="material-icons">close</i></button>
 
 <img id="battleBanner" src="https://vignette.wikia.nocookie.net/heros/images/d/de/Muhammad_Avdol_Infobox.png/revision/latest?cb=20200820114430&path-prefix=fr">
  <div class="card-top">
@@ -458,13 +511,13 @@ var mySwiper = new Swiper('.swiper-container', {
     
      <h5>Battle Card</h5>
      <h2 id="memberName">Character Name</h2>
-     <p>Level: <span id="charLevel"></span></p>
+     <p>Health: <span id="charHealth"></span></p>
    </div>
  </div>
 
  <div class="card-btn">
  
-  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
+  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
 
   <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
 </div>
@@ -804,12 +857,14 @@ if (currentlyActive == "Damage"){
 
   <div class="hero-gallery">
   
-    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item hero-item-first">
+    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;document.getElementById('ability3Stat').innerHTML = tankAbilityStat3;document.getElementById('ability2Stat').innerHTML = tankAbilityStat2;document.getElementById('ability1Stat').innerHTML = tankAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + tankAbilityType1;" class="hero-item hero-item-first">
       <div class="hero-text">
        <button style="background-color: #2D6BFF;" class="shield vivify popIn" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>
         <p ><span id="P1TankHealth">1500</span> HP</p>
         </div>
+
+      
   <img id="CTank"  class="vivify popIn delay-400" src="Characters/avdol.png">
 
   <div class="healing-overlay" id="healingBadgeTank">
@@ -987,6 +1042,7 @@ window.onload = function() {
 
 }
   </script>
+
 
   <script>
     window.userStatus = "Player1";

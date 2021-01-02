@@ -20,6 +20,19 @@ a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.dev-menu {position: fixed; left: 0px; bottom: 0px; background-color: black; z-index: 10000;width: fit-content;color: white;height: 200px;overflow: scroll;white-space: nowrap;}
+
+.dev-menu > ul > li > button {    padding: 4px;
+  background-color:rgb(34, 34, 34);
+  border: none;
+  font-weight: 600;color: white;}
+
+.localStore > ul > li {color: white;}
+
+
+
+.localStore > ul > label {font-size: 11px;font-weight: 600;;}
+
 .center-startup {position: absolute;
   left: 50%;
   top: 50%;
@@ -306,7 +319,7 @@ margin-top: -24px;
     border-radius: 5px;margin-top: 5px;padding-left: 50px; padding-right: 50px;background-color: #D80000;color: white;;}
     
     .join-session {margin: auto; width: 90%;margin-top: -27px;margin-bottom: 20px;}
-.match-select {position: fixed; bottom: 20px;left: 0px; width: 100%;}
+.match-select {position: fixed; bottom: 20px;left: 0px; width: 100%;display: ;}
 
 .match-select-container {margin: auto; width: 345px;background-color: #D80000;border-radius: 10px;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
@@ -324,7 +337,7 @@ margin-top: -24px;
 
 #matchSelect {display: none;}
 
-.match-popup {;}
+.match-popup {display: none;}
 
 .less-active {background-color: lightgray !important; color: black !important;pointer-events: none;}
 
