@@ -160,6 +160,7 @@ var foo = memberName + "Health";
 someObj[foo] = health
 
 
+
 }
 
 
@@ -822,7 +823,7 @@ if (currentlyActive == "Damage"){
     </div>
     <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;" class="hero-item">
       <div class="hero-text">
-        <button style="background-color: #E20F0F;" class="shield vivify popIn delay-2000" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
+        <button style="background-color: #E20F0F;" class="shield vivify popIn delay-3000" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleDamage">Select</h3>
         <p><span id="P1DamageHealth">1200 </span> HP</p>
       </div>
@@ -927,7 +928,9 @@ if (currentlyActive == "Damage"){
   <div class="start-battle" id="startTheBattle">
     <div class="start-battle-btn vivify fadeInBottom duration-300">
       <div class="card-btn">
-        <button onclick="document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true" class="card-btn-item" style="background-color: #D80202">Start Battle</button>
+        <button id="lockInCharacter"  class="card-btn-item" style="background-color: #D80202">Lock In Characters</button>
+
+     
       </div>
   
     </div>
@@ -978,6 +981,10 @@ window.onload = function() {
 
 
 }
+  </script>
+
+  <script>
+    window.userStatus = "Player1";
   </script>
 
     </body>

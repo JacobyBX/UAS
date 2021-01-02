@@ -176,59 +176,37 @@ setTimeout(function() {
     
         message.innerHTML = "<br><span class=\"msg-time\">" + h + ":" + m + ":" + s + "</span>  -  " + msg + message.innerHTML;
 
-        var theglobalHealth = "21"
+       if(msg.includes("Player2 1 Init")){
+         
 
+           document.getElementById("BTank").src = "Characters/" + msg.substring(50, 63) + ".png";
+           document.getElementById("BtitleTank").innerHTML = msg.substring(50, 63)
+       }
+
+       if(msg.includes("Player2 2 Init")){
+        
+
+        document.getElementById("BDamage").src = "Characters/" + msg.substring(50, 63) + ".png";
+        document.getElementById("BtitleDamage").innerHTML = msg.substring(50, 63)
+    }
+
+    if(msg.includes("Player2 3 Init")){
+       
+
+        document.getElementById("BSupport").src = "Characters/" + msg.substring(50, 63) + ".png";
+        document.getElementById("BtitleSupport").innerHTML = msg.substring(50, 63)
+    }
+
+    if(msg.includes("Locked In 2")){
+        window.lockedin2 = true;
+     }
+ 
+     if (lockedin2 == true && lockedin1 == true){
+         document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true
+     }
 
     
-         var mgnCount = msg.includes("Player1");
-        if (mgnCount == true){
-
-            var initial1 = msg.includes("Initialization");
-            if (initial1 == true){
-                document.getElementById('player1Name').innerHTML = msg.substr(66);
-                alert("Character Name1: " + msg.substr(66))
-                document.getElementById('player1Health').innerHTML = msg.substring(58, 63);
-                document.getElementById('player1Image').src= "Characters/" + msg.substr(66) + ".png"
-                var someObj = {};
-                var foo = msg.substr(66) + "Health";
-                window.someObj[foo] = msg.substring(55, 59);
-                alert("Health Of Character: " + someObj[foo]);
-            }
-
-
-            var swapCount = msg.includes("Swap");
-            if(swapCount == true){
-            document.getElementById('player1Image').src= "Characters/" + msg.substr(62) + ".png"
-            document.getElementById('player1Name').innerHTML = msg.substr(62);
-            document.getElementById('player1Health').innerHTML = msg.substring(55, 59);
-            theglobalHealth = msg.substring(60, 64);
-        }
-            var abilityCount = msg.includes("Move");
-            if(abilityCount == true){
-               
-                alert("Health Of Character: " + someObj2[foo2]) ;
-                
-
-var attackCount = msg.includes("Attack");
-if(attackCount == true){
-    alert("An Attack Was Started By Player 1 | " +  msg.substring(53, 55) + " Damage");
-    someObj2[foo2] = someObj2[foo2] - int(msg.substring(53, 55));
-    document.getElementById('player2Health').innerHTML = someObj2[foo2];
-}
-
-var statCount = msg.includes("Stat Boost");
-if(statCount == true){
-    alert("A Stat Change Was Started By Player 1 |" +  msg.substring(53, 55) + " Stat")
-}
-
-var enemyStatCount = msg.includes("Enemy Stat");
-if(enemyStatCount == true){
-    alert("An Enemey Stat Change Was Started By Player 1 |" +  msg.substring(53, 55) + " Stat Effect")
-}
-
-
-            }
-        }
+       
    
          var mgnCount2 = msg.includes("Player2");
         if (mgnCount2 == true){
@@ -297,16 +275,57 @@ if(enemyStatCount2 == true){
     // Send message
     sendButton.onclick = function () {
         if (conn && conn.open) {
-            var msg = sendMessageBox.value;
+            var msg = theMessage;
             sendMessageBox.value = "";
             conn.send(msg);
             console.log("Sent: " + msg)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg);
         } else {
             console.log('Connection is closed');
+            alert("Connection Error Please Reconnect")
         }
     };
+
+ // Send message
+ document.getElementById("lockInCharacter").onclick = function () {
+    if (conn && conn.open) {
+        setTimeout(function(){
+            var msg = p1U;
+        sendMessageBox.value = "";
+        conn.send(msg);
+        console.log("Sent: " + msg)
+        addMessage("<span class=\"selfMsg\">Self: </span>" + msg);
+        }, 1000);
+        setTimeout(function(){
+            var msg2 = p2U;
+            sendMessageBox.value = "";
+            conn.send(msg2);
+            console.log("Sent: " + msg2)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg2);
+        }, 2000);
+        setTimeout(function(){
+            var msg3 = p3U;
+            sendMessageBox.value = "";
+            conn.send(msg3);
+            console.log("Sent: " + msg3)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg3);
+        }, 3000);
+        setTimeout(function(){
+            var msg4 = "Locked In 1";
+            sendMessageBox.value = "";
+            conn.send(msg4);
+            console.log("Sent: " + msg4)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg4);
+        }, 3000);
+     window.lockedin1 = true;
+
     
+     
+    } else {
+        console.log('Connection is closed');
+        alert("Connection Error Please Reconnect")
+    }
+};
 
     swapButton.onclick = function () {
         if (conn && conn.open) {

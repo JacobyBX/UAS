@@ -271,7 +271,7 @@ margin-top: -24px;
 
     .hero-text {margin-top: -4px;}
 
-.hero-text > h3 {text-align: center;font-size: 14px;font-weight: 600;}
+.hero-text > h3 {text-align: center;font-size: 14px;font-weight: 600;text-transform:capitalize;}
 
 .hero-text > img {    margin-left: -14px;
     width: 136%;
@@ -307,7 +307,9 @@ margin-top: -24px;
 
 #matchSelect {display: none;}
 
-.match-popup {display: none;}
+.match-popup {;}
+
+.less-active {background-color: lightgray !important; color: black !important;pointer-events: none;}
 
 .match-popup > div {    position: fixed;
     bottom: 0px;
