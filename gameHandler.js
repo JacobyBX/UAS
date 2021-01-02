@@ -51,7 +51,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportGifCount2 = gif2
      window.supportGifCount3 = gif3
 
-     window.supportbilityStat1 = abilitystat1;
+     window.supportAbilityStat1 = abilitystat1;
      window.supportAbilityStat2 = abilitystat2;
      window.supportAbilityStat3 = abilitystat3;
 
@@ -180,13 +180,11 @@ window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSup
           document.getElementById("ability1Name").innerHTML = ability1;
           document.getElementById("ability1Type").innerHTML = "Quick, weaker attack with an 95% chance of hitting";
     
-          document.getElementById("ability2Stat").innerHTML="150"
-          document.getElementById("ability2StatText").innerHTML=" Damage";
+  
           document.getElementById("ability2Name").innerHTML = ability2;
           document.getElementById("ability2Type").innerHTML = "Strong, slow attack with a 32% chance of missing.";
     
-          document.getElementById("ability3Stat").innerHTML="420"
-          document.getElementById("ability3StatText").innerHTML=" Damage";
+
           document.getElementById("ability3Name").innerHTML = ultimate;
           document.getElementById("ability3Type").innerHTML = "Massive blast of energy doing a large amount of damage ";
     
