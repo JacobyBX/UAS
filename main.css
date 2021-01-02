@@ -196,7 +196,7 @@ margin-top: -24px;
 .battle-card-item {background-color: white;  
    height: 100vh;margin: auto; width: 100%;    overflow: scroll;}
 
-   .battle-card-item >img {width: 100%;height: 46vh;object-fit: cover;background-image: url(assets/loading.gif);}
+   .battle-card-item >img {width: 100%;height: 46vh;object-fit: cover;background-image: url(https://i.pinimg.com/originals/78/e8/26/78e826ca1b9351214dfdd5e47f7e2024.gif);background-size: contain}
 
     .card-top-text {display: inline-block;margin-top: -5px;position: relative;top: -5px;}
 
