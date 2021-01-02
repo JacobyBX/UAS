@@ -181,7 +181,8 @@ setTimeout(function() {
     }
 
     if (lockedin1 == true && lockedin2 == true){
-        document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true
+        document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
+        document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
     }
     
 
@@ -303,7 +304,7 @@ setTimeout(function() {
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg4);
         }, 3000);
      window.lockedin2 = true;
-       
+     document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to Lock In...";
 
      
     } else {

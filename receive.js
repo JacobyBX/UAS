@@ -202,6 +202,7 @@ setTimeout(function() {
      }
  
      if (lockedin2 == true && lockedin1 == true){
+        document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
          document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true
      }
 
@@ -318,7 +319,7 @@ if(enemyStatCount2 == true){
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg4);
         }, 3000);
      window.lockedin1 = true;
-
+document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to Lock In...";
     
      
     } else {
