@@ -289,6 +289,20 @@ margin-top: -24px;
 
 /*------------------------------------------------Match Select--------------------------------------------*/
 
+.connect-input {   
+  width: 97%;
+  height: 40px;
+  border: solid 1px lightgray;
+  border-radius: 5px;font-size: 15px;padding-left: 10px;font-weight: 600;}
+
+  .connect-button {      border: solid 1px lightgray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;margin-top: 5px;padding-left: 50px; padding-right: 50px;background-color: #D80000;color: white;;}
+    
+    .join-session {margin: auto; width: 90%;margin-top: -27px;margin-bottom: 20px;}
 .match-select {position: fixed; bottom: 20px;left: 0px; width: 100%;}
 
 .match-select-container {margin: auto; width: 345px;background-color: #D80000;border-radius: 10px;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);

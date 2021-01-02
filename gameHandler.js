@@ -62,14 +62,14 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById('startTheBattle').style.display="block";
      
 window.p1U = userStatus + " " + 1 + " Init " + document.getElementById("titleTank").innerHTML.toLowerCase();
-alert(p1U);
+
 
 window.p2U = userStatus + " " + 2 + " Init " + document.getElementById("titleDamage").innerHTML.toLowerCase();
-alert(p2U);
+
 
 
 window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSupport").innerHTML.toLowerCase();
-alert(p3U);
+
 
 
 

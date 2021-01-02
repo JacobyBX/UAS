@@ -566,19 +566,17 @@ loadedSelectedCount = number
   <div class="match-popup-container ">
 
     
-<h2>Friend Match</h2>
+<h2>Join Match</h2>
 
-<div class="match-popup-btns">
-  <button onclick="startMatch()">Start Match</button>
-  <button>Join Match</button>
-</div>
+
     <div class="join-session">
         <td><div id="status" class="status"></div></td>
         <tr>
             <td>
-                <span style="font-weight: bold">ID: </span>
-                <input type="text" id="receiver-id" title="Input the ID from receive.html">
-                <button id="connect-button">Connect</button>
+                <label>Battle Code</label>
+                <br>
+                <input class="connect-input" type="text" id="receiver-id" title="Input the ID from receive.html">
+                <button class="connect-button" id="connect-button">Connect</button>
             </td>
         
         </tr>
