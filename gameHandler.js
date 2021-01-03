@@ -1,6 +1,7 @@
 const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
 const details = document.querySelector(".object-and-details > details");
 window.currentAttackValue = 0;
+window.currentBattlePointCount = 0;
 
 if (mediaQuery.matches) {
   details.removeAttribute("open");
@@ -257,7 +258,7 @@ var timeTilDelete = 0;
 if (loadedSelectedCount == 1){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
    timeTilDelete = damageGifCount1;
-   battlePointCount = battlePointCount - 1;
+   battlePointCount = battlePointCount - currentBattlePointCount;
    document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
 if(CCurrentSelected == "Tank"){
@@ -282,7 +283,7 @@ if(CCurrentSelected == "Support"){
 if (loadedSelectedCount == 2){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = damageGifCount2;
-    battlePointCount = battlePointCount - 1;
+    battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
     if(CCurrentSelected == "Tank"){
@@ -306,7 +307,7 @@ if (loadedSelectedCount == 2){
  if (loadedSelectedCount == 3){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = damageGifCount3;
-    battlePointCount = battlePointCount - 5;
+    battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
     if(CCurrentSelected == "Tank"){
@@ -335,18 +336,18 @@ setTimeout(function() {
     eliminationHandler();
     document.getElementById('attackPopover').style.display="none";
     document.getElementById(BCurrentSelected).style.display="none";
-    document.getElementById(BCurrentSelected).style.display="inline-block";
+ 
     document.getElementById(DCurrentSelected).style.display="none";
     document.getElementById("battlePointCountWrapper").style.display = "none";
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
     details.open = false;
     setTimeout(function() {
         document.getElementById(DCurrentSelected).style.display="block";
-
+        document.getElementById(BCurrentSelected).style.display="inline-block";
     },50);
 
     setTimeout(function() {
-   
+        
         document.getElementById("battlePointCountWrapper").style.display = "block";
     },1000);
 
@@ -390,7 +391,7 @@ var timeTilDelete = 0;
 if (loadedSelectedCount == 1){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = tankGifCount1;
-    battlePointCount = battlePointCount - currentAttackValue;
+    battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
  
  if(CCurrentSelected == "Tank"){
@@ -415,7 +416,7 @@ if (loadedSelectedCount == 1){
  if (loadedSelectedCount == 2){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = tankGifCount2;
-     battlePointCount = battlePointCount - 1;
+     battlePointCount = battlePointCount - currentBattlePointCount;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      if(CCurrentSelected == "Tank"){
         enemyHealth1 = enemyHealth1 - currentAttackValue;
@@ -439,7 +440,7 @@ if (loadedSelectedCount == 1){
 
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = tankGifCount3;
-     battlePointCount = battlePointCount - 4;
+     battlePointCount = battlePointCount - currentBattlePointCount;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      if(CCurrentSelected == "Tank"){
      
@@ -466,14 +467,14 @@ if (loadedSelectedCount == 1){
     
      details.removeAttribute("open");
      document.getElementById(BCurrentSelected).style.display="none";
-     document.getElementById(BCurrentSelected).style.display="inline-block";
+     
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      details.open = false;
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
- 
+         document.getElementById(BCurrentSelected).style.display="inline-block";
      },50);
  
      setTimeout(function() {
@@ -520,7 +521,7 @@ document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
 
 if (loadedSelectedCount == 1){
     timeTilDelete = supportGifCount1;
-    battlePointCount = battlePointCount - 1;
+    battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
  
  if(CCurrentSelected == "Tank"){
@@ -545,7 +546,7 @@ if (loadedSelectedCount == 1){
  if (loadedSelectedCount == 2){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount2;
-     battlePointCount = battlePointCount - 1;
+     battlePointCount = battlePointCount - currentBattlePointCount;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
      if(CCurrentSelected == "Tank"){
@@ -566,7 +567,7 @@ if (loadedSelectedCount == 1){
   if (loadedSelectedCount == 3){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount3;
-     battlePointCount = battlePointCount - 5;
+     battlePointCount = battlePointCount - currentBattlePointCount;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
      if(CCurrentSelected == "Tank"){
@@ -593,14 +594,14 @@ if (loadedSelectedCount == 1){
     
      document.getElementById('attackPopover').style.display="none";
      document.getElementById(BCurrentSelected).style.display="none";
-     document.getElementById(BCurrentSelected).style.display="inline-block";
+    
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      details.open = false;
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
- 
+         document.getElementById(BCurrentSelected).style.display="inline-block";
      },50);
  
      setTimeout(function() {

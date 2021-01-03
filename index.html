@@ -80,8 +80,9 @@
 <h5 style="padding: 7px;"> Developer Menu</h5>
 <p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
     <ul>
+      <li> <button onclick= "addMoney(500)">Refresh Page</button></li>
       <li> <button onclick= "location.reload();">Refresh Page</button></li>
-      <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play()">Show GameZone</button></li>
+      <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play();battleStarted = true">Show GameZone</button></li>
       <li> <button onclick= "document.getElementById('gameZone').style.display='none';document.getElementById('battleCardOpen').play()">Close GameZone</button></li>
       <li> <button onclick= "document.getElementById('matchPopup').style.display='block';document.getElementById('battleCardOpen').play()">Show Connection Screen</button></li>
       <li> <button onclick= "document.getElementById('matchPopup').style.display='none';document.getElementById('battleCardOpen').play()">Close Connection Screen</button></li>
@@ -260,6 +261,8 @@ currentBattlepoint1 = battlepoint1;
 currentBattlepoint2 = battlepoint2;
 currentBattlepoint3 = battlepoint3;
 
+
+
 var someObj = {};
 var foo = memberName + "Health";
 someObj[foo] = health
@@ -267,8 +270,18 @@ document.getElementById("charHealth").innerHTML = health;
 
 if (MCase == true){
   metaCharacterCount = metaCharacterCount + 1;
+  document.getElementById('addToBattleTeam').style.display='block';
 }
 
+if (battleStarted == false){
+document.getElementsByClassName("card-stat-item")[0].style.pointerEvents = "none";
+document.getElementsByClassName("card-stat-item")[1].style.pointerEvents = "none";
+document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "none";
+}else{
+  document.getElementsByClassName("card-stat-item")[0].style.pointerEvents = "all";
+document.getElementsByClassName("card-stat-item")[1].style.pointerEvents = "all";
+document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "all";
+}
  
 
 }
@@ -327,8 +340,15 @@ document.getElementById("swapButton").style.display="block"
 
       </script>
 
+      <div id="purchase-complete" class="purchase-complete">
+<div class="complete-wrapper vivify fadeInTop">
+<h4>Purchase Complete</h4>
+<p><span id=""></span> Added To Library</p>
+</div>
+      </div>
+
 <div id="purchase" class="purchase ">
-  <button class="large-close" onclick="document.getElementById('purchase').style.display='none';document.getElementById('battleCardClose').play()"></button>
+  <button class="large-close" onclick="document.getElementById('purchase').style.display='none';document.getElementById('battleCardClose').play();closeBattleCard()"></button>
   <div class="battle-card-item ">
   
      <div class="card-top purchase-top viivfy fadeInBottom duration-300">
@@ -345,9 +365,9 @@ document.getElementById("swapButton").style.display="block"
        
      <div class="card-btn">
      
-      <button  class="prominent-purchase card-btn-item">Complete Purchase</button>
+      <button onclick="document.getElementById('battleCardOpen').play();completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
     
-      <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';" class="purchase-secondary card-btn-item">Browse Battle Card</button>
+      <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';document.getElementById('battleCardOpen').play()" class="purchase-secondary card-btn-item" >Browse Battle Card</button>
     </div>
      </div>
     
@@ -682,21 +702,21 @@ style="padding-left-start {0px;}">
   </script>
 
 <div class="card-stats">
-<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability1Stat').innerHTML; alert(currentAttackValue);">
+<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability1Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint1').innerHTML">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
   <h2 id="ability1Name">Ability Name</h2>
   <p id="ability1Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability2Stat').innerHTML; alert(currentAttackValue);">
+<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability2Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint2').innerHTML">
   <h6><span id="battlePoint2"></span> Battle Points</h6>
   <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
   <h2 id="ability2Name">Ability Name</h2>
   <p id="ability2Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability3Stat').innerHTML; alert(currentAttackValue);" id="ultimate-item">
+<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability3Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint3').innerHTML" id="ultimate-item">
   <h6><span id="battlePoint3"></span> Battle Points</h6>
   <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
   <h2 id="ability3Name" id="ultimate-item-text">Ability Name</h2>
@@ -913,6 +933,7 @@ DCurrentSelected = "P2SupportIcon"
   function thecheck(){
     document.getElementById(BCurrentSelected).classList.remove("popIn");
      document.getElementById(BCurrentSelected).classList.add("shake");
+     document.getElementById(BCurrentSelected).classList.add("duration-1200");
 
     if (currentlyActive == "Support"){
   supportSelection()
@@ -1029,7 +1050,7 @@ if (currentlyActive == "Damage"){
   </div>
 
   <div class="roleIcon">
-    <img src="Assets/blue1.svg">
+    <img src="Assets/tankicon.svg">
   </div>
 
     </div>
@@ -1051,7 +1072,7 @@ if (currentlyActive == "Damage"){
 
     
       <div class="roleIcon">
-        <img src="Assets/red1.svg">
+        <img src="Assets/damageicon.svg">
       </div>
     
     </div>
@@ -1063,7 +1084,7 @@ if (currentlyActive == "Damage"){
       </div>
       <img id="CSupport" class="vivify popIn delay-600" src="Characters/hisoka.png">
       <div class="roleIcon">
-        <img src="Assets/green1.svg">
+        <img src="Assets/supporticon.svg">
       </div>
     
     </div>
@@ -1179,6 +1200,11 @@ if (currentlyActive == "Damage"){
   <audio id="menu" controls>
  
     <source src="Audio/396458__patricklieberkind__futuristic-rhythmic-game-ambience.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio id="purchaseSound" controls>
+ 
+    <source src="Sound Effects/352661__foolboymedia__complete-chime.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
   <script src="shieldhandler.js"></script>

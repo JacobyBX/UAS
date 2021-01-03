@@ -348,7 +348,7 @@ margin-top: -24px;
 .match-popup > div {    position: fixed;
     bottom: 0px;
     width: 100%;
- height: 100vh;  z-index: 250;background-color: rgba(0, 0, 0, 0.438);}
+ height: 100vh;  z-index: 250;background-color: rgba(0, 0, 0, 0.555);}
 .match-popup-btns {padding-left: 10px;padding-right: 10px;padding-bottom: 16px;padding-top: 16px;}
 
 .match-popup-btns > button {display: inine-block;width: 44%;;background-color: white; border: solid 1px lightgray; padding-top: 10px; padding-bottom: 10px;font-size: 15px; font-weight: 600;;border-radius: 5px;margin-left: 10px;}
@@ -457,7 +457,7 @@ margin-top: -24px;
 
 .grid-button {margin-left: 15px;}
 
-.select-cover {position: fixed;height: 100vh; width: 100%;background-color: rgba(0, 0, 0, 0.658);top: 258px;left: 0px;;}
+.select-cover {position: fixed;height: 100vh; width: 100%;background-color: rgba(0, 0, 0, 0.555);top: 258px;left: 0px;;}
 
 .selection {position: fixed;top: 0px; width: 100%; left: 0px; height: 100vh; z-index: 150;;background-color: transparent;}
 
@@ -471,7 +471,7 @@ margin-top: -24px;
 
 #startTheBattle {display: none;}
 
-.start-battle {position: fixed; top: 0px;left: 0px;width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.534) ;z-index: 500;}
+.start-battle {position: fixed; top: 0px;left: 0px;width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.555) ;z-index: 500;}
 
 .start-battle-btn {position: fixed;bottom: 0px;width: 100%;background-color: white;padding-top: 7px;padding-bottom: 7px;}
 
@@ -490,7 +490,7 @@ margin-top: -24px;
 .battle-point-wrapper > p {text-align: center; width: 100%;font-weight: 600;}
 
 .roleIcon {width: 65px;
-    margin-left: 10px;
+    margin-left: 3px;
     margin-top: 4px
 }
 
@@ -638,7 +638,7 @@ margin-top: -24px;
   width: 100%;
   z-index: 150;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.493);}
+  background-color:rgba(0, 0, 0, 0.555)}
 
   #purchase {display: none;}
 
@@ -737,3 +737,11 @@ margin-top: -24px;
 .swiper-pagination-bullet-active {
   font-weight: bold;
 }
+
+.purchase-complete {position: fixed;top: 0px; width: 100%; left: 0px; height: 100vh;z-index: 150;background-color: rgba(0, 0, 0, 0.555);;}
+
+.complete-wrapper > p {font-size: 13px;}
+
+#purchase-complete {display: none;}
+
+.complete-wrapper {background-color: white;padding: 15px;}

@@ -1,7 +1,7 @@
 window.tankP1Health = 1500;
 window.damageP1Health = 1200;
 window.supportP1Health = 1000;
-
+window.duoCheck = false
 function shieldCheck(){
      
     if (loadedSelectedCount == 3 && currentlyActive == "Tank"){
@@ -9,6 +9,8 @@ function shieldCheck(){
       document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
       document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "block";
       document.getElementsByClassName("selection-support-wrapper")[0].style.display = "none";
+      duoCheck = true;
+      
        timeTilDelete = tankGifCount3;
 
        if(CCurrentSelected == "Tank"){
@@ -65,7 +67,8 @@ function shieldCheck(){
           document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
           document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
           document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
-        
+          duoCheck = true;
+
            if(CCurrentSelected == "Tank"){
            
            }
