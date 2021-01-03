@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/css/swiper.min.css'>
       <link rel="manifest" href="manifest.json">
 <script type="text/javascript" src="gifffer.min.js"></script>
 <meta name="mobile-web-app-capable" content="yes">
@@ -74,6 +72,44 @@
 
 </script>
 
+<div style="transition: 0.2s ease;" class="dev-menu" id="devmenu">
+  <i style="border: solid ;padding:5px;    margin-left: 8px;
+  margin-top: 10px;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
+  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-117px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
+
+<h5 style="padding: 7px;"> Developer Menu</h5>
+<p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
+    <ul>
+      <li> <button onclick= "addMoney(500)">Refresh Page</button></li>
+      <li> <button onclick= "location.reload();">Refresh Page</button></li>
+      <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play();battleStarted = true">Show GameZone</button></li>
+      <li> <button onclick= "document.getElementById('gameZone').style.display='none';document.getElementById('battleCardOpen').play()">Close GameZone</button></li>
+      <li> <button onclick= "document.getElementById('matchPopup').style.display='block';document.getElementById('battleCardOpen').play()">Show Connection Screen</button></li>
+      <li> <button onclick= "document.getElementById('matchPopup').style.display='none';document.getElementById('battleCardOpen').play()">Close Connection Screen</button></li>
+      <li> <button onclick= "document.getElementById('startTheBattle').style.display='none';document.getElementById('battleCardOpen').play()">Close Lockin Popup</button></li>
+    </ul> 
+<hr>
+    <div class="localStore">
+      <ul>
+        <label>Health Character 1</label>
+        <li id="localStoreHealth1">Null</li>
+        <label>Name Character 1</label>
+        <li id="localStoreName1">Null</li>
+        <label>Character 1 Ability 1</label>
+        <li id="localStoreCharacter1AbilityName1">Null</li>
+        <label>Character 1 Ability Value 1</label>
+        <li id="localStoreCH1Value1">Null</li>
+        <label>Character 1 Ability 1 Battle Points</label>
+        <li id="localStoreCharacter1AbilityName1">Null</li>
+        <label>Character 1 Ability 1</label>
+        <li id="localStoreCH1Type1">Null</li>
+        <hr>
+      </ul>
+    </div>
+   
+  
+</div>
+
 <script type="text/javascript">
   $(document).ready(function () {
       $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
@@ -104,6 +140,44 @@
 </script>
 
 
+<!------------------------Owned Templating Engine------------------------->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+          var template = Handlebars.compile($('#item-owned').html())
+          $('#owned').html(template(data.characters))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-owned" type="text/x-handlebars-template">
+
+<ul style="margin-bottom: -9px" id="myMenu" class="result-list vivify fadeIn  "
+style="padding-left-start {0px;}">
+<h4>Owned Characters</h4>
+{{#each this}}
+<li id="MO{{name}}" class="character-item owned" onclick="MCase = true;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<a>
+  <img onload ="purchaseCheck()" class="" src="Characters/{{imageLink}}">
+  <h5>{{name}}</h5>
+ 
+</a>
+
+</li>
+
+
+{{/each}}
+</ul>
+</script>
+
+
+<!------------------Shopping Templating Engine-------------------->
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
@@ -120,13 +194,14 @@
 
   <ul id="myMenu" class="result-list vivify fadeIn  "
   style="padding-left-start {0px;}">
-  <h4>My Skins</h4>
+  <h4>Character Shop</h4>
 {{#each this}}
-<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');">
   <a>
     <img class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
-    <p class="M{{role}}" id="{{id}}lvl">{{role}}</p>
+   <p class="cost-id">  <img src="Assets/cash.svg">
+    <span>{{cost}}</span></p>
   </a>
 
 </li>
@@ -134,80 +209,98 @@
 {{/each}}
 </ul>
 </script>
-
-
     </head>
     <body>
-    
-      <div style="transition: 0.2s ease;" class="dev-menu" id="devmenu">
-        <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
-        <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-127px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
-      
-      <h5 style="padding: 7px;"> Developer Menu</h5>
-      <p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
-          <ul>
-            <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('battleCardOpen').play()">Show GameZone</button></li>
-            <li> <button onclick= "document.getElementById('gameZone').style.display='none';document.getElementById('battleCardOpen').play()">Close GameZone</button></li>
-            <li> <button onclick= "document.getElementById('matchPopup').style.display='block';document.getElementById('battleCardOpen').play()">Show Connection Screen</button></li>
-            <li> <button onclick= "document.getElementById('matchPopup').style.display='none';document.getElementById('battleCardOpen').play()">Close Connection Screen</button></li>
-            <li> <button onclick= "document.getElementById('startTheBattle').style.display='none';document.getElementById('battleCardOpen').play()">Close Lockin Popup</button></li>
-          </ul> 
-      <hr>
-          <div class="localStore">
-            <ul>
-              <label>Health Character 1</label>
-              <li id="localStoreHealth1">Null</li>
-              <label>Name Character 1</label>
-              <li id="localStoreName1">Null</li>
-              <label>Character 1 Ability 1</label>
-              <li id="localStoreCharacter1AbilityName1">Null</li>
-              <label>Character 1 Ability Value 1</label>
-              <li id="localStoreCH1Value1">Null</li>
-              <label>Character 1 Ability 1 Battle Points</label>
-              <li id="localStoreCharacter1AbilityName1">Null</li>
-              <label>Character 1 Ability 1</label>
-              <li id="localStoreCH1Type1">Null</li>
-              <hr>
-            </ul>
-          </div>
-         
-        
-      </div>
+
       
 
+ <script>
+   window.metaCharacterCount = 0
+   window.globalCharacterSelected1 = "null";
+   window.globalCharacterSelected2 = "null";
+   window.globalCharacterSelected3 = "null";
+   </script>
+    
       <script>
-function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3 ){
+function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3,health,battlepoint1, battlepoint2, battlepoint3 ){
   document.getElementById('battle-card').style.display='block';
 document.getElementById('memberName').innerHTML = memberName;
 document.getElementById('card-img').src= image;
 document.getElementById("swapButton").style.display="none";
-document.getElementById("battleBanner").src = "/Banner/" + memberName + ".png"
+document.getElementById("battleBanner").src = "/Banner/" + memberName + ".png";
+document.getElementById("ability1Stat").innerHTML = ability1Stat;
+document.getElementById("ability1StatText").innerHTML = " " + ability1StatText;
+document.getElementById("ability2Stat").innerHTML = ability2Stat;
+document.getElementById("ability2StatText").innerHTML = " " + ability2StatText;
+document.getElementById("ability3Stat").innerHTML = ultimateStat;
+document.getElementById("ability3StatText").innerHTML = " " + ultimateType;
+document.getElementById("battlePoint1").innerHTML = battlepoint1;
+document.getElementById("battlePoint2").innerHTML = battlepoint2;
+document.getElementById("battlePoint3").innerHTML = battlepoint3;
 currentCharacterClick = memberName; 
 currentCharacterHealthClick = health;
 window.theCurrentCharacterHealthClick = currentCharacterHealthClick;
 currentAbility1 = abilityName1;
 currentAbility2 = abilityName2;
 currentAbility3 = ultimateName;
+
+currentAbilityStat1 = ability1Stat;
+currentAbilityStat2 = ability2Stat;
+currentAbilityStat3 = ultimateStat;
+
+currentAbilityType1 = ability1StatText;
+currentAbilityType2 = ability2StatText;
+currentAbilityType3 = ultimateType;
+
 document.getElementById("battleCardOpen").play()
-gifLength1 = tgif1
-gifLength2 = tgif2
-gifLength3 = tgif3
+gifLength1 = tgif1;
+gifLength2 = tgif2;
+gifLength3 = tgif3;
+
+currentBattlepoint1 = battlepoint1;
+currentBattlepoint2 = battlepoint2;
+currentBattlepoint3 = battlepoint3;
+
+
 
 var someObj = {};
 var foo = memberName + "Health";
 someObj[foo] = health
+document.getElementById("charHealth").innerHTML = health;
 
+if (MCase == true){
+  metaCharacterCount = metaCharacterCount + 1;
+  document.getElementById('addToBattleTeam').style.display='block';
+}
 
+if (battleStarted == false){
+document.getElementsByClassName("card-stat-item")[0].style.pointerEvents = "none";
+document.getElementsByClassName("card-stat-item")[1].style.pointerEvents = "none";
+document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "none";
+}else{
+  document.getElementsByClassName("card-stat-item")[0].style.pointerEvents = "all";
+document.getElementsByClassName("card-stat-item")[1].style.pointerEvents = "all";
+document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "all";
+}
+ 
 
 }
 
 
+        function hideBCard(){
+          document.getElementById("battle-card").style.display="none"
+        }
+
+
+
+
 function closeBattleCard(){
+
   document.getElementById('battle-card').style.display='none';
   document.getElementById("ATank").style.display="block";
 document.getElementById("ASupport").style.display="block";
 document.getElementById("ADamage").style.display="block";
-document.getElementById("battleCardClose").play()
+document.getElementById("battleCardClose").play();
 }
 
 var selectedCharacter = "";
@@ -243,9 +336,49 @@ document.getElementById("swapButton").style.display="block"
   
   }
 
+  window.MCase = false;
+
       </script>
 
-      
+      <div id="purchase-complete" class="purchase-complete">
+<div class="complete-wrapper vivify fadeInTop">
+<h4>Purchase Complete</h4>
+<p><span id=""></span> Added To Library</p>
+</div>
+      </div>
+
+<div id="purchase" class="purchase ">
+  <button class="large-close" onclick="document.getElementById('purchase').style.display='none';document.getElementById('battleCardClose').play();closeBattleCard()"></button>
+  <div class="battle-card-item ">
+  
+     <div class="card-top purchase-top viivfy fadeInBottom duration-300">
+       <img id="card-img-purchase" src="Characters/todoroki.png">
+  
+       <div class="card-top-text">
+        
+         <h5>Shop</h5>
+         <h2 id="memberNamePurchase">Character Name</h2>
+         <p class="cost-id">  <img src="Assets/cash.svg">
+          <span id="purchase-cost">0</span></p>
+       </div>
+
+       
+     <div class="card-btn">
+     
+      <button onclick="document.getElementById('battleCardOpen').play();completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
+    
+      <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';document.getElementById('battleCardOpen').play()" class="purchase-secondary card-btn-item" >Browse Battle Card</button>
+    </div>
+     </div>
+    
+    
+
+    
+
+    
+    
+    </div>
+</div>
 
      
       <div class="connect-screean" style="display:none">
@@ -273,6 +406,10 @@ document.getElementById("swapButton").style.display="block"
  var health3 = 1000
  var health4 = 1000
  var health5 = 1000
+</script>
+
+<script>
+
 </script>
 
 <!---
@@ -361,7 +498,10 @@ setTimeout(function() {
 
 -->
     <div id="character-select" class="choose-character">
-
+<div class="money-indicator">
+  <img src="Assets/cash.svg">
+  <p>0</p>
+</div>
 <div class="hero-preview">
   <img class="hero-logo" src="Assets/logo.svg">
 
@@ -374,7 +514,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="titleTank">Select</h3>
-      <p >Tank</p>
+      <p >Fighter 1</p>
       </div>
 <img id="ATank"  class="vivify popIn" src="Assets/tankicon.svg">
   </div>
@@ -382,7 +522,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/redbar.svg">
       <h3 id="titleDamage">Select</h3>
-      <p>Damage</p>
+      <p>Fighter 2</p>
     </div>
     <img id="ADamage" class="vivify popIn" src="Assets/damageicon.svg">
   </div>
@@ -390,7 +530,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/greenbar.svg">
       <h3 id="titleSupport">Select</h3>
-      <p>Support</p>
+      <p>Fighter 3</p>
     </div>
     <img id="ASupport" class="vivify popIn" src="Assets/supporticon.svg">
   </div>
@@ -410,28 +550,11 @@ setTimeout(function() {
       
 </div>
 
-<!-- Slider main container -->
 
 
 
 
 
-<div class="swiper-container">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper" id="anchornews">
-
-
-</div>
-<!-- If we need pagination -->
-<div class="swiper-pagination"></div>
-
-<!-- If we need navigation buttons -->
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
-
-<!-- If we need scrollbar -->
-<div class="swiper-scrollbar"></div>
-</div>
 
 
 <div class="news-popover" id="newsPopover">
@@ -472,7 +595,76 @@ var mySwiper = new Swiper('.swiper-container', {
 })
   </script>
 
-<div id="anchor"></div>
+<div class="swiper-container">
+  <!-- Add Pagination -->
+  <div class="swiper-pagination">
+  </div>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+       <div id="owned">
+<ul style="margin-bottom: -9px"  class="result-list vivify fadeIn  "
+style="padding-left-start {0px;}">
+<h4>Owned Characters</h4>
+<li  class="loading-item character-item vivify blink infinite" >
+<a>
+  <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+  <h5>{{name}}</h5>
+</a>
+</li>
+
+<li  class="loading-item character-item viivfy blink infinite" >
+  <a>
+    <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+    <h5>{{name}}</h5>
+  </a>
+  </li>
+
+  <li  class="loading-item character-item vivify blink infinite" >
+    <a>
+      <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+      <h5>{{name}}</h5>
+    </a>
+    </li>
+</ul>
+     </div>
+
+     <div id="anchor">
+      <ul style="margin-bottom: 25px"  class="result-list vivify fadeIn  "
+      style="padding-left-start {0px;}">
+      <h4>Character Shop</h4>
+      <li  class="loading-item character-item vivify blink infinite" >
+      <a>
+        <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+        <h5>{{name}}</h5>
+      </a>
+      </li>
+      
+      <li  class="loading-item character-item viivfy blink infinite" >
+        <a>
+          <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+          <h5>{{name}}</h5>
+        </a>
+        </li>
+      
+        <li  class="loading-item character-item vivify blink infinite" >
+          <a>
+            <img class="" src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg">
+            <h5>{{name}}</h5>
+          </a>
+          </li>
+          
+      </ul>
+     </div>
+      </div>
+    <div class="swiper-slide">Tab 2</div>
+    <div class="swiper-slide">Tab 3</div>
+    <div class="swiper-slide">Tab 4</div>
+  </div>
+</div>
+
+ 
+
+
 
 
     </div>
@@ -482,7 +674,7 @@ var mySwiper = new Swiper('.swiper-container', {
       <div class="vivify fadeInBottom duration-300" style="">
 <div class="battle-card-item ">
 
-<button onclick="closeBattleCard()" class="battle-card-close"><i class="material-icons">close</i></button>
+<button onclick="closeBattleCard(); metaCharacterCount = metaCharacterCount - 1;" class="battle-card-close"><i class="material-icons">close</i></button>
 
 <img id="battleBanner" src="https://vignette.wikia.nocookie.net/heros/images/d/de/Muhammad_Avdol_Infobox.png/revision/latest?cb=20200820114430&path-prefix=fr">
  <div class="card-top">
@@ -492,13 +684,13 @@ var mySwiper = new Swiper('.swiper-container', {
     
      <h5>Battle Card</h5>
      <h2 id="memberName">Character Name</h2>
-     <p>Level: <span id="charLevel"></span></p>
+     <p>Health: <span id="charHealth"></span></p>
    </div>
  </div>
 
  <div class="card-btn">
  
-  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
+  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
 
   <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
 </div>
@@ -510,21 +702,21 @@ var mySwiper = new Swiper('.swiper-container', {
   </script>
 
 <div class="card-stats">
-<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck()">
+<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability1Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint1').innerHTML">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
   <h2 id="ability1Name">Ability Name</h2>
   <p id="ability1Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck()">
+<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability2Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint2').innerHTML">
   <h6><span id="battlePoint2"></span> Battle Points</h6>
   <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
   <h2 id="ability2Name">Ability Name</h2>
   <p id="ability2Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck()" id="ultimate-item">
+<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability3Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint3').innerHTML" id="ultimate-item">
   <h6><span id="battlePoint3"></span> Battle Points</h6>
   <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
   <h2 id="ability3Name" id="ultimate-item-text">Ability Name</h2>
@@ -598,6 +790,7 @@ loadedSelectedCount = number
  
   </script>
 
+
 <div id="matchPopup" class="match-popup ">
   <button onclick="document.getElementById('matchPopup').style.display='none';" class="large-close "></button>
   <div style="margin-top: 400px;" class="vivify fadeInBottom duration-300">
@@ -622,6 +815,7 @@ loadedSelectedCount = number
   </div>
   </div>
 </div>
+
 
 
 
@@ -652,7 +846,6 @@ document.getElementById('matchPopup').style.display='block';
     document.getElementById('matchPopup').style.display="none"
     }
     </script>
-
 
 
 <!-----------------------------------------Game Zone------------------------------------->
@@ -740,6 +933,7 @@ DCurrentSelected = "P2SupportIcon"
   function thecheck(){
     document.getElementById(BCurrentSelected).classList.remove("popIn");
      document.getElementById(BCurrentSelected).classList.add("shake");
+     document.getElementById(BCurrentSelected).classList.add("duration-1200");
 
     if (currentlyActive == "Support"){
   supportSelection()
@@ -836,13 +1030,15 @@ if (currentlyActive == "Damage"){
 
 
   <div class="hero-gallery">
-  
-    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item hero-item-first">
+
+    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;document.getElementById('ability3Stat').innerHTML = tankAbilityStat3;document.getElementById('ability2Stat').innerHTML = tankAbilityStat2;document.getElementById('ability1Stat').innerHTML = tankAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + tankAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  tankAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  tankAbilityType3;document.getElementById('battlePoint1').innerHTML = tankBattlePoint1;document.getElementById('battlePoint2').innerHTML = tankBattlePoint2;document.getElementById('battlePoint3').innerHTML = tankBattlePoint3; " class="hero-item hero-item-first">
       <div class="hero-text">
        <button style="background-color: #2D6BFF;" class="shield vivify popIn" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>
         <p ><span id="P1TankHealth">1500</span> HP</p>
         </div>
+
+      
   <img id="CTank"  class="vivify popIn delay-400" src="Characters/avdol.png">
 
   <div class="healing-overlay" id="healingBadgeTank">
@@ -854,11 +1050,11 @@ if (currentlyActive == "Damage"){
   </div>
 
   <div class="roleIcon">
-    <img src="Assets/blue1.svg">
+    <img src="Assets/tankicon.svg">
   </div>
 
     </div>
-    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;" class="hero-item">
+    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;document.getElementById('ability3Stat').innerHTML = damageAbilityStat3;document.getElementById('ability2Stat').innerHTML = damageAbilityStat2;document.getElementById('ability1Stat').innerHTML = damageAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + damageAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  damageAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  damageAbilityType3;document.getElementById('battlePoint1').innerHTML = damageBattlePoint1;document.getElementById('battlePoint2').innerHTML = damageBattlePoint2;document.getElementById('battlePoint3').innerHTML = damageBattlePoint3;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #E20F0F;" class="shield vivify popIn delay-3000" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleDamage">Select</h3>
@@ -876,11 +1072,11 @@ if (currentlyActive == "Damage"){
 
     
       <div class="roleIcon">
-        <img src="Assets/red1.svg">
+        <img src="Assets/damageicon.svg">
       </div>
     
     </div>
-    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;" class="hero-item">
+    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;document.getElementById('ability3Stat').innerHTML = supportAbilityStat3;document.getElementById('ability2Stat').innerHTML = supportAbilityStat2;document.getElementById('ability1Stat').innerHTML = supportAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + supportAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  supportAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  supportAbilityType3;document.getElementById('battlePoint1').innerHTML = supportBattlePoint1;document.getElementById('battlePoint2').innerHTML = supportBattlePoint2;document.getElementById('battlePoint3').innerHTML = supportBattlePoint3;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #14E35F" class="shield vivify popIn delay-2000" id="supportShield"><img src="Assets/shieldIcon.svg"><p ><span id="supportShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleSupport">Select</h3>
@@ -888,7 +1084,7 @@ if (currentlyActive == "Damage"){
       </div>
       <img id="CSupport" class="vivify popIn delay-600" src="Characters/hisoka.png">
       <div class="roleIcon">
-        <img src="Assets/green1.svg">
+        <img src="Assets/supporticon.svg">
       </div>
     
     </div>
@@ -965,10 +1161,10 @@ if (currentlyActive == "Damage"){
   <div class="start-battle" id="startTheBattle">
     <div class="start-battle-btn vivify fadeInBottom duration-300">
       <div class="card-btn">
-        <p id="lockin-indicator">Ready to Lock In?</p>
+        <p id="lockin-indicator" >Ready to Lock In?</p>
         <button id="lockInCharacter"  class="card-btn-item" style="background-color: #D80202">Lock In Characters</button>
 
-        <button id="startTheBattle" onclick="document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true" class="card-btn-item less-active" style="">Start Battle</button>
+     
       </div>
   
     </div>
@@ -1006,6 +1202,11 @@ if (currentlyActive == "Damage"){
     <source src="Audio/396458__patricklieberkind__futuristic-rhythmic-game-ambience.wav" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
+  <audio id="purchaseSound" controls>
+ 
+    <source src="Sound Effects/352661__foolboymedia__complete-chime.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
   <script src="shieldhandler.js"></script>
 <script src="gameHandler.js"></script>
   <script src="send.js" id="commuicationScript">
@@ -1021,9 +1222,38 @@ window.onload = function() {
 }
   </script>
 
+
   <script>
     window.userStatus = "Player2";
   </script>
 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/js/swiper.min.js'></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 1,
+			paginationClickable: true,
+			loop: true,
+       		paginationBulletRender: function (index, className) {
+				var tabsName = ['Home', 'Battle Pass', 'News', 'Online'];
+				if ( index === (tabsName.length - 1) ) {
+          				return	'<span class="' + className + '">'
+          						+ tabsName[index] + '</span>'
+          						+ '<div class="active-mark "></div>';
+				}
+				return '<span class="' + className + '">' + tabsName[index] + '</span>';
+        		}
+    });
+    
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+   document.getElementsByClassName('hero-preview')[0].style.borderBottom = "solid 1px lightgray";
+  } else {
+    document.getElementsByClassName('hero-preview')[0].style.borderBottom = "none";
+  }
+}
+  </script>
+  <script src="purchaseHandler.js"></script>
     </body>
 </html>
