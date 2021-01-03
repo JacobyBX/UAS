@@ -73,8 +73,9 @@
 </script>
 
 <div style="transition: 0.2s ease;" class="dev-menu" id="devmenu">
-  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
-  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-127px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
+  <i style="border: solid ;padding:5px;    margin-left: 8px;
+  margin-top: 10px;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '0px';document.getElementById('devmenu').style.opacity = '1';document.getElementById('battleCardOpen').play();">keyboard_arrow_up</i>
+  <i style="border: solid ;padding:5px;;" class="material-icons" onclick="document.getElementById('devmenu').style.bottom = '-117px';document.getElementById('devmenu').style.opacity = '0.6';document.getElementById('battleCardClose').play();">keyboard_arrow_down</i>
 
 <h5 style="padding: 7px;"> Developer Menu</h5>
 <p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
@@ -138,7 +139,7 @@
 </script>
 
 
-<!------------------------Altered Templating Engine------------------------->
+<!------------------------Owned Templating Engine------------------------->
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -158,7 +159,7 @@
 style="padding-left-start {0px;}">
 <h4>Owned Characters</h4>
 {{#each this}}
-<li id="MO{{name}}" class="character-item owned" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li id="MO{{name}}" class="character-item owned" onclick="MCase = true;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
 <a>
   <img onload ="purchaseCheck()" class="" src="Characters/{{imageLink}}">
   <h5>{{name}}</h5>
@@ -167,12 +168,13 @@ style="padding-left-start {0px;}">
 
 </li>
 
+
 {{/each}}
 </ul>
 </script>
 
 
-<!------------------Base Templating Engine-------------------->
+<!------------------Shopping Templating Engine-------------------->
 
 
 <script type="text/javascript">
@@ -193,7 +195,7 @@ style="padding-left-start {0px;}">
   style="padding-left-start {0px;}">
   <h4>Character Shop</h4>
 {{#each this}}
-<li id="EM{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();purchase()">
+<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');">
   <a>
     <img class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
@@ -261,8 +263,12 @@ currentBattlepoint3 = battlepoint3;
 var someObj = {};
 var foo = memberName + "Health";
 someObj[foo] = health
-document.getElementById("charHealth").innerHTML = health
-metaCharacterCount = metaCharacterCount + 1;
+document.getElementById("charHealth").innerHTML = health;
+
+if (MCase == true){
+  metaCharacterCount = metaCharacterCount + 1;
+}
+
  
 
 }
@@ -272,9 +278,6 @@ metaCharacterCount = metaCharacterCount + 1;
           document.getElementById("battle-card").style.display="none"
         }
 
-        function purchase(){
-          document.getElementById("purchase").style.display="block"
-        }
 
 
 
@@ -320,6 +323,8 @@ document.getElementById("swapButton").style.display="block"
   
   }
 
+  window.MCase = false;
+
       </script>
 
 <div id="purchase" class="purchase ">
@@ -342,7 +347,7 @@ document.getElementById("swapButton").style.display="block"
      
       <button  class="prominent-purchase card-btn-item">Complete Purchase</button>
     
-      <button  onclick="closeBattleCard()" class="purchase-secondary card-btn-item">Browse Battle Card</button>
+      <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';" class="purchase-secondary card-btn-item">Browse Battle Card</button>
     </div>
      </div>
     
@@ -385,9 +390,6 @@ document.getElementById("swapButton").style.display="block"
 
 <script>
 
-  function purchaseCheck(){
-
-  }
 </script>
 
 <!---
@@ -492,7 +494,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="titleTank">Select</h3>
-      <p >Tank</p>
+      <p >Fighter 1</p>
       </div>
 <img id="ATank"  class="vivify popIn" src="Assets/tankicon.svg">
   </div>
@@ -500,7 +502,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/redbar.svg">
       <h3 id="titleDamage">Select</h3>
-      <p>Damage</p>
+      <p>Fighter 2</p>
     </div>
     <img id="ADamage" class="vivify popIn" src="Assets/damageicon.svg">
   </div>
@@ -508,7 +510,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/greenbar.svg">
       <h3 id="titleSupport">Select</h3>
-      <p>Support</p>
+      <p>Fighter 3</p>
     </div>
     <img id="ASupport" class="vivify popIn" src="Assets/supporticon.svg">
   </div>
@@ -1215,7 +1217,17 @@ window.onload = function() {
 				}
 				return '<span class="' + className + '">' + tabsName[index] + '</span>';
         		}
-		});
+    });
+    
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+   document.getElementsByClassName('hero-preview')[0].style.borderBottom = "solid 1px lightgray";
+  } else {
+    document.getElementsByClassName('hero-preview')[0].style.borderBottom = "none";
+  }
+}
   </script>
+  <script src="purchaseHandler.js"></script>
     </body>
 </html>
