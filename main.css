@@ -10,6 +10,10 @@
 
 .visit-loader {width: 100%; object-fit: scale-down;height: 100vh;}
 
+.loading-item {background-color: #a9adb0;filter: brightness(1.2);}
+
+.loading-item > a > h5 {visibility: hidden;}
+
 audio {display: none;}
 
 input,
@@ -296,7 +300,7 @@ margin-top: -24px;
 
 #I5, #I4, #I3, #I2, #I1 {border: solid 1px lightgray;}
 
-.result-list {max-width: 400px;margin:auto;;}
+.result-list {max-width: 500px;margin:auto;;margin-left: -6px; width: 100%;}
 
 .result-list > h4 {margin-left: 10px;font-weight: 600;margin-top: 10px;margin-bottom: 10px;}
 
@@ -599,11 +603,17 @@ margin-top: -24px;
 
 .owned {display: none;}
 
-#owned {margin-top: 66px;}
+#owned {    margin-top: 53px;
+  border-top: solid 1px lightgray;}
 
-#owned > ul {margin-left: -12px;margin-top: -13px;border-top: solid 1px lightgray}
+#owned > ul {margin-top: -13px;
+  
+  width: 100%;
+  margin: 0px;
+  margin-right: 0px !important;
+}
 
-.cost-id > img {float: ;}
+
 
 .cost-id {margin-top: 2px;}
 
