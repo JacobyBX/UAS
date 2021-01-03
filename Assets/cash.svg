@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13" viewBox="0 0 13 13">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#327f06"/>
+      <stop offset="1" stop-color="#00c928"/>
+    </linearGradient>
+    <clipPath id="clip-cash">
+      <rect width="13" height="13"/>
+    </clipPath>
+  </defs>
+  <g id="cash" clip-path="url(#clip-cash)">
+    <g id="Group_1" data-name="Group 1" transform="translate(-289 -30)">
+      <circle id="Ellipse_6" data-name="Ellipse 6" cx="6.5" cy="6.5" r="6.5" transform="translate(289 30)" fill="url(#linear-gradient)"/>
+      <g id="monetization_on-24px" transform="translate(289.5 30.5)">
+        <path id="Path_22" data-name="Path 22" d="M0,0H12V12H0Z" fill="none"/>
+        <path id="Path_23" data-name="Path 23" d="M7,2a5,5,0,1,0,5,5A5,5,0,0,0,7,2Zm.7,8.045V11H6.37v-.965a1.86,1.86,0,0,1-1.635-1.7h.98c.05.525.41.935,1.325.935.98,0,1.2-.49,1.2-.8,0-.415-.22-.8-1.335-1.07-1.24-.3-2.09-.81-2.09-1.835A1.733,1.733,0,0,1,6.37,3.965V3H7.7v.975A1.768,1.768,0,0,1,9.13,5.67H8.15c-.025-.555-.32-.935-1.11-.935-.75,0-1.2.34-1.2.82,0,.42.325.7,1.335.955s2.09.7,2.09,1.955c-.005.915-.69,1.415-1.56,1.58Z" transform="translate(-1 -1)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

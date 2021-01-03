@@ -1,5 +1,6 @@
 const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
 const details = document.querySelector(".object-and-details > details");
+window.currentAttackValue = 0;
 
 if (mediaQuery.matches) {
   details.removeAttribute("open");
@@ -260,17 +261,17 @@ if (loadedSelectedCount == 1){
    document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
 if(CCurrentSelected == "Tank"){
-    enemyHealth1 = enemyHealth1 - 85;
+    enemyHealth1 = enemyHealth1 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
 }
 
 if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - 85;
+    enemyHealth2 = enemyHealth2 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
 }
 
 if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - 85;
+    enemyHealth3 = enemyHealth3 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
 }   
 }
@@ -285,17 +286,17 @@ if (loadedSelectedCount == 2){
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
     if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - 150;
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
     }
     
     if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - 150;
+        enemyHealth2 = enemyHealth2 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
     }
     
     if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 -150;
+        enemyHealth3 = enemyHealth3 -currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
     }   
  }
@@ -309,17 +310,17 @@ if (loadedSelectedCount == 2){
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
     if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - 420;
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
     }
     
     if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - 420;
+        enemyHealth2 = enemyHealth2 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
     }
     
     if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 - 420;
+        enemyHealth3 = enemyHealth3 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
     }   
  }
@@ -389,21 +390,21 @@ var timeTilDelete = 0;
 if (loadedSelectedCount == 1){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
     timeTilDelete = tankGifCount1;
-    battlePointCount = battlePointCount - 1;
+    battlePointCount = battlePointCount - currentAttackValue;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
  
  if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - 185;
+     enemyHealth1 = enemyHealth1 - currentAttackValue;
      document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - 185;
+    enemyHealth2 = enemyHealth2 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - 185;
+    enemyHealth3 = enemyHealth3 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
  }   
  }
@@ -417,17 +418,17 @@ if (loadedSelectedCount == 1){
      battlePointCount = battlePointCount - 1;
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
      if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - 135;
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
      }
      
      if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - 135;
+        enemyHealth2 = enemyHealth2 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
      }
      
      if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 - 135;
+        enemyHealth3 = enemyHealth3 - currentAttackValue;
         document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
      }   
   }
@@ -523,17 +524,17 @@ if (loadedSelectedCount == 1){
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
  
  if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - 185;
+     enemyHealth1 = enemyHealth1 - currentAttackValue;
      document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - 185;
+    enemyHealth2 = enemyHealth2 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - 185;
+    enemyHealth3 = enemyHealth3 - currentAttackValue;
     document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
  }   
  }

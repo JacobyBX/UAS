@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/css/swiper.min.css'>
       <link rel="manifest" href="manifest.json">
 <script type="text/javascript" src="gifffer.min.js"></script>
 <meta name="mobile-web-app-capable" content="yes">
@@ -139,6 +137,43 @@
 </script>
 
 
+<!------------------------Altered Templating Engine------------------------->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+          var template = Handlebars.compile($('#item-owned').html())
+          $('#owned').html(template(data.characters))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-owned" type="text/x-handlebars-template">
+
+<ul style="margin-bottom: 25px" id="myMenu" class="result-list vivify fadeIn  "
+style="padding-left-start {0px;}">
+<h4>Owned Characters</h4>
+{{#each this}}
+<li id="MO{{name}}" class="character-item owned" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<a>
+  <img onload ="purchaseCheck()" class="" src="Characters/{{imageLink}}">
+  <h5>{{name}}</h5>
+ 
+</a>
+
+</li>
+
+{{/each}}
+</ul>
+</script>
+
+
+<!------------------Base Templating Engine-------------------->
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
@@ -155,13 +190,14 @@
 
   <ul id="myMenu" class="result-list vivify fadeIn  "
   style="padding-left-start {0px;}">
-  <h4>My Skins</h4>
+  <h4>Character Shop</h4>
 {{#each this}}
-<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li id="EM{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();purchase()">
   <a>
     <img class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
-    <p class="M{{role}}" id="{{id}}lvl">{{role}}</p>
+   <p class="cost-id">  <img src="Assets/cash.svg">
+    <span>{{cost}}</span></p>
   </a>
 
 </li>
@@ -171,6 +207,8 @@
 </script>
     </head>
     <body>
+
+      
 
  <script>
    window.metaCharacterCount = 0
@@ -229,6 +267,16 @@ metaCharacterCount = metaCharacterCount + 1;
 }
 
 
+        function hideBCard(){
+          document.getElementById("battle-card").style.display="none"
+        }
+
+        function purchase(){
+          document.getElementById("purchase").style.display="block"
+        }
+
+
+
 function closeBattleCard(){
 
   document.getElementById('battle-card').style.display='none';
@@ -273,7 +321,38 @@ document.getElementById("swapButton").style.display="block"
 
       </script>
 
-      
+<div id="purchase" class="purchase ">
+  <button class="large-close" onclick="document.getElementById('purchase').style.display='none';document.getElementById('battleCardClose').play()"></button>
+  <div class="battle-card-item ">
+  
+     <div class="card-top purchase-top viivfy fadeInBottom duration-300">
+       <img id="card-img-purchase" src="Characters/todoroki.png">
+  
+       <div class="card-top-text">
+        
+         <h5>Shop</h5>
+         <h2 id="memberNamePurchase">Character Name</h2>
+         <p class="cost-id">  <img src="Assets/cash.svg">
+          <span id="purchase-cost">0</span></p>
+       </div>
+
+       
+     <div class="card-btn">
+     
+      <button  class="prominent-purchase card-btn-item">Complete Purchase</button>
+    
+      <button  onclick="closeBattleCard()" class="purchase-secondary card-btn-item">Browse Battle Card</button>
+    </div>
+     </div>
+    
+    
+
+    
+
+    
+    
+    </div>
+</div>
 
      
       <div class="connect-screean" style="display:none">
@@ -301,6 +380,13 @@ document.getElementById("swapButton").style.display="block"
  var health3 = 1000
  var health4 = 1000
  var health5 = 1000
+</script>
+
+<script>
+
+  function purchaseCheck(){
+
+  }
 </script>
 
 <!---
@@ -389,7 +475,10 @@ setTimeout(function() {
 
 -->
     <div id="character-select" class="choose-character">
-
+<div class="money-indicator">
+  <img src="Assets/cash.svg">
+  <p>0</p>
+</div>
 <div class="hero-preview">
   <img class="hero-logo" src="Assets/logo.svg">
 
@@ -438,28 +527,11 @@ setTimeout(function() {
       
 </div>
 
-<!-- Slider main container -->
 
 
 
 
 
-<div class="swiper-container">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper" id="anchornews">
-
-
-</div>
-<!-- If we need pagination -->
-<div class="swiper-pagination"></div>
-
-<!-- If we need navigation buttons -->
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
-
-<!-- If we need scrollbar -->
-<div class="swiper-scrollbar"></div>
-</div>
 
 
 <div class="news-popover" id="newsPopover">
@@ -500,7 +572,21 @@ var mySwiper = new Swiper('.swiper-container', {
 })
   </script>
 
-<div id="anchor"></div>
+<div class="swiper-container">
+  <!-- Add Pagination -->
+  <div class="swiper-pagination">
+  </div>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"> <div id="owned"></div><div id="anchor"></div></div>
+    <div class="swiper-slide">Tab 2</div>
+    <div class="swiper-slide">Tab 3</div>
+    <div class="swiper-slide">Tab 4</div>
+  </div>
+</div>
+
+ 
+
+
 
 
     </div>
@@ -538,21 +624,21 @@ var mySwiper = new Swiper('.swiper-container', {
   </script>
 
 <div class="card-stats">
-<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck()">
+<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability1Stat').innerHTML; alert(currentAttackValue);">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
   <h2 id="ability1Name">Ability Name</h2>
   <p id="ability1Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck()">
+<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability2Stat').innerHTML; alert(currentAttackValue);">
   <h6><span id="battlePoint2"></span> Battle Points</h6>
   <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
   <h2 id="ability2Name">Ability Name</h2>
   <p id="ability2Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck()" id="ultimate-item">
+<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability3Stat').innerHTML; alert(currentAttackValue);" id="ultimate-item">
   <h6><span id="battlePoint3"></span> Battle Points</h6>
   <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
   <h2 id="ability3Name" id="ultimate-item-text">Ability Name</h2>
@@ -1057,5 +1143,23 @@ window.onload = function() {
     window.userStatus = "Player1";
   </script>
 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/js/swiper.min.js'></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 1,
+			paginationClickable: true,
+			loop: true,
+       		paginationBulletRender: function (index, className) {
+				var tabsName = ['Home', 'Battle Pass', 'News', 'Online'];
+				if ( index === (tabsName.length - 1) ) {
+          				return	'<span class="' + className + '">'
+          						+ tabsName[index] + '</span>'
+          						+ '<div class="active-mark "></div>';
+				}
+				return '<span class="' + className + '">' + tabsName[index] + '</span>';
+        		}
+		});
+  </script>
     </body>
 </html>
