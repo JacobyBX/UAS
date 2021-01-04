@@ -341,7 +341,7 @@ margin-top: -24px;
 
 #matchSelect {display: none;}
 
-.match-popup {}
+.match-popup {display: none;}
 
 .less-active {background-color: lightgray !important; color: black !important;pointer-events: none;}
 
