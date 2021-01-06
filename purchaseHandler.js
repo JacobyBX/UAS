@@ -5,6 +5,25 @@ function purchaseCheck(){
 window.currentSelectedPurchase = "null";
 window.currentSelectedPrice = "null";
 
+if(localStorage.getItem("newuser") == "false"){
+    document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln");
+   
+
+}else{
+    localStorage.setItem("newuser", false);
+    localStorage.setItem("A3muIln", 50);
+    document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln");
+}
+
+
+
+
+
+function addCash(cashAmount){
+    localStorage.setItem("A3muIln", cashAmount);
+    window.globalCashValue =  localStorage.getItem("A3muIln");;
+}
+
 function purchase(purchaseName, purchasePrice, purchaseImage){
     document.getElementById("purchase").style.display="block";
 document.getElementById("memberNamePurchase").innerHTML = purchaseName;
