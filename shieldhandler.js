@@ -41,12 +41,24 @@ function shieldCheck(){
     function shieldHandler(shieldAmount,){
   
 
+      if (loadedSelectedCount== 1){
+        tankSelection()
+      }
+      if (loadedSelectedCount == 2){
+damageSelection()
+      }
+      if (loadedSelectedCount == 3){
+        supportSelection()
+                  }
 
   if (shieldAmount == 1){
-    alert("You can't activate a shield around yourself. ")
+    document.getElementById("tankShield").style.display = "block";
+    document.getElementById("tankShieldHealth").innerHTML = currentAttackValue;
+    tankP1Health = tankP1Health + parseInt(currentAttackValue);
+    document.getElementById("P1TankHealth").innerHTML = tankP1Health
   }
   if (shieldAmount == 2){
-    tankSelection();
+
   document.getElementById("damageShield").style.display = "block";
   document.getElementById("damageShieldHealth").innerHTML = currentAttackValue;
   damageP1Health = damageP1Health + parseInt(currentAttackValue);
@@ -55,7 +67,7 @@ function shieldCheck(){
   }
 
   if (shieldAmount == 3){
-    tankSelection();
+
   document.getElementById("supportShield").style.display = "block";
   document.getElementById("supportShieldHealth").innerHTML = currentAttackValue;
   supportP1Health = supportP1Health + parseInt(currentAttackValue);
@@ -71,6 +83,15 @@ function shieldCheck(){
     function damageHandler(attackItem){
   
 
+      if (loadedSelectedCount== 1){
+        tankSelection()
+      }
+      if (loadedSelectedCount == 2){
+damageSelection()
+      }
+      if (loadedSelectedCount == 3){
+        supportSelection()
+                  }
 
       if (attackItem == 1){
         enemyHealth1 = enemyHealth1 - currentAttackValue;

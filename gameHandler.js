@@ -13,7 +13,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById("CTank").src= imageUrl;
       document.getElementById("CtitleTank").innerHTML = name;
      document.getElementById("titleTank").innerHTML = name;
-     window.currentTank = name;
+
     
      window.tankAbility1 = ability1;
      window.tankAbility2 = ability2;
@@ -37,13 +37,15 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
 
      window.UtankHealth1 = health;
 
+     window.currentTank = name
+
     }
     if(mcCount == 3){
       document.getElementById("ASupport").src= imageUrl;
       document.getElementById("CSupport").src= imageUrl;
       document.getElementById("CtitleSupport").innerHTML = name;
       document.getElementById("titleSupport").innerHTML = name;
-      window.currentSupport = name;
+     
     
       window.supportAbility1 = ability1;
      window.supportAbility2 = ability2;
@@ -52,6 +54,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.supportGifCount1 = gif1
      window.supportGifCount2 = gif2
      window.supportGifCount3 = gif3
+
+     window.currentSupport = name
 
      window.supportAbilityStat1 = abilitystat1;
      window.supportAbilityStat2 = abilitystat2;
@@ -72,7 +76,7 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById("CDamage").src= imageUrl;
       document.getElementById("CtitleDamage").innerHTML = name;
       document.getElementById("titleDamage").innerHTML = name;
-      window.currentDamage = name;
+
     
       window.damageAbility1 = ability1;
      window.damageAbility2 = ability2;
@@ -93,6 +97,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      window.damageBattlePoint1 = bpoint1; 
      window.damageBattlePoint2 = bpoint2; 
      window.damageBattlePoint3 = bpoint3;
+
+     window.currentDamage = name;
      
      window.UdamageHealth1 = health;
     }
@@ -241,7 +247,7 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentDamage + loadedSelectedCount + ".gif";
+document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
 
 document.getElementById('attackGif').onload = detailsDamage();
 
@@ -256,74 +262,26 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
+
    timeTilDelete = damageGifCount1;
-   battlePointCount = battlePointCount - currentBattlePointCount;
-   document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
-if(CCurrentSelected == "Tank"){
-    enemyHealth1 = enemyHealth1 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-}
-
-if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
-}
-
-if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
-}   
 }
 
 
 
 
 if (loadedSelectedCount == 2){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
-    timeTilDelete = damageGifCount2;
-    battlePointCount = battlePointCount - currentBattlePointCount;
-    document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
-    if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-    }
-    
-    if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
-    }
-    
-    if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 -currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
-    }   
+    timeTilDelete = damageGifCount2;
+ 
  }
 
 
 
  if (loadedSelectedCount == 3){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
+  
     timeTilDelete = damageGifCount3;
-    battlePointCount = battlePointCount - currentBattlePointCount;
-    document.getElementById("battlePointCount").innerHTML = battlePointCount;
-
-    if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-    }
-    
-    if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
-    }
-    
-    if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
-    }   
+  
  }
 
 
@@ -375,7 +333,7 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentTank + loadedSelectedCount + ".gif";
+document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
 
 document.getElementById('attackGif').onload = detailsTank();
 
@@ -389,11 +347,8 @@ var timeTilDelete = 0;
 
 
 if (loadedSelectedCount == 1){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
-    timeTilDelete = tankGifCount1;
-    battlePointCount = battlePointCount - currentBattlePointCount;
-    document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
+    timeTilDelete = tankGifCount1;
 
  
  }
@@ -402,24 +357,9 @@ if (loadedSelectedCount == 1){
  
  
  if (loadedSelectedCount == 2){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
+ 
      timeTilDelete = tankGifCount2;
-     battlePointCount = battlePointCount - currentBattlePointCount;
-     document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     if(CCurrentSelected == "Tank"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-     }
-     
-     if(CCurrentSelected == "Damage"){
-        enemyHealth2 = enemyHealth2 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
-     }
-     
-     if(CCurrentSelected == "Support"){
-        enemyHealth3 = enemyHealth3 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
-     }   
+ 
   }
  
  
@@ -428,19 +368,7 @@ if (loadedSelectedCount == 1){
 
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = tankGifCount3;
-     battlePointCount = battlePointCount - currentBattlePointCount;
-     document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     if(CCurrentSelected == "Tank"){
-     
-     }
-     
-     if(CCurrentSelected == "Damage"){
-       
-     }
-     
-     if(CCurrentSelected == "Support"){
-     
-     }   
+ 
   }
  
  
@@ -494,7 +422,7 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentSupport + loadedSelectedCount + ".gif";
+document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
 
 document.getElementById('attackGif').onload = detailsSupport();
 
@@ -510,22 +438,7 @@ document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
 if (loadedSelectedCount == 1){
     timeTilDelete = supportGifCount1;
     battlePointCount = battlePointCount - currentBattlePointCount;
-    document.getElementById("battlePointCount").innerHTML = battlePointCount;
- 
- if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - currentAttackValue;
-     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
- }
- 
- if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
- }
- 
- if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
- }   
+
  }
  
  
@@ -535,19 +448,7 @@ if (loadedSelectedCount == 1){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount2;
      battlePointCount = battlePointCount - currentBattlePointCount;
-     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
-     if(CCurrentSelected == "Tank"){
-       
-     }
-     
-     if(CCurrentSelected == "Damage"){
-      
-     }
-     
-     if(CCurrentSelected == "Support"){
-       
-     }   
   }
  
  
@@ -555,20 +456,7 @@ if (loadedSelectedCount == 1){
   if (loadedSelectedCount == 3){
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
      timeTilDelete = supportGifCount3;
-     battlePointCount = battlePointCount - currentBattlePointCount;
-     document.getElementById("battlePointCount").innerHTML = battlePointCount;
-
-     if(CCurrentSelected == "Tank"){
-       
-     }
-     
-     if(CCurrentSelected == "Damage"){
-     
-     }
-     
-     if(CCurrentSelected == "Support"){
-      
-     }   
+ 
   }
  
  
