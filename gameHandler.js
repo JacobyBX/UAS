@@ -394,64 +394,8 @@ if (loadedSelectedCount == 1){
     battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
 
- 
- if(CCurrentSelected == "Tank"){
-    
-  
 
-     if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-        alert("Damage AbilityM");
-     }else{
-        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
-            alert("Support AbilityM");
-        
-        }else{
-            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
-                alert("Tank AbilityM");
-            }
-        }
-     }
-
-   
- }
  
- if(CCurrentSelected == "Damage"){
-   
-    if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-        alert("Damage Ability M");
-     }else{
-        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
-            alert("Support Ability M");
-        
-        }else{
-            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
-                alert("Tank Ability M");
-            }
-        }
-     }
- }
- 
- if(CCurrentSelected == "Support"){
-    if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
-        enemyHealth1 = enemyHealth1 - currentAttackValue;
-        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
-        alert("Damage Ability M");
-     }else{
-        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
-            alert("Support Ability M");
-        
-        }else{
-            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
-                alert("Tank Ability M");
-            }
-        }
-     }
-
- }   
  }
  
  

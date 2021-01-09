@@ -67,6 +67,32 @@ function shieldCheck(){
     }
 
 
+    
+    function damageHandler(attackItem){
+  
+
+
+      if (attackItem == 1){
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+      }
+      if (attackItem == 2){
+        enemyHealth2 = enemyHealth2 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
+    
+      }
+    
+      if (attackItem == 3){
+        enemyHealth3 = enemyHealth3 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
+    
+    
+      }
+      
+        }
+    
+
+
 
     
 
