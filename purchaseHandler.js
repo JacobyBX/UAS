@@ -85,7 +85,8 @@ function completePurchase(){
              document.getElementById('visualCash').style.display='block';
      
              localStorage.setItem(currentSelectedPurchase, "owned"); 
-             document.getElementById('MO' + currentSelectedPurchase).style.display="inline-block"
+             document.getElementById('MO' + currentSelectedPurchase).style.display="inline-block";
+             document.getElementById('EM' + currentSelectedPurchase).style.display="none";
          }, 3200);
     }else{
         alert("You do not have enough battlepoints.")

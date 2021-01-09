@@ -206,7 +206,7 @@ style="padding-left-start {0px;}">
   style="padding-left-start {0px;}">
   <h4>Character Shop</h4>
 {{#each this}}
-<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');">
+<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');document.getElementById('ATank').style.display='inline-block';document.getElementById('ASupport').style.display='inline-block';document.getElementById('ADamage').style.display='inline-block';">
   <a>
     <img onload ="starter('{{name}}', '{{startState}}')" class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
@@ -307,9 +307,9 @@ document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "all"
 function closeBattleCard(){
 
   document.getElementById('battle-card').style.display='none';
-  document.getElementById("ATank").style.display="block";
-document.getElementById("ASupport").style.display="block";
-document.getElementById("ADamage").style.display="block";
+  document.getElementById("ATank").style.display="inline-block";
+document.getElementById("ASupport").style.display="inline-block";
+document.getElementById("ADamage").style.display="inline-block";
 document.getElementById("battleCardClose").play();
 }
 
@@ -525,7 +525,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/bluebar.svg">
       <h3 id="titleTank">Select</h3>
-      <p >Fighter 1</p>
+      <p><span id="previewHealth1">0</span> HP</p>
       </div>
 <img id="ATank"  class="vivify popIn" src="Assets/tankicon.svg">
   </div>
@@ -533,7 +533,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/redbar.svg">
       <h3 id="titleDamage">Select</h3>
-      <p>Fighter 2</p>
+      <p><span id="previewHealth2">0</span> HP</p>
     </div>
     <img id="ADamage" class="vivify popIn" src="Assets/damageicon.svg">
   </div>
@@ -541,7 +541,7 @@ setTimeout(function() {
     <div class="hero-text">
       <img src="Assets/greenbar.svg">
       <h3 id="titleSupport">Select</h3>
-      <p>Fighter 3</p>
+      <p><span id="previewHealth3">0</span> HP</p>
     </div>
     <img id="ASupport" class="vivify popIn" src="Assets/supporticon.svg">
   </div>
@@ -701,7 +701,7 @@ style="padding-left-start {0px;}">
 
  <div class="card-btn">
  
-  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
+  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3,currentCharacterHealthClick);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
 
   <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
 </div>
@@ -1156,9 +1156,9 @@ if (currentlyActive == "Damage"){
   oponentHealth(1500, 1200, 1000, "Chad", "Support", "Damage" )
     oponentTankHealth = 1500;
 
-    var oponentTankHealth = 1500;
-    var oponentSupportHealth = 1000;
-    var oponentDamageHealth = 1200;
+    window.oponentTankHealth = 1500;
+    window.oponentSupportHealth = 1000;
+    window.oponentDamageHealth = 1200;
 
     oponentHealth(oponentTankHealth, oponentSupportHealth, oponentDamageHealth )
 

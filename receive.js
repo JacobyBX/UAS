@@ -197,6 +197,31 @@ setTimeout(function() {
         document.getElementById("BtitleSupport").innerHTML = msg.substring(50, 63)
     }
 
+
+    if(msg.includes("Player2 1 Health")){
+       
+        oponentTankHealth = parseInt(msg.substring(52, 63))
+      alert(msg.substring(52, 63));
+      enemyHealth1 = parseInt(msg.substring(52, 63)) 
+ document.getElementById('P2TankHealth').innerHTML = parseInt(msg.substring(52, 63)) 
+    }
+
+    if(msg.includes("Player2 2 Health")){
+       
+        oponentDamageHealth = parseInt(msg.substring(52, 63))
+      alert(msg.substring(52, 63));
+      enemyHealth2 = parseInt(msg.substring(52, 63)) 
+ document.getElementById('P2DamageHealth').innerHTML = parseInt(msg.substring(52, 63)) 
+    }
+
+    if(msg.includes("Player2 3 Health")){
+       
+        oponentSupportHealth = parseInt(msg.substring(52, 63))
+      alert(msg.substring(52, 63));
+      enemyHealth3 = parseInt(msg.substring(52, 63)) 
+ document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
+    }
+
     if(msg.includes("Locked In 2")){
         window.lockedin2 = true;
      }
@@ -311,6 +336,28 @@ if(enemyStatCount2 == true){
             console.log("Sent: " + msg3)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg3);
         }, 3000);
+        setTimeout(function(){
+            var msg6 = Healthp1U;
+            sendMessageBox.value = "";
+            conn.send(msg6);
+            console.log("Sent: " + msg6)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+        }, 3000);
+        setTimeout(function(){
+            var msg7 = Healthp2U;
+            sendMessageBox.value = "";
+            conn.send(msg7);
+            console.log("Sent: " + msg7)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+        }, 3000);
+        setTimeout(function(){
+            var msg8 = Healthp3U;
+            sendMessageBox.value = "";
+            conn.send(msg8);
+            console.log("Sent: " + msg8)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+        }, 3000);
+   
         setTimeout(function(){
             var msg4 = "Locked In 1";
             sendMessageBox.value = "";

@@ -13,7 +13,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById("CTank").src= imageUrl;
       document.getElementById("CtitleTank").innerHTML = name;
      document.getElementById("titleTank").innerHTML = name;
-
+document.getElementById('previewHealth1').innerHTML = health;
+window.localHealthMesh1 = health;
     
      window.tankAbility1 = ability1;
      window.tankAbility2 = ability2;
@@ -45,7 +46,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById("CSupport").src= imageUrl;
       document.getElementById("CtitleSupport").innerHTML = name;
       document.getElementById("titleSupport").innerHTML = name;
-     
+      document.getElementById('previewHealth3').innerHTML = health;
+      window.localHealthMesh3 = health;
     
       window.supportAbility1 = ability1;
      window.supportAbility2 = ability2;
@@ -76,7 +78,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
       document.getElementById("CDamage").src= imageUrl;
       document.getElementById("CtitleDamage").innerHTML = name;
       document.getElementById("titleDamage").innerHTML = name;
-
+      document.getElementById('previewHealth2').innerHTML = health;
+      window.localHealthMesh2 = health;
     
       window.damageAbility1 = ability1;
      window.damageAbility2 = ability2;
@@ -111,6 +114,11 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
     
     setTimeout(function() {
       document.getElementById('startTheBattle').style.display="block";
+
+      document.getElementById('P1TankHealth').innerHTML = localHealthMesh1;
+      document.getElementById('P1DamageHealth').innerHTML = localHealthMesh2;
+      document.getElementById('P1SupportHealth').innerHTML = localHealthMesh3;
+
      
 window.p1U = userStatus + " " + 1 + " Init " + document.getElementById("titleTank").innerHTML.toLowerCase();
 
@@ -118,10 +126,17 @@ window.p1U = userStatus + " " + 1 + " Init " + document.getElementById("titleTan
 window.p2U = userStatus + " " + 2 + " Init " + document.getElementById("titleDamage").innerHTML.toLowerCase();
 
 
-
 window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSupport").innerHTML.toLowerCase();
 
 
+window.Healthp1U = userStatus + " " + 1 + " Health " + localHealthMesh1;
+
+
+window.Healthp2U = userStatus + " " + 2 + " Health " + localHealthMesh2;
+
+
+
+window.Healthp3U = userStatus + " " + 3 + " Health " + localHealthMesh3;
 
 
 
