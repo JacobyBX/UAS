@@ -1,7 +1,12 @@
 window.tankP1Health = 1500;
 window.damageP1Health = 1200;
 window.supportP1Health = 1000;
-window.duoCheck = false
+window.duoCheck = false;
+
+
+
+
+/*
 function shieldCheck(){
      
     if (loadedSelectedCount == 3 && currentlyActive == "Tank"){
@@ -14,7 +19,7 @@ function shieldCheck(){
        timeTilDelete = tankGifCount3;
 
        if(CCurrentSelected == "Tank"){
-       
+        
        }
        
        if(CCurrentSelected == "Damage"){
@@ -22,7 +27,7 @@ function shieldCheck(){
        }
        
        if(CCurrentSelected == "Support"){
-       
+        
        }   
     }else{
       document.getElementsByClassName("select-cover")[0].style.marginTop = "0";
@@ -31,16 +36,20 @@ function shieldCheck(){
     }
     }
   
+ */
+
     function shieldHandler(shieldAmount,){
   
+
+
   if (shieldAmount == 1){
     alert("You can't activate a shield around yourself. ")
   }
   if (shieldAmount == 2){
     tankSelection();
   document.getElementById("damageShield").style.display = "block";
-  document.getElementById("damageShieldHealth").innerHTML = "400"
-  damageP1Health = damageP1Health + 400;
+  document.getElementById("damageShieldHealth").innerHTML = currentAttackValue;
+  damageP1Health = damageP1Health + parseInt(currentAttackValue);
   document.getElementById("P1DamageHealth").innerHTML = damageP1Health
 
   }
@@ -48,8 +57,8 @@ function shieldCheck(){
   if (shieldAmount == 3){
     tankSelection();
   document.getElementById("supportShield").style.display = "block";
-  document.getElementById("supportShieldHealth").innerHTML = "400"
-  supportP1Health = supportP1Health + 400;
+  document.getElementById("supportShieldHealth").innerHTML = currentAttackValue;
+  supportP1Health = supportP1Health + parseInt(currentAttackValue);
   document.getElementById("P1SupportHealth").innerHTML = supportP1Health
 
 
@@ -59,59 +68,26 @@ function shieldCheck(){
 
 
 
-    function healingCheck(){
+    
 
-        if (loadedSelectedCount == 2 && currentlyActive == "Support"){
-            window.healingAmountTotal = 135;
-          document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
-          document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
-          document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
-          document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
-          duoCheck = true;
 
-           if(CCurrentSelected == "Tank"){
-           
-           }
-           
-           if(CCurrentSelected == "Damage"){
-             
-           }
-           
-           if(CCurrentSelected == "Support"){
-           
-           }   
-        }else{
-      
-        }
-     
-        if (loadedSelectedCount == 3 && currentlyActive == "Support"){
-            window.healingAmountTotal = 400
-          document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
-          document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
-          document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
-          document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
-        
-           if(CCurrentSelected == "Tank"){
-           
-           }
-           
-           if(CCurrentSelected == "Damage"){
-             
-           }
-           
-           if(CCurrentSelected == "Support"){
-           
-           }   
-        }else{
-      
-        }
-        }
+
 
         function healingHandler(healingAmount, amount){
+
+          if (loadedSelectedCount== 1){
+            tankSelection()
+          }
+          if (loadedSelectedCount == 2){
+damageSelection()
+          }
+          if (loadedSelectedCount == 3){
+            supportSelection()
+                      }
   
             if (healingAmount == 1){
              
-                supportSelection();
+       
                 document.getElementById("healingBadgeTank").style.display="block";
                 setTimeout(function(){
                     document.getElementById("healingBadgeTank").style.display="none";;
@@ -121,7 +97,7 @@ function shieldCheck(){
             }
             if (healingAmount == 2){
                
-              supportSelection();
+     
               document.getElementById("healingBadgeDamage").style.display="block";
               setTimeout(function(){
                 document.getElementById("healingBadgeDamage").style.display="none";;

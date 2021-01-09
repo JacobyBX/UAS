@@ -393,20 +393,64 @@ if (loadedSelectedCount == 1){
     timeTilDelete = tankGifCount1;
     battlePointCount = battlePointCount - currentBattlePointCount;
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
+
  
  if(CCurrentSelected == "Tank"){
-     enemyHealth1 = enemyHealth1 - currentAttackValue;
-     document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+    
+  
+
+     if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+        alert("Damage AbilityM");
+     }else{
+        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
+            alert("Support AbilityM");
+        
+        }else{
+            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
+                alert("Tank AbilityM");
+            }
+        }
+     }
+
+   
  }
  
  if(CCurrentSelected == "Damage"){
-    enemyHealth2 = enemyHealth2 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth2;
+   
+    if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+        alert("Damage Ability M");
+     }else{
+        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
+            alert("Support Ability M");
+        
+        }else{
+            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
+                alert("Tank Ability M");
+            }
+        }
+     }
  }
  
  if(CCurrentSelected == "Support"){
-    enemyHealth3 = enemyHealth3 - currentAttackValue;
-    document.getElementById(ACurrentSelected).innerHTML = enemyHealth3;
+    if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
+        enemyHealth1 = enemyHealth1 - currentAttackValue;
+        document.getElementById(ACurrentSelected).innerHTML = enemyHealth1;
+        alert("Damage Ability M");
+     }else{
+        if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
+            alert("Support Ability M");
+        
+        }else{
+            if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
+                alert("Tank Ability M");
+            }
+        }
+     }
+
  }   
  }
  

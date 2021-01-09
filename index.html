@@ -2,7 +2,15 @@
 <html>
     <head>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8H8HB206V4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-8H8HB206V4');
+</script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/css/swiper.min.css'>
       <link rel="manifest" href="manifest.json">
 <script type="text/javascript" src="gifffer.min.js"></script>
@@ -703,21 +711,21 @@ style="padding-left-start {0px;}">
   </script>
 
 <div class="card-stats">
-<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability1Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint1').innerHTML">
+<div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');currentAttackValue = document.getElementById('ability1Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint1').innerHTML;itemNumber = '1';stateCheck()">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
   <h2 id="ability1Name">Ability Name</h2>
   <p id="ability1Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability2Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint2').innerHTML">
+<div class="card-stat-item" onclick="localDamage2 = document.getElementById('ability2Stat').innerHTML;selector('2');currentAttackValue = document.getElementById('ability2Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint2').innerHTML;itemNumber = '2';stateCheck()">
   <h6><span id="battlePoint2"></span> Battle Points</h6>
   <h5><span id="ability2Stat">15</span><span id="ability2StatText"> Placeholder</span></h5>
   <h2 id="ability2Name">Ability Name</h2>
   <p id="ability2Type">Ability Type</p>
 </div>
 
-<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');shieldCheck();healingCheck();currentAttackValue = document.getElementById('ability3Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint3').innerHTML" id="ultimate-item">
+<div class="card-stat-item " onclick="localDamage3 = document.getElementById('ability3Stat').innerHTML;selector('3');currentAttackValue = document.getElementById('ability3Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint3').innerHTML;itemNumber='3';stateCheck()" id="ultimate-item">
   <h6><span id="battlePoint3"></span> Battle Points</h6>
   <h5><span id="ability3Stat">15</span><span id="ability3StatText"> Placeholder</span></h5>
   <h2 id="ability3Name" id="ultimate-item-text">Ability Name</h2>
@@ -735,9 +743,9 @@ window.loadedDamage = document.getElementById("ability" + number + "Stat").inner
 loadedSelectedCount = number
 
     document.getElementById('selection').style.display="block";
-   document.getElementById('abilityMStat').innerHTML = document.getElementById("ability" + number + "Stat").innerHTML
+   document.getElementById('ability3Stat').innerHTML = document.getElementById("ability" + number + "Stat").innerHTML
 
-   document.getElementById('abilityMStatText').innerHTML = document.getElementById("ability" + number + "StatText").innerHTML
+   document.getElementById('ability3StatText').innerHTML = document.getElementById("ability" + number + "StatText").innerHTML
 
    document.getElementById('abilityMName').innerHTML = document.getElementById("ability" + number + "Name").innerHTML
 
@@ -904,7 +912,7 @@ document.getElementById('matchPopup').style.display='block';
 
 
 <script>
-
+window.itemNumber = 0;
 window.ACurrentSelected = "null"
   window.BCurrentSelected = "null"
   window.CCurrentSelected = "null"
@@ -1255,6 +1263,46 @@ window.onload = function() {
   }
 }
   </script>
+
+  <script>
+
+function stateCheck(){
+  if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
+    alert("Damage Ability");
+    document.getElementsByClassName("select-cover")[0].style.marginTop = "0";
+    document.getElementById("selectionText").innerHTML="Select Enemy to Attack";
+    document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
+   }else{
+      if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
+          alert("Support Ability");
+          supportMeshHandler();
+      
+      }else{
+          if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
+              alert("Tank Ability");
+              shieldMeshHandler();
+          }
+      }
+   }
+}
+
+function supportMeshHandler(){
+  window.healingAmountTotal = parseInt(currentAttackValue);
+          document.getElementById("selectionText").innerHTML="Select Teamate To Heal";
+          document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
+          document.getElementsByClassName("selection-support-wrapper")[0].style.display = "block";
+          document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
+         
+
+}
+
+function shieldMeshHandler(){
+  document.getElementById("selectionText").innerHTML="Select Teamate Shield";
+  document.getElementsByClassName("select-cover")[0].style.marginTop = "-703px";
+  document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "block";
+  document.getElementsByClassName("selection-support-wrapper")[0].style.display = "none";
+}
+    </script>
   <script src="purchaseHandler.js"></script>
     </body>
 </html>
