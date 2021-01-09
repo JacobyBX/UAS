@@ -262,14 +262,12 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
 
-document.getElementById('attackGif').onload = detailsDamage();
+document.getElementById('attackVideo').setAttribute("data-yt2html5", "Gif/" + currentGifId + loadedSelectedCount + ".gif");
 
-function detailsDamage(){
-    details.open = true
-    document.getElementById('attackPopover').style.display="block";
-}
+document.getElementById('attackPopover').style.display='block';
+
+videoHandler();
 
 
 var timeTilDelete = 0;
@@ -313,7 +311,7 @@ setTimeout(function() {
     document.getElementById(DCurrentSelected).style.display="none";
     document.getElementById("battlePointCountWrapper").style.display = "none";
     document.getElementById("battlePointCount").innerHTML = battlePointCount;
-    details.open = false;
+
     setTimeout(function() {
         document.getElementById(DCurrentSelected).style.display="block";
         document.getElementById(BCurrentSelected).style.display="inline-block";
@@ -402,7 +400,7 @@ if (loadedSelectedCount == 1){
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     details.open = false;
+  
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
          document.getElementById(BCurrentSelected).style.display="inline-block";
@@ -437,14 +435,11 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
+document.getElementById('attackVideo').setAttribute(data-yt2html5, "Gif/" + currentGifId + loadedSelectedCount + ".gif");
 
-document.getElementById('attackGif').onload = detailsSupport();
 
-function detailsSupport(){
-    details.open = true
-    document.getElementById('attackPopover').style.display="block";
-}
+
+
 
 
 var timeTilDelete = 0;
@@ -489,7 +484,7 @@ if (loadedSelectedCount == 1){
      document.getElementById(DCurrentSelected).style.display="none";
      document.getElementById("battlePointCountWrapper").style.display = "none";
      document.getElementById("battlePointCount").innerHTML = battlePointCount;
-     details.open = false;
+
      setTimeout(function() {
          document.getElementById(DCurrentSelected).style.display="block";
          document.getElementById(BCurrentSelected).style.display="inline-block";

@@ -312,6 +312,8 @@ if(enemyStatCount2 == true){
         }
     };
 
+    
+
  // Send message
  document.getElementById("lockInCharacter").onclick = function () {
     if (conn && conn.open) {
