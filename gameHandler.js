@@ -267,7 +267,7 @@ document.getElementById('attackVideo').setAttribute("data-yt2html5", "Gif/" + cu
 
 document.getElementById('attackPopover').style.display='block';
 
-videoHandler();
+new YouTubeToHtml5()
 
 
 var timeTilDelete = 0;
@@ -346,9 +346,19 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackGif').src= "Gif/" + currentGifId + loadedSelectedCount + ".gif";
 
-document.getElementById('attackGif').onload = detailsTank();
+document.getElementById('attackVideo').setAttribute("data-yt2html5", "https://youtu.be/7Z2Xxq4irJA");
+
+
+
+new YouTubeToHtml5()
+
+setTimeout(function() {
+    
+    document.getElementById('attackPopover').style.display='block';
+},1000);
+
+
 
 function detailsTank(){
     details.open = true
