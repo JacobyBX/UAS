@@ -228,16 +228,37 @@ setTimeout(function() {
         if(msg.includes("Player1 1 Health")){
             localHealthMesh1 = msg.substring(52, 63);
             document.getElementById('P1TankHealth').innerHTML = msg.substring(52, 63);
+            document.getElementById("CTank").classList.remove("popIn");
+            document.getElementById("CTank").classList.add("shake");
+            document.getElementById("CTank").classList.add("duration-1200");
+            document.getElementById("CTank").style.display="none";
+            setTimeout(function(){
+                document.getElementById("CTank").style.display="block";
+            }, 1000);
         }
     
         if(msg.includes("Player1 2 Health")){
             localHealthMesh2 = msg.substring(52, 63);
             document.getElementById('P1DamageHealth').innerHTML = msg.substring(52, 63);
+            document.getElementById("CDamage").classList.remove("popIn");
+            document.getElementById("CDamage").classList.add("shake");
+            document.getElementById("CDamage").classList.add("duration-1200");
+            document.getElementById("CDamage").style.display="none";
+            setTimeout(function(){
+                document.getElementById("CDamage").style.display="block";
+            }, 1000);
         }
     
         if(msg.includes("Player1 3 Health")){
             localHealthMesh3 = msg.substring(52, 63);
             document.getElementById('P1SupportHealth').innerHTML = msg.substring(52, 63);
+            document.getElementById("CSupport").classList.remove("popIn");
+            document.getElementById("CSupport").classList.add("shake");
+            document.getElementById("CSupport").classList.add("duration-1200");
+            document.getElementById("CSupport").style.display="none";
+            setTimeout(function(){
+                document.getElementById("CSupport").style.display="block";
+            }, 1000);
         }
 
            // Elimination Check
