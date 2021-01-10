@@ -596,3 +596,63 @@ window.damageSelectionCount = 0;
   document.getElementById('tankSelectGrid').style.opacity = "0";
   document.getElementById('supportSelectGrid').style.opacity = "1";
 }
+
+
+// Elimination Handler
+
+function eliminationHandler(){
+    if(enemyHealth1 < 1){
+      document.getElementById("enemyh1Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh1Container").style.opacity="0.5"; 
+      document.getElementById("enemyh1Container").style.pointerEvents = "none"; 
+   
+    }else{
+      console.log("Character Not Eliminated By Action")
+    }
+
+    if(enemyHealth2 < 1){
+      document.getElementById("enemyh2Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh2Container").style.opacity="0.5"; 
+      document.getElementById("enemyh2Container").style.pointerEvents = "none";  
+    }else{
+      console.log("Character Not Eliminated By Action")
+    }
+
+    if(enemyHealth3 < 1){
+      document.getElementById("enemyh3Container").style.filter="saturate(0)"; 
+      document.getElementById("enemyh3Container").style.opacity="0.5"; 
+      document.getElementById("enemyh3Container").style.pointerEvents = "none";
+    }else{
+      console.log("Character Not Eliminated By Action")
+    }
+
+
+
+
+    if(localHealthMesh1 < 1){
+        document.getElementById("player1CH").style.filter="saturate(0)"; 
+        document.getElementById("player1CH").style.opacity="0.5"; 
+        document.getElementById("player1CH").style.pointerEvents = "none"; 
+     
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh2 < 1){
+        document.getElementById("player2CH").style.filter="saturate(0)"; 
+        document.getElementById("player2CH").style.opacity="0.5"; 
+        document.getElementById("player2CH").style.pointerEvents = "none";  
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh3 < 1){
+        document.getElementById("player3CH").style.filter="saturate(0)"; 
+        document.getElementById("player3CH").style.opacity="0.5"; 
+        document.getElementById("player3CH").style.pointerEvents = "none";
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  }
+
+ 

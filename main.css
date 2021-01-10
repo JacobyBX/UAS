@@ -24,7 +24,7 @@ a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.dev-menu {position: fixed; right: 0px; bottom: 0px; background-color: black; z-index: 10000;width: fit-content;color: white;height: 200px;overflow: scroll;white-space: nowrap;}
+.dev-menu {position: fixed; right: 66px; bottom: 0px; background-color: black; z-index: 10000;width: fit-content;color: white;height: 200px;overflow: scroll;white-space: nowrap;}
 
 .dev-menu > ul > li > button {    padding: 9px;
   background-color:rgb(34, 34, 34);
@@ -749,6 +749,30 @@ margin-top: -24px;
 .purchase-complete {position: fixed;top: 0px; width: 100%; left: 0px; height: 100vh;z-index: 150;background-color: rgba(0, 0, 0, 0.555);;}
 
 .complete-wrapper > p {font-size: 13px;}
+
+#sendMessageBox{    position: fixed;
+  bottom: 5px;
+  margin-left: 15px;
+  padding: 11px;
+  font-size: 15px;
+  width: 71%;
+  border-radius: 50px;
+  border: solid 1px lightgray;}
+
+  #sendButton {
+    position: fixed;
+    bottom: 12px;
+    padding-bottom: 5px;
+    padding-top: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 50px;
+    background-color: black;
+    border: none;
+    right: 21px;
+}
+
+#sendButton > i {color: white;}
 
 #purchase-complete {display: none;}
 

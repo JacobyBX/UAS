@@ -240,6 +240,33 @@ setTimeout(function() {
             document.getElementById('P1SupportHealth').innerHTML = msg.substring(52, 63);
         }
 
+           // Elimination Check
+
+    if(localHealthMesh1 < 1){
+        document.getElementById("player1CH").style.filter="saturate(0)"; 
+        document.getElementById("player1CH").style.opacity="0.5"; 
+        document.getElementById("player1CH").style.pointerEvents = "none"; 
+     
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh2 < 1){
+        document.getElementById("player2CH").style.filter="saturate(0)"; 
+        document.getElementById("player2CH").style.opacity="0.5"; 
+        document.getElementById("player2CH").style.pointerEvents = "none";  
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh3 < 1){
+        document.getElementById("player3CH").style.filter="saturate(0)"; 
+        document.getElementById("player3CH").style.opacity="0.5"; 
+        document.getElementById("player3CH").style.pointerEvents = "none";
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+
     if(msg.includes("Locked In 2")){
         window.lockedin2 = true;
      }
@@ -249,7 +276,7 @@ setTimeout(function() {
          document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true
      }
 
-    
+ 
        
    
          var mgnCount2 = msg.includes("Player2");
@@ -319,7 +346,7 @@ if(enemyStatCount2 == true){
     // Send message
     sendButton.onclick = function () {
         if (conn && conn.open) {
-            var msg = theMessage;
+            var msg = sendMessageBox.value;
             sendMessageBox.value = "";
             conn.send(msg);
             console.log("Sent: " + msg)

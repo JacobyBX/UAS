@@ -86,8 +86,8 @@ a:visited{
     height: 125px;
     max-height: 125px;
     margin-bottom: 10px;
-    border-bottom: 2px solid black;
-    overflow: auto;
+  
+  margin: auto; width: 90%;
 }
 
 .msg-time {

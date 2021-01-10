@@ -86,7 +86,8 @@ setTimeout(function() {
   
 
         document.getElementById("matchPopup").style.display="none";
-
+        window.lockedin1 = false;
+        window.lockedin2 = false;
    
   }, 1000);
 
@@ -134,6 +135,8 @@ setTimeout(function() {
             console.log('Connection is closed');
         }
     }
+
+
 
 
     function addMessage(msg) {
@@ -217,14 +220,43 @@ setTimeout(function() {
         localHealthMesh3 = msg.substring(52, 63);
         document.getElementById('P1SupportHealth').innerHTML = msg.substring(52, 63);
     }
+
+       // Elimination Check
+
+       if(localHealthMesh1 < 1){
+        document.getElementById("player1CH").style.filter="saturate(0)"; 
+        document.getElementById("player1CH").style.opacity="0.5"; 
+        document.getElementById("player1CH").style.pointerEvents = "none"; 
+     
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh2 < 1){
+        document.getElementById("player2CH").style.filter="saturate(0)"; 
+        document.getElementById("player2CH").style.opacity="0.5"; 
+        document.getElementById("player2CH").style.pointerEvents = "none";  
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh3 < 1){
+        document.getElementById("player3CH").style.filter="saturate(0)"; 
+        document.getElementById("player3CH").style.opacity="0.5"; 
+        document.getElementById("player3CH").style.pointerEvents = "none";
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
  
      if(msg.includes("Locked In 1")){
-       window.lockedin1 = true;
+       lockedin1 = true;
     }
 
     if (lockedin1 == true && lockedin2 == true){
         document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
         document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
+        message.innerHTML = "";
+        addMessage("Msgs cleared");
     }
     
 
@@ -455,3 +487,4 @@ document.getElementById("selectionGrid").onclick = function () {
     // Since all our callbacks are setup, start the process of obtaining an ID
     initialize();
 })();
+
