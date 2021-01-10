@@ -153,7 +153,12 @@ damageSelection()
           
             if (healingAmount == 3){
                
-              alert("You can't heal yourself. ")
+              document.getElementById("healingBadgeSupport").style.display="block";
+              setTimeout(function(){
+                document.getElementById("healingBadgeSupport").style.display="none";;
+            }, 10000);
+            supportP1Health = supportP1Health + healingAmountTotal;
+            document.getElementById("P1SupportHealth").innerHTML = supportP1Health;
           
             }
             

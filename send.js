@@ -200,6 +200,23 @@ setTimeout(function() {
       enemyHealth3 = parseInt(msg.substring(52, 63)) 
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
+
+    //Player 2 Health Damage
+
+    if(msg.includes("Player2 1 Health")){
+        localHealthMesh1 = msg.substring(52, 63);
+        document.getElementById('P1TankHealth').innerHTML = msg.substring(52, 63);
+    }
+
+    if(msg.includes("Player2 2 Health")){
+        localHealthMesh2 = msg.substring(52, 63);
+        document.getElementById('P1DamageHealth').innerHTML = msg.substring(52, 63);
+    }
+
+    if(msg.includes("Player2 3 Health")){
+        localHealthMesh3 = msg.substring(52, 63);
+        document.getElementById('P1SupportHealth').innerHTML = msg.substring(52, 63);
+    }
  
      if(msg.includes("Locked In 1")){
        window.lockedin1 = true;
@@ -295,6 +312,40 @@ setTimeout(function() {
         message.innerHTML = "";
         addMessage("Msgs cleared");
     };
+
+    // Send Damage
+
+document.getElementById("selectionGrid").onclick = function () {
+    if (conn && conn.open) {
+        setTimeout(function(){
+            var msg6 = "Player1" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg6);
+            console.log("Sent: " + msg6)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+        }, 3000);
+        setTimeout(function(){
+            var msg7 = "Player1" + " " + 2 + " Health " + document.getElementById('P2DamageHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg7);
+            console.log("Sent: " + msg7)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+        }, 3000);
+        setTimeout(function(){
+            var msg8 = "Player1" + " " + 3 + " Health " + document.getElementById('P2SupportHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg8);
+            console.log("Sent: " + msg8)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+        }, 3000);
+   
+     
+    } else {
+        console.log('Connection is closed');
+        alert("Connection Error Please Reconnect")
+    }
+};
+
 
     
   // Send message

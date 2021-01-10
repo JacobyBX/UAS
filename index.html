@@ -825,11 +825,11 @@ loadedSelectedCount = number
   <div id="status" class="status"></div>
 </div>
 
-     <p id="shareCodeP">Share Battle Code With Your Friend: </p> <div id="receiver-id" class="friendID" style="font-weight: bold;" title="Copy this ID to the input on send.html."></div>
+     <p id="shareCodeP">Share Battle Code With Your Friend: </p> <div id="receiver-id" class="friendID" style="font-weight: bold;" title="Copy this ID to the input on send.html."><img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></div>
     </div>
 
 <div id="match-popup-btns" class="match-popup-btns">
-  <button onclick="document.getElementById('friend-session').style.display='block'" >Host Match</button>
+  <button onclick="document.getElementById('friend-session').style.display='block';document.getElementById('battleCardOpen').play()" >Host Match</button>
  <a href="/join.html">
   <button>Join Match</button>
  </a> 
@@ -892,7 +892,7 @@ document.getElementById('matchPopup').style.display='block';
     
       
 <div class="selection" id="selection">
-<div class="selection-grid">
+<div id="selectionGrid" class="selection-grid">
   <button onclick="tankAttacking(),thecheck(),damageHandler(1)"  class="grid-button vivify blink"><img id="tankSelectGrid" src="Assets/DamageSelect.svg"></button>
   <button onclick="damageAttacking(),thecheck(),damageHandler(2)"  class="grid-button vivify blink"><img id="damageSelectGrid" src="Assets/DamageSelect.svg"></button>
   <button onclick="supportAttacking(),thecheck(),damageHandler(3)"  class="grid-button starter vivify blink"><img id="supportSelectGrid"  src="Assets/DamageSelect.svg"></button>
@@ -1098,6 +1098,16 @@ if (currentlyActive == "Damage"){
         <p><span id="P1SupportHealth">1000</span> HP</p>
       </div>
       <img id="CSupport" class="vivify popIn delay-600" src="Characters/hisoka.png">
+
+      <div class="healing-overlay" id="healingBadgeSupport">
+        <div  class="healingBadge ">
+          <img class="vivify pulsate infinite duration-1000" src="Assets/HealingBadge.svg">
+        </div>
+        <div class="healing-box vivify blink infinite duration-2000"></div>
+        
+      </div>
+
+
       <div class="roleIcon">
         <img src="Assets/supporticon.svg">
       </div>
@@ -1275,19 +1285,19 @@ window.onload = function() {
 
 function stateCheck(){
   if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Damage"){
-    alert("Damage Ability");
+    
     document.getElementsByClassName("select-cover")[0].style.marginTop = "0";
     document.getElementById("selectionText").innerHTML="Select Enemy to Attack";
     document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "none";
     window.damageActive = true;
    }else{
       if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Support"){
-          alert("Support Ability");
+         
           supportMeshHandler();
       
       }else{
           if (document.getElementById("ability" + loadedSelectedCount + "StatText").innerHTML == " Tank"){
-              alert("Tank Ability");
+            
               shieldMeshHandler();
           }
       }

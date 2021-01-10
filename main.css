@@ -343,9 +343,13 @@ margin-top: -24px;
 
 .result-list {margin-bottom: 73px;}
 
-#matchSelect {display: none;}
+#matchSelect {display:none}
 
-.match-popup {display: none;}
+.match-popup {display: }
+
+.friendID > img {    height: 70px;
+  object-fit: cover;
+  width: 154px;}
 
 .less-active {background-color: lightgray !important; color: black !important;pointer-events: none;}
 
