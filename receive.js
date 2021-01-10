@@ -238,13 +238,13 @@ setTimeout(function() {
             setTimeout(function() {
             
                 document.getElementById('attackVideo').currentTime = parseInt(msg.substring(49, 53));
-                alert(msg.substring(49, 53))
-            },1000);
+                
+            },2000);
 
             setTimeout(function() {
             
                 document.getElementById('attackPopover').style.display="none"
-            },parseInt(local2VideoLength));
+            },parseInt(local2VideoLength) + 1000);
        }
 
 
@@ -265,6 +265,11 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CTank").style.display="block";
             }, local2VideoLength);
+        
+            if(mm1 == 3){
+                alert( document.getElementById("CtitleTank").innerHTML + " was attacked.")
+            }
+          
         }
     
         if(msg.includes("Player1 2 Health")){
@@ -277,6 +282,9 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CDamage").style.display="block";
             }, local2VideoLength);
+            if(mm1 == 3){
+            alert( document.getElementById("CtitleDamage").innerHTML + "was attacked.")
+            }
         }
     
         if(msg.includes("Player1 3 Health")){
@@ -289,10 +297,14 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CSupport").style.display="block";
             }, local2VideoLength);
+            if(mm1 == 3){
+            alert( document.getElementById("CtitleSupport").innerHTML + "was attacked.");
+            }
+           mm1 =  3;
         }
 
            // Elimination Check
-
+/*
     if(localHealthMesh1 < 1){
         document.getElementById("player1CH").style.filter="saturate(0)"; 
         document.getElementById("player1CH").style.opacity="0.5"; 
@@ -317,6 +329,7 @@ setTimeout(function() {
       }else{
         console.log("Character Not Eliminated By Action")
       }
+      */
 
     if(msg.includes("Locked In 2")){
         window.lockedin2 = true;
@@ -411,29 +424,41 @@ if(enemyStatCount2 == true){
 
 // Send Damage
 
+document.getElementById("damageSelectGrid").onclick = function () {
+    setTimeout(function(){
+        var msg7 = "Player2" + " " + 2 + " Health " + document.getElementById('P2DamageHealth').innerHTML;
+        sendMessageBox.value = "";
+        conn.send(msg7);
+        console.log("Sent: " + msg7)
+        addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+    }, 3000);
+}
+
+document.getElementById("tankSelectGrid").onclick = function () {
+    setTimeout(function(){
+        var msg6 = "Player2" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
+        sendMessageBox.value = "";
+        conn.send(msg6);
+        console.log("Sent: " + msg6)
+        addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+    }, 3000);
+}
+
+document.getElementById("supportSelectGrid").onclick = function () {
+    setTimeout(function(){
+        var msg8 = "Player2" + " " + 3 + " Health " + document.getElementById('P2SupportHealth').innerHTML;
+        sendMessageBox.value = "";
+        conn.send(msg8);
+        console.log("Sent: " + msg8)
+        addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+    }, 3000);
+}
+
 document.getElementById("selectionGrid").onclick = function () {
     if (conn && conn.open) {
-        setTimeout(function(){
-            var msg6 = "Player2" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg6);
-            console.log("Sent: " + msg6)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
-        }, 3000);
-        setTimeout(function(){
-            var msg7 = "Player2" + " " + 2 + " Health " + document.getElementById('P2DamageHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg7);
-            console.log("Sent: " + msg7)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
-        }, 3000);
-        setTimeout(function(){
-            var msg8 = "Player2" + " " + 3 + " Health " + document.getElementById('P2SupportHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg8);
-            console.log("Sent: " + msg8)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
-        }, 3000);
+     
+
+    
         setTimeout(function(){
             var msg12 = "Player1" + " Video " + timeTilDelete + " " + currentVideoPlaying;
             sendMessageBox.value = "";
