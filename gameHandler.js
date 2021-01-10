@@ -2,10 +2,31 @@ const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
 const details = document.querySelector(".object-and-details > details");
 window.currentAttackValue = 0;
 window.currentBattlePointCount = 0;
+window.local2VideoLength = "";
+window.local2Video = "";
 
 if (mediaQuery.matches) {
 
 }
+
+window.videoState = false;
+window.currentVideoPlaying = "";
+window.currentVideoStart = ""
+
+function videoCheck() {
+if(videoState == true){
+    new YouTubeToHtml5();
+    console.log("Video Added");
+    videoState = false;
+}
+console.log("Video Check....")
+
+    setTimeout(videoCheck, 1000);
+}
+
+videoCheck();
+
+
 
 function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3, health, vid1,vid2,vid3,vStart1,vStart2,vStart3){
     if(mcCount == 1){
@@ -298,6 +319,8 @@ window.timeTilDelete = 0;
 if (loadedSelectedCount == 1){
 
    timeTilDelete = damageGifCount1;
+   currentVideoPlaying = damageVideo1;
+   currentVideoStart = damageVideoStart1;
    document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo1);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';
@@ -313,6 +336,8 @@ if (loadedSelectedCount == 1){
 if (loadedSelectedCount == 2){
 
     timeTilDelete = damageGifCount2;
+    currentVideoPlaying = damageVideo2;
+    currentVideoStart = damageVideoStart2;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo2);
      new YouTubeToHtml5()
          document.getElementById('attackPopover').style.display='block';
@@ -328,7 +353,8 @@ if (loadedSelectedCount == 2){
  if (loadedSelectedCount == 3){
   
     timeTilDelete = damageGifCount3;
-  
+  currentVideoPlaying = damageVideo3;
+  currentVideoStart = damageVideoStart3;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo3);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';
@@ -405,8 +431,8 @@ var timeTilDelete = 0;
 if (loadedSelectedCount == 1){
 
     timeTilDelete = tankGifCount1;
-
-
+currentVideoPlaying =tankVideo1
+currentVideoStart = tankVideoStart1;
     document.getElementById('attackPopover').style.display='block';
     document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo1);
 new YouTubeToHtml5()
@@ -422,7 +448,8 @@ new YouTubeToHtml5()
  if (loadedSelectedCount == 2){
  
      timeTilDelete = tankGifCount2;
-
+currentVideoPlaying = tankVideo2;
+currentVideoStart = tankVideoStart2;
      document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo2);
      new YouTubeToHtml5()
          document.getElementById('attackPopover').style.display='block';
@@ -437,7 +464,8 @@ new YouTubeToHtml5()
  
   if (loadedSelectedCount == 3){
     timeTilDelete = tankGifCount3;
-
+currentVideoPlaying = tankVideo3;
+currentVideoStart = tankVideoStart3;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo3);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';
@@ -513,7 +541,8 @@ document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
 
 if (loadedSelectedCount == 1){
     timeTilDelete = supportGifCount1;
-
+currentVideoPlaying = supportVideo1;
+currentVideoStart = supportVideoStart1;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo1);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';
@@ -529,7 +558,8 @@ if (loadedSelectedCount == 1){
  if (loadedSelectedCount == 2){
 
     timeTilDelete = supportGifCount2;
-
+currentVideoPlaying = supportVideo2;
+currentVideoStart = supportVideoStart2;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo2);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';
@@ -544,7 +574,8 @@ if (loadedSelectedCount == 1){
  
   if (loadedSelectedCount == 3){
     timeTilDelete = supportGifCount3;
-
+currentVideoPlaying = supportVideo3;
+currentVideoStart = supportVideoStart3;
     document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo3);
     new YouTubeToHtml5()
         document.getElementById('attackPopover').style.display='block';

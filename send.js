@@ -204,6 +204,37 @@ setTimeout(function() {
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
 
+
+
+    
+       //Player 1 Video Start
+
+       if(msg.includes("Player1 Video")){
+        window.local2VideoLength = msg.substring(49, 53)
+        window.local2Video = msg.substring(54, 85)
+    }
+
+    if(msg.includes("Player1 Start")){
+  
+     document.getElementById('attackVideo').setAttribute("data-yt2html5", local2Video)
+     videoState = true;
+         document.getElementById('attackPopover').style.display='block';
+         setTimeout(function() {
+         
+             document.getElementById('attackVideo').currentTime = parseInt(msg.substring(49, 53));
+         },1000);
+
+         setTimeout(function() {
+         
+             document.getElementById('attackPopover').style.display="none"
+         },parseInt(local2VideoLength));
+    }
+
+
+
+
+
+
     //Player 2 Health Damage
 
     if(msg.includes("Player2 1 Health")){
@@ -391,7 +422,20 @@ document.getElementById("selectionGrid").onclick = function () {
             console.log("Sent: " + msg8)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
         }, 3000);
-   
+        setTimeout(function(){
+            var msg12 = "Player2" + " Video " + timeTilDelete + " " + currentVideoPlaying;
+            sendMessageBox.value = "";
+            conn.send(msg12);
+            console.log("Sent: " + msg12)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg12);
+        }, 3000);
+        setTimeout(function(){
+            var msg13 = "Player2" + " Start " + currentVideoStart;
+            sendMessageBox.value = "";
+            conn.send(msg13);
+            console.log("Sent: " + msg13)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg13);
+        }, 3000);
      
     } else {
         console.log('Connection is closed');

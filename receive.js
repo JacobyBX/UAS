@@ -223,6 +223,36 @@ setTimeout(function() {
     }
 
 
+       //Player 2 Video Start
+
+       if(msg.includes("Player2 Video")){
+           window.local2VideoLength = msg.substring(49, 53)
+           window.local2Video = msg.substring(54, 85)
+       }
+
+       if(msg.includes("Player2 Start")){
+     
+        document.getElementById('attackVideo').setAttribute("data-yt2html5", local2Video)
+        videoState = true;
+            document.getElementById('attackPopover').style.display='block';
+            setTimeout(function() {
+            
+                document.getElementById('attackVideo').currentTime = parseInt(msg.substring(49, 53));
+                alert(msg.substring(49, 53))
+            },1000);
+
+            setTimeout(function() {
+            
+                document.getElementById('attackPopover').style.display="none"
+            },parseInt(local2VideoLength));
+       }
+
+
+
+
+
+
+
         //Player 2 Health Damage
 
         if(msg.includes("Player1 1 Health")){
@@ -234,7 +264,7 @@ setTimeout(function() {
             document.getElementById("CTank").style.display="none";
             setTimeout(function(){
                 document.getElementById("CTank").style.display="block";
-            }, 1000);
+            }, local2VideoLength);
         }
     
         if(msg.includes("Player1 2 Health")){
@@ -246,7 +276,7 @@ setTimeout(function() {
             document.getElementById("CDamage").style.display="none";
             setTimeout(function(){
                 document.getElementById("CDamage").style.display="block";
-            }, 1000);
+            }, local2VideoLength);
         }
     
         if(msg.includes("Player1 3 Health")){
@@ -258,7 +288,7 @@ setTimeout(function() {
             document.getElementById("CSupport").style.display="none";
             setTimeout(function(){
                 document.getElementById("CSupport").style.display="block";
-            }, 1000);
+            }, local2VideoLength);
         }
 
            // Elimination Check
@@ -404,8 +434,22 @@ document.getElementById("selectionGrid").onclick = function () {
             console.log("Sent: " + msg8)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
         }, 3000);
-   
-     
+        setTimeout(function(){
+            var msg12 = "Player1" + " Video " + timeTilDelete + " " + currentVideoPlaying;
+            sendMessageBox.value = "";
+            conn.send(msg12);
+            console.log("Sent: " + msg12)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg12);
+        }, 3000);
+        setTimeout(function(){
+            var msg13 = "Player1" + " Start " + currentVideoStart;
+            sendMessageBox.value = "";
+            conn.send(msg13);
+            console.log("Sent: " + msg13)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg13);
+        }, 3000);
+   //Player1 Video 7750 https://youtu.be/1qHvNesC57o
+   //Player1 Start 84
     } else {
         console.log('Connection is closed');
         alert("Connection Error Please Reconnect")
@@ -499,3 +543,5 @@ document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to
     
     initialize();
     })();
+
+  
