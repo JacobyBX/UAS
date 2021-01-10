@@ -172,7 +172,7 @@
 style="padding-left-start {0px;}">
 <h4>Owned Characters</h4>
 {{#each this}}
-<li id="MO{{name}}" class="character-item owned vivify popIn" onclick="MCase = true;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li id="MO{{name}}" class="character-item owned vivify popIn" onclick="MCase = true;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}},{{videoLink1}}','{{videoLink1}}', '{{videoLink2}}','{{videoLink3}}','{{videoStart1}}','{{videoStart2}}','{{videoStart3}}' );selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
 <a>
   <img onload ="purchaseCheck()" class="" src="Characters/{{imageLink}}">
   <h5>{{name}}</h5>
@@ -208,7 +208,7 @@ style="padding-left-start {0px;}">
   style="padding-left-start {0px;}">
   <h4>Character Shop</h4>
 {{#each this}}
-<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');document.getElementById('ATank').style.display='inline-block';document.getElementById('ASupport').style.display='inline-block';document.getElementById('ADamage').style.display='inline-block';">
+<li id="EM{{name}}" class="character-item" onclick="MCase = false;battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}','{{videolink1}}','{{videolink2}}');hideBCard();window.currentSelectedPurchase = '{{name}}';currentSelectedPrice = '{{cost}}';purchase('{{name}}', '{{cost}}', 'Characters/{{imageLink}}');document.getElementById('ATank').style.display='inline-block';document.getElementById('ASupport').style.display='inline-block';document.getElementById('ADamage').style.display='inline-block';">
   <a>
     <img onload ="starter('{{name}}', '{{startState}}')" class="" src="Characters/{{imageLink}}">
     <h5>{{name}}</h5>
@@ -234,7 +234,7 @@ style="padding-left-start {0px;}">
    </script>
     
       <script>
-function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3,health,battlepoint1, battlepoint2, battlepoint3 ){
+function battleCard(memberName, image, ability1Stat, ability1StatText, abilityName1, ability2Stat, ability2StatText, abilityName2, ability3Stat, ability3StatText, abilityName3, ability4Stat, ability4StatText, abilityName4,ultimateType,ultimateName,ultimateStat,health,banner,tgif1,tgif2,tgif3,health,battlepoint1, battlepoint2, battlepoint3,vi1,vi2,vi3,viStart1,viStart2,viStart3 ){
   document.getElementById('battle-card').style.display='block';
 document.getElementById('memberName').innerHTML = memberName;
 document.getElementById('card-img').src= image;
@@ -259,6 +259,14 @@ currentAbility3 = ultimateName;
 currentAbilityStat1 = ability1Stat;
 currentAbilityStat2 = ability2Stat;
 currentAbilityStat3 = ultimateStat;
+
+currentVideo1 = vi1;
+currentVideo2 = vi2;
+currentVideo3 = vi3;
+
+currentVideoStart1 = viStart1;
+currentVideoStart2 = viStart2;
+currentVideoStart3 = viStart3
 
 currentAbilityType1 = ability1StatText;
 currentAbilityType2 = ability2StatText;
@@ -703,7 +711,7 @@ style="padding-left-start {0px;}">
 
  <div class="card-btn">
  
-  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3,currentCharacterHealthClick);closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
+  <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3,currentCharacterHealthClick, currentVideo1 ,currentVideo2 ,currentVideo3,currentVideoStart1,currentVideoStart2,currentVideoStart3 );closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
 
   <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
 </div>
@@ -878,7 +886,7 @@ document.getElementById('matchPopup').style.display='block';
     <div class="gameView">
 
       <div id="attackPopover" class="attack-popover ">
-      <video id="attackVideo" data-yt2html5="https://youtu.be/H88sBQBujOY?t=34" playsinline loop muted autoplay></video>>
+      <video id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay controls></video>>
       </div>
     
       
@@ -1031,11 +1039,13 @@ if (currentlyActive == "Damage"){
 
   </div>
 
-
+<script>
+  window.currentFlexPick = 0;
+  </script>
 
   <div class="hero-gallery">
 
-    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;document.getElementById('ability3Stat').innerHTML = tankAbilityStat3;document.getElementById('ability2Stat').innerHTML = tankAbilityStat2;document.getElementById('ability1Stat').innerHTML = tankAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + tankAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  tankAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  tankAbilityType3;document.getElementById('battlePoint1').innerHTML = tankBattlePoint1;document.getElementById('battlePoint2').innerHTML = tankBattlePoint2;document.getElementById('battlePoint3').innerHTML = tankBattlePoint3;currentGifId = currentTank " class="hero-item hero-item-first">
+    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;document.getElementById('ability3Stat').innerHTML = tankAbilityStat3;document.getElementById('ability2Stat').innerHTML = tankAbilityStat2;document.getElementById('ability1Stat').innerHTML = tankAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + tankAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  tankAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  tankAbilityType3;document.getElementById('battlePoint1').innerHTML = tankBattlePoint1;document.getElementById('battlePoint2').innerHTML = tankBattlePoint2;document.getElementById('battlePoint3').innerHTML = tankBattlePoint3;currentGifId = currentTank;currentFlexPick =1; " class="hero-item hero-item-first">
       <div class="hero-text">
        <button style="background-color: #2D6BFF;" class="shield vivify popIn" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>
@@ -1058,7 +1068,7 @@ if (currentlyActive == "Damage"){
   </div>
 
     </div>
-    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;document.getElementById('ability3Stat').innerHTML = damageAbilityStat3;document.getElementById('ability2Stat').innerHTML = damageAbilityStat2;document.getElementById('ability1Stat').innerHTML = damageAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + damageAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  damageAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  damageAbilityType3;document.getElementById('battlePoint1').innerHTML = damageBattlePoint1;document.getElementById('battlePoint2').innerHTML = damageBattlePoint2;document.getElementById('battlePoint3').innerHTML = damageBattlePoint3;;currentGifId = currentDamage " class="hero-item">
+    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;document.getElementById('ability3Stat').innerHTML = damageAbilityStat3;document.getElementById('ability2Stat').innerHTML = damageAbilityStat2;document.getElementById('ability1Stat').innerHTML = damageAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + damageAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  damageAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  damageAbilityType3;document.getElementById('battlePoint1').innerHTML = damageBattlePoint1;document.getElementById('battlePoint2').innerHTML = damageBattlePoint2;document.getElementById('battlePoint3').innerHTML = damageBattlePoint3;;currentGifId = currentDamage ;currentFlexPick =2;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #E20F0F;" class="shield vivify popIn delay-3000" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleDamage">Select</h3>
@@ -1080,7 +1090,7 @@ if (currentlyActive == "Damage"){
       </div>
     
     </div>
-    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;document.getElementById('ability3Stat').innerHTML = supportAbilityStat3;document.getElementById('ability2Stat').innerHTML = supportAbilityStat2;document.getElementById('ability1Stat').innerHTML = supportAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + supportAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  supportAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  supportAbilityType3;document.getElementById('battlePoint1').innerHTML = supportBattlePoint1;document.getElementById('battlePoint2').innerHTML = supportBattlePoint2;document.getElementById('battlePoint3').innerHTML = supportBattlePoint3;currentGifId = currentSupport" class="hero-item">
+    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;document.getElementById('ability3Stat').innerHTML = supportAbilityStat3;document.getElementById('ability2Stat').innerHTML = supportAbilityStat2;document.getElementById('ability1Stat').innerHTML = supportAbilityStat1;document.getElementById('ability1StatText').innerHTML = ' ' + supportAbilityType1;document.getElementById('ability2StatText').innerHTML = ' ' +  supportAbilityType2;document.getElementById('ability3StatText').innerHTML = ' ' +  supportAbilityType3;document.getElementById('battlePoint1').innerHTML = supportBattlePoint1;document.getElementById('battlePoint2').innerHTML = supportBattlePoint2;document.getElementById('battlePoint3').innerHTML = supportBattlePoint3;currentGifId = currentSupport;currentFlexPick =3;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #14E35F" class="shield vivify popIn delay-2000" id="supportShield"><img src="Assets/shieldIcon.svg"><p ><span id="supportShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleSupport">Select</h3>

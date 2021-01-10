@@ -45,6 +45,10 @@ a {
 
   .center-startup > img  {width: 220px;}
 
+  #attackVideo {width: 100%;
+    height: 100vh;
+    object-fit: cover;}
+
 #attackPopover {display:none}
 
 .attack-popover {position: fixed; left: 0px;top: 0px; width: 100%; height: 100vh; background-color: #000000f2;z-index: 150;}

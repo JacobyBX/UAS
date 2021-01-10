@@ -4,10 +4,10 @@ window.currentAttackValue = 0;
 window.currentBattlePointCount = 0;
 
 if (mediaQuery.matches) {
-  details.removeAttribute("open");
+
 }
 
-function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3, health){
+function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3, health, vid1,vid2,vid3,vStart1,vStart2,vStart3){
     if(mcCount == 1){
       document.getElementById("ATank").src= imageUrl;
       document.getElementById("CTank").src= imageUrl;
@@ -35,6 +35,15 @@ window.localHealthMesh1 = health;
      window.tankBattlePoint1 = bpoint1; 
      window.tankBattlePoint2 = bpoint2; 
      window.tankBattlePoint3 = bpoint3; 
+
+     window.tankVideo1 = vid1;
+     window.tankVideo2 = vid2;
+     window.tankVideo3 = vid3;
+
+     window.tankVideoStart1 = vStart1
+     window.tankVideoStart2 = vStart2
+     window.tankVideoStart3 = vStart3
+
 
      window.UtankHealth1 = health;
 
@@ -67,9 +76,17 @@ window.localHealthMesh1 = health;
      window.supportAbilityType2 = abilitytype2;
      window.supportAbilityType3 = abilitytype3;
 
+     window.supportVideoStart1 = vStart1
+     window.supportVideoStart2 = vStart2
+     window.supportVideoStart3 = vStart3
+
      window.supportBattlePoint1 = bpoint1; 
      window.supportBattlePoint2 = bpoint2; 
      window.supportBattlePoint3 = bpoint3; 
+
+     window.supportVideo1 = vid1;
+     window.supportVideo2 = vid2;
+     window.supportVideo3 = vid3;
 
      window.UsupportHealth1 = health;
     }
@@ -100,6 +117,14 @@ window.localHealthMesh1 = health;
      window.damageBattlePoint1 = bpoint1; 
      window.damageBattlePoint2 = bpoint2; 
      window.damageBattlePoint3 = bpoint3;
+
+     window.damageVideoStart1 = vStart1
+     window.damageVideoStart2 = vStart2
+     window.damageVideoStart3 = vStart3
+
+     window.damageVideo1 = vid1;
+     window.damageVideo2 = vid2;
+     window.damageVideo3 = vid3;
 
      window.currentDamage = name;
      
@@ -263,21 +288,23 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackVideo').setAttribute("data-yt2html5", "Gif/" + currentGifId + loadedSelectedCount + ".gif");
-
-document.getElementById('attackPopover').style.display='block';
-
-new YouTubeToHtml5()
 
 
-var timeTilDelete = 0;
+
+window.timeTilDelete = 0;
 
 
 
 if (loadedSelectedCount == 1){
 
    timeTilDelete = damageGifCount1;
-
+   document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo1);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = damageVideoStart1;
+        },1000);
 }
 
 
@@ -286,6 +313,13 @@ if (loadedSelectedCount == 1){
 if (loadedSelectedCount == 2){
 
     timeTilDelete = damageGifCount2;
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo2);
+     new YouTubeToHtml5()
+         document.getElementById('attackPopover').style.display='block';
+         setTimeout(function() {
+         
+             document.getElementById('attackVideo').currentTime = damageVideoStart2;
+         },1000);
  
  }
 
@@ -295,6 +329,13 @@ if (loadedSelectedCount == 2){
   
     timeTilDelete = damageGifCount3;
   
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", damageVideo3);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = damageVideoStart3;
+        },1000);
  }
 
 
@@ -307,6 +348,10 @@ setTimeout(function() {
     eliminationHandler();
     document.getElementById('attackPopover').style.display="none";
     document.getElementById(BCurrentSelected).style.display="none";
+
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", "https://youtu.be/iAqdQQv-gLQ");
+
+    new YouTubeToHtml5()
  
     document.getElementById(DCurrentSelected).style.display="none";
     document.getElementById("battlePointCountWrapper").style.display = "none";
@@ -347,23 +392,11 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackVideo').setAttribute("data-yt2html5", "https://youtu.be/7Z2Xxq4irJA");
 
 
 
-new YouTubeToHtml5()
-
-setTimeout(function() {
-    
-    document.getElementById('attackPopover').style.display='block';
-},1000);
 
 
-
-function detailsTank(){
-    details.open = true
-    document.getElementById('attackPopover').style.display="block";
-}
 
 
 var timeTilDelete = 0;
@@ -373,7 +406,14 @@ if (loadedSelectedCount == 1){
 
     timeTilDelete = tankGifCount1;
 
- 
+
+    document.getElementById('attackPopover').style.display='block';
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo1);
+new YouTubeToHtml5()
+    setTimeout(function() {
+    
+        document.getElementById('attackVideo').currentTime = tankVideoStart1;
+    },1000);
  }
  
  
@@ -382,15 +422,29 @@ if (loadedSelectedCount == 1){
  if (loadedSelectedCount == 2){
  
      timeTilDelete = tankGifCount2;
- 
+
+     document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo2);
+     new YouTubeToHtml5()
+         document.getElementById('attackPopover').style.display='block';
+         setTimeout(function() {
+         
+             document.getElementById('attackVideo').currentTime = tankVideoStart2;
+         },1000);
+         alert(timeTilDelete)
   }
  
  
  
   if (loadedSelectedCount == 3){
+    timeTilDelete = tankGifCount3;
 
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
-     timeTilDelete = tankGifCount3;
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", tankVideo3);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = tankVideoStart3;
+        },1000);
  
   }
  
@@ -403,8 +457,12 @@ if (loadedSelectedCount == 1){
     eliminationHandler();
    
      document.getElementById('attackPopover').style.display="none";
+
+     document.getElementById('attackVideo').setAttribute("data-yt2html5", "https://youtu.be/iAqdQQv-gLQ");
+
+     new YouTubeToHtml5()
     
-     details.removeAttribute("open");
+
      document.getElementById(BCurrentSelected).style.display="none";
      
      document.getElementById(DCurrentSelected).style.display="none";
@@ -445,8 +503,6 @@ window.supportSelectionCount = 0;
 
 
 
-document.getElementById('attackVideo').setAttribute(data-yt2html5, "Gif/" + currentGifId + loadedSelectedCount + ".gif");
-
 
 
 
@@ -457,25 +513,45 @@ document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
 
 if (loadedSelectedCount == 1){
     timeTilDelete = supportGifCount1;
-    battlePointCount = battlePointCount - currentBattlePointCount;
 
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo1);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = supportVideoStart1;
+        },1000);
  }
  
  
  
  
  if (loadedSelectedCount == 2){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
-     timeTilDelete = supportGifCount2;
-     battlePointCount = battlePointCount - currentBattlePointCount;
+
+    timeTilDelete = supportGifCount2;
+
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo2);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = supportVideoStart2;
+        },1000);
 
   }
  
  
  
   if (loadedSelectedCount == 3){
-    document.getElementsByClassName("select-cover")[0].style.marginTop = "0px";
-     timeTilDelete = supportGifCount3;
+    timeTilDelete = supportGifCount3;
+
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", supportVideo3);
+    new YouTubeToHtml5()
+        document.getElementById('attackPopover').style.display='block';
+        setTimeout(function() {
+        
+            document.getElementById('attackVideo').currentTime = supportVideoStart3;
+        },1000);
  
   }
  
@@ -487,6 +563,10 @@ if (loadedSelectedCount == 1){
   
  setTimeout(function() {
     eliminationHandler();
+
+    document.getElementById('attackVideo').setAttribute("data-yt2html5", "https://youtu.be/iAqdQQv-gLQ");
+
+    new YouTubeToHtml5()
     
      document.getElementById('attackPopover').style.display="none";
      document.getElementById(BCurrentSelected).style.display="none";

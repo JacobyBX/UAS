@@ -40,14 +40,13 @@ function shieldCheck(){
 
     function shieldHandler(shieldAmount,){
   
-
-      if (loadedSelectedCount== 1){
+      if (currentFlexPick== 1){
         tankSelection()
       }
-      if (loadedSelectedCount == 2){
+      if (currentFlexPick == 2){
 damageSelection()
       }
-      if (loadedSelectedCount == 3){
+      if (currentFlexPick == 3){
         supportSelection()
                   }
 
@@ -83,13 +82,13 @@ damageSelection()
     function damageHandler(attackItem){
   
 
-      if (loadedSelectedCount== 1){
+      if (currentFlexPick== 1){
         tankSelection()
       }
-      if (loadedSelectedCount == 2){
+      if (currentFlexPick == 2){
 damageSelection()
       }
-      if (loadedSelectedCount == 3){
+      if (currentFlexPick == 3){
         supportSelection()
                   }
 
@@ -122,16 +121,15 @@ damageSelection()
 
         function healingHandler(healingAmount, amount){
 
-          if (loadedSelectedCount== 1){
+          if (currentFlexPick== 1){
             tankSelection()
           }
-          if (loadedSelectedCount == 2){
-damageSelection()
+          if (currentFlexPick == 2){
+    damageSelection()
           }
-          if (loadedSelectedCount == 3){
+          if (currentFlexPick == 3){
             supportSelection()
                       }
-  
             if (healingAmount == 1){
              
        
