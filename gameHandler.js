@@ -4,7 +4,6 @@ window.currentAttackValue = 0;
 window.currentBattlePointCount = 0;
 window.local2VideoLength = "";
 window.local2Video = "";
-window.mm1 = false;
 
 if (mediaQuery.matches) {
 
@@ -25,19 +24,7 @@ console.log("Video Check....")
     setTimeout(videoCheck, 1000);
 }
 
-
 videoCheck();
-
-
-function videoCheck() {
-    eliminationHandler()
-    console.log("Elimination Check....")
-    
-        setTimeout(videoCheck, 1000);
-    }
-    
-    
-    videoCheck();
 
 
 
