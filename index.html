@@ -140,7 +140,7 @@
   style="padding-left-start {0px;}" >
   <h4>Character Skins</h4>
   {{#each this}}
-  <li id="MO{{name}}" class="character-item vivify fadeIn" onclick="selectedImage = 'Skins/{{{image}}}'" >
+  <li class="skinM character-item vivify fadeIn QEX{{characterName}}" onclick="selectedImage = 'Skins/{{{image}}}'" >
   <a>
     <img onload ="purchaseCheck()" class="" src="Skins/{{image}}">
     <h5>{{name}}</h5>
@@ -284,7 +284,9 @@ currentBattlepoint1 = battlepoint1;
 currentBattlepoint2 = battlepoint2;
 currentBattlepoint3 = battlepoint3;
 
-window.localizedHealth = health
+window.localizedHealth = health;
+
+skinID(memberName)
 
 var someObj = {};
 var foo = memberName + "Health";
@@ -314,6 +316,16 @@ document.getElementsByClassName("card-stat-item")[2].style.pointerEvents = "all"
           document.getElementById("battle-card").style.display="none"
         }
 
+        function skinID(theName) {
+      
+  var x, i;
+  x = document.querySelectorAll(".QEX" + theName);
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = 'inline-block';
+
+  }
+  
+}
 
 
 
@@ -324,6 +336,13 @@ function closeBattleCard(){
 document.getElementById("ASupport").style.display="inline-block";
 document.getElementById("ADamage").style.display="inline-block";
 document.getElementById("battleCardClose").play();
+
+      
+var x, i;
+  x = document.querySelectorAll(".QEX" + currentCharacterClick);
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = 'none';
+  }
 }
 
 var selectedCharacter = "";
