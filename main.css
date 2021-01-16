@@ -211,18 +211,16 @@ margin-top: -24px;
 
 .battle-card {position: fixed; bottom: 0px; width: 100%; height: 100vh; left: 0px; z-index:2000;background-color: rgba(0, 0, 0, 0.568);}
 
-.battle-card > div {    margin: auto;
+.battle-card > div {       margin: auto;
   width: 100%;
   position: fixed;
+  bottom: 19px;}
 
-  top: 11vh}
-
-.battle-card-item {    background-color: white;
-
+.battle-card-item {       background-color: white;
   margin: auto;
   width: 92%;
   overflow: scroll;
-height:79vh;
+  height: fit-content;
   vertical-align: top;
   border-radius: 13px;}
 
