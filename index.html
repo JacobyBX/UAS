@@ -86,7 +86,7 @@
 <h5 style="padding: 7px;"> Developer Menu</h5>
 <p style="padding: 7px;font-size: 12px; margin-top: -10px">Pre-Alpha Version 7.4</p>
     <ul>
-      <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play();battleStarted = true">Show GameZone</button></li>
+      <li> <button onclick= "document.getElementById('matchPopup').style.display='none';;document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play();battleStarted = true">Show GameZone</button></li>
       <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';document.getElementById('attackPopover').style.display='block';;document.getElementById('battleCardOpen').play();battleStarted = true">Show Attack Video</button></li>
       <li> <button onclick= ";document.getElementById('battleCardOpen').play();addCash(10000)">Add $10,000</button></li>
       <li> <button onclick= " location.reload();;localStorage.clear();;document.getElementById('battleCardOpen').play();">Purge All Data</button></li>
@@ -1010,6 +1010,13 @@ if (currentlyActive == "Damage"){
       <h3 id="BtitleTank">Select</h3>
       <p  id="P2TankIcon" class="vivify popIn delay-500"><span id="P2TankHealth"></span>/1500 HP</p>
       </div>
+      <div class="healing-overlay alternative" id="healingBadgeTankP2">
+        <div  class="healingBadge ">
+          <img class="vivify pulsate infinite duration-1000" src="Assets/HealingBadge.svg">
+        </div>
+        <div class="healing-box vivify blink infinite duration-2000"></div>
+        
+      </div>
 <img id="BTank"  class="vivify popIn delay-100" src="Characters/chad.png">
   </div>
   <div id="enemyh2Container" class="hero-item">
@@ -1018,6 +1025,13 @@ if (currentlyActive == "Damage"){
       <h3 id="BtitleDamage">Select</h3>
       <p id="P2DamageIcon" class="vivify popIn delay-500"><span id="P2DamageHealth"> </span>/1200HP</p>
     </div>
+    <div class="healing-overlay alternative" id="healingBadgeDamageP2">
+      <div  class="healingBadge ">
+        <img class="vivify pulsate infinite duration-1000" src="Assets/HealingBadge.svg">
+      </div>
+      <div class="healing-box vivify blink infinite duration-2000"></div>
+      
+    </div>
     <img id="BDamage" class="vivify popIn delay-200" src="Characters/ichigo bankai.png">
   </div>
   <div id="enemyh3Container" class="hero-item">
@@ -1025,6 +1039,13 @@ if (currentlyActive == "Damage"){
       <img src="Assets/greenbar.svg">
       <h3 id="BtitleSupport">Select</h3>
       <p  id="P2SupportIcon" class="vivify popIn delay-500"><span id="P2SupportHealth" ></span>/1000 HP</p>
+    </div>
+    <div class="healing-overlay alternative" id="healingBadgeSupportP2">
+      <div  class="healingBadge ">
+        <img class="vivify pulsate infinite duration-1000" src="Assets/HealingBadge.svg">
+      </div>
+      <div class="healing-box vivify blink infinite duration-2000"></div>
+      
     </div>
     <img id="BSupport" class="vivify popIn delay-300" src="Characters/naruto kcm.png">
   </div>

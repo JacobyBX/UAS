@@ -56,6 +56,7 @@
             console.log("Connected to: " + conn.peer);
             status.innerHTML = "Connected";
             document.getElementById("match-popup-btns").style.display="none";
+            document.getElementById("qrcode").style.display="none";
             document.getElementById("connectedSound").play();
             document.getElementById("shareCodeP").style.display="none";
             document.getElementById("receiver-id").style.display="none";
