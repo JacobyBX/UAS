@@ -89,7 +89,7 @@
       <li> <button onclick= "document.getElementById('matchPopup').style.display='none';;document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';;document.getElementById('battleCardOpen').play();battleStarted = true">Show GameZone</button></li>
       <li> <button onclick= "document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';document.getElementById('attackPopover').style.display='block';;document.getElementById('battleCardOpen').play();battleStarted = true">Show Attack Video</button></li>
       <li> <button onclick= ";document.getElementById('battleCardOpen').play();addCash(10000)">Add $10,000</button></li>
-      <li> <button onclick= " location.reload();;localStorage.clear();;document.getElementById('battleCardOpen').play();">Purge All Data</button></li>
+      <li> <button onclick= " location.reload();localStorage.clear();;document.getElementById('battleCardOpen').play();">Purge All Data</button></li>
 
       <li> <button onclick= "location.reload();">Refresh Page</button></li>
       
@@ -888,8 +888,8 @@ document.getElementById('matchPopup').style.display='block';
 
     <div class="gameView">
 
-      <div id="attackPopover" class="attack-popover ">
-      <video id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay></video>>
+      <div style="display: none !important;" id="attackPopover" class="attack-popover ">
+      <video style="display: none !important;" id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay></video>>
       </div>
     
       

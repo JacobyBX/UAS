@@ -223,6 +223,24 @@ setTimeout(function() {
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
 
+    if(msg.includes("Player2 Healing 1")){
+        
+        alert("healing 1");
+
+    }
+
+    if(msg.includes("Player2 Healing 2")){
+       
+        alert("healing 2");
+
+    }
+
+    if(msg.includes("Player2 Healing 3")){
+       
+        alert("healing 3");
+        
+    }
+
 
        //Player 2 Video Start
 
