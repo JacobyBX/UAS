@@ -2,7 +2,7 @@ window.tankP1Health = 1500;
 window.damageP1Health = 1200;
 window.supportP1Health = 1000;
 window.duoCheck = false;
-
+window.currentState = "null"
 
 
 
@@ -39,6 +39,7 @@ function shieldCheck(){
  */
 
     function shieldHandler(shieldAmount,){
+      currentState = "sheild";
   
       if (currentFlexPick== 1){
         tankSelection()
@@ -80,7 +81,7 @@ damageSelection()
 
     
     function damageHandler(attackItem){
-  
+      currentState = "damage";
 
       if (currentFlexPick== 1){
         tankSelection()
@@ -120,6 +121,7 @@ damageSelection()
 
 
         function healingHandler(healingAmount, amount){
+          currentState = "healing";
 
           if (currentFlexPick== 1){
             tankSelection()
