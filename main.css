@@ -24,9 +24,9 @@ a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.dev-menu {position: fixed; right: 66px; bottom: -215px; background-color: black; z-index: 10000;width: fit-content;color: white;height:267px;overflow: scroll;white-space: nowrap;}
+.dev-menu {position: fixed; right: 66px; bottom: -215px; background-color: black; z-index: 10000;width: fit-content;color: white;height:267px;overflow: scroll;white-space: nowrap;opacity: 0.3;}
 
-.dev-menu:hover {bottom: 0px;}
+.dev-menu:hover {bottom: 0px;opacity: 1;}
 
 .dev-menu > ul > li > button {    padding: 9px;
   background-color:rgb(34, 34, 34);

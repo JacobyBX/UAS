@@ -27,6 +27,42 @@ console.log("Video Check....")
 videoCheck();
 
 
+function EliminationCheckL() {
+
+    if(localHealthMesh1 < 1){
+        document.getElementById("player1CH").style.filter="saturate(0)"; 
+        document.getElementById("player1CH").style.opacity="0.5"; 
+        document.getElementById("player1CH").style.pointerEvents = "none"; 
+     
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh2 < 1){
+        document.getElementById("player2CH").style.filter="saturate(0)"; 
+        document.getElementById("player2CH").style.opacity="0.5"; 
+        document.getElementById("player2CH").style.pointerEvents = "none";  
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+  
+      if(localHealthMesh3 < 1){
+        document.getElementById("player3CH").style.filter="saturate(0)"; 
+        document.getElementById("player3CH").style.opacity="0.5"; 
+        document.getElementById("player3CH").style.pointerEvents = "none";
+      }else{
+        console.log("Character Not Eliminated By Action")
+      }
+
+    console.log("Elimination Check....")
+    
+        setTimeout(EliminationCheckL, 4000);
+    }
+    
+    EliminationCheckL();
+    
+
+
 
 function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,gif3, abilitystat1,abilitystat2, abilitystat3, mcCount , abilitytype1, abilitytype2, abilitytype3, bpoint1, bpoint2, bpoint3, health, vid1,vid2,vid3,vStart1,vStart2,vStart3){
     if(mcCount == 1){

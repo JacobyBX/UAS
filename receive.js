@@ -293,31 +293,6 @@ setTimeout(function() {
 
            // Elimination Check
 
-    if(localHealthMesh1 < 1){
-        document.getElementById("player1CH").style.filter="saturate(0)"; 
-        document.getElementById("player1CH").style.opacity="0.5"; 
-        document.getElementById("player1CH").style.pointerEvents = "none"; 
-     
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh2 < 1){
-        document.getElementById("player2CH").style.filter="saturate(0)"; 
-        document.getElementById("player2CH").style.opacity="0.5"; 
-        document.getElementById("player2CH").style.pointerEvents = "none";  
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh3 < 1){
-        document.getElementById("player3CH").style.filter="saturate(0)"; 
-        document.getElementById("player3CH").style.opacity="0.5"; 
-        document.getElementById("player3CH").style.pointerEvents = "none";
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-
     if(msg.includes("Locked In 2")){
         window.lockedin2 = true;
      }

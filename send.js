@@ -273,32 +273,7 @@ setTimeout(function() {
         }, 1000);
     }
 
-       // Elimination Check
 
-       if(localHealthMesh1 < 1){
-        document.getElementById("player1CH").style.filter="saturate(0)"; 
-        document.getElementById("player1CH").style.opacity="0.5"; 
-        document.getElementById("player1CH").style.pointerEvents = "none"; 
-     
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh2 < 1){
-        document.getElementById("player2CH").style.filter="saturate(0)"; 
-        document.getElementById("player2CH").style.opacity="0.5"; 
-        document.getElementById("player2CH").style.pointerEvents = "none";  
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh3 < 1){
-        document.getElementById("player3CH").style.filter="saturate(0)"; 
-        document.getElementById("player3CH").style.opacity="0.5"; 
-        document.getElementById("player3CH").style.pointerEvents = "none";
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
  
      if(msg.includes("Locked In 1")){
        lockedin1 = true;
@@ -356,7 +331,7 @@ setTimeout(function() {
         var foo2 = msg.substr(62) + "Health";
         someObj2[foo2] = msg.substring(55, 59);
      
-        document.getElementById('player2Health').innerHTML = someObj2[foo2];
+     
             
                  var mgnCount2 = msg.includes("Player2");
                 if (mgnCount2 == true){
