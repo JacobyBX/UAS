@@ -798,11 +798,11 @@ loadedSelectedCount = number
      <p id="shareCodeP">Share Battle Code With Your Friend: </p> <div id="receiver-id" class="friendID" style="font-weight: bold;" title="Copy this ID to the input on send.html."><img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></div>
     </div>
 
-    <input id="text" type="text" value="https://hogangnono.com" style="width:80%" /><br />
+    <input style="display: none;" id="text" type="text" value="https://hogangnono.com" style="width:80%" />
 <div id="qrcode"></div>
 
 <div id="match-popup-btns" class="match-popup-btns">
-  <button onclick="document.getElementById('friend-session').style.display='block';document.getElementById('battleCardOpen').play();	qrcode.makeCode( qrValue1 + document.getElementById('receiver-id').innerHTML);" >Host Match</button>
+  <button onclick="document.getElementById('friend-session').style.display='block';document.getElementById('battleCardOpen').play();	qrcode.makeCode( qrValue1 + document.getElementById('receiver-id').innerHTML);document.getElementById('qrcode').style.display='block'" >Host Match</button>
  <a href="/join.html">
   <button>Join Match</button>
  </a> 
