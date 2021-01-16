@@ -331,8 +331,18 @@ margin-top: -24px;
 
 .result-list {max-width: 500px;margin:auto;;margin-left: -6px; width: 100%;}
 
-.result-list > h4 {margin-left: 10px;font-weight: 600;margin-top: 10px;margin-bottom: 10px;}
+.result-list > h4 {margin-left: 0px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;}
 
+.rsEXC{margin-left: 1px;}
+
+.rsEXC > li {width: 24.5%;}
+
+#skinMenu {display: none;}
 /*------------------------------------------------Match Select--------------------------------------------*/
 
 #lockin-indicator {    margin-bottom: 14px;
@@ -372,9 +382,7 @@ margin-top: -24px;
 
 .match-popup {display:none }
 
-.defocused {background-color: transparent !important; border: solid 1.5px white !important;color: white; ;}
-
-.blob-buttons > button {padding-left: 24px;
+.blob-button{padding-left: 24px;
   font-size: 15px;
   font-weight: 600;
   padding-bottom: 5px;
@@ -382,13 +390,18 @@ margin-top: -24px;
   padding-right: 24px;
   background-color: white;
   border: none;
-  border-radius: 50px;}
+  border-radius: 50px;border: solid 1.5px white ;}
+  
 
   .blob-buttons {      float: right;
     margin-top: -54px;
     margin-right: 18px;
     position: relative;}
 
+    
+.defocused {background-color: transparent ; color: white; ;}
+
+.skin-menu {padding-bottom: 11px;}
 
 
 .friendID > img {    height: 70px;
@@ -518,13 +531,22 @@ margin-top: -24px;
 
 .selection {position: fixed;top: 0px; width: 100%; left: 0px; height: 100vh; z-index: 150;;background-color: transparent;}
 
-.selection-container {background-color: white;
+.selection-container {background-color: transparent;
     position: fixed;
     width: 100%;
     bottom: 0px;
     padding-bottom: 10px;}
 
 .selection-container > p {font-size: 14px;font-weight: 600;width: 100%; text-align: center;padding-top: 10px;}
+
+.sub-selection >p {font-size: 14px;font-weight: 600;width: 100%; text-align: center;padding-top: 10px;}
+
+.sub-selection {margin: auto;
+  width: 90%;
+  border: none;;
+  margin-bottom: 7px;
+  border-radius: 12px;
+  background-color: white;}
 
 #startTheBattle {display: none;}
 

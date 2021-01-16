@@ -120,11 +120,13 @@
   
 </div>
 
+<!---------------------------Character Skins----------------------------->
+
 <script type="text/javascript">
   $(document).ready(function () {
-      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/skins', function (data) {
           var template = Handlebars.compile($('#item-template2').html())
-          $('#anchor2').html(template(data.characters))
+          $('#skins').html(template(data.skins))
       })
   })
 </script>
@@ -134,19 +136,22 @@
 
 <script id="item-template2" type="text/x-handlebars-template">
 
-<div class="character-overflow">
-{{#each this}}
-<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';var {{name}};Health = '{{health}}';">
-<a>
-  <img class="" src="Characters/{{imageLink}}">
-  <h5>{{name}}</h5>
-  <p id="{{id}}lvl">lvl: 0</p>
-</a>
-
-</li>
-
-{{/each}}
-</div>
+  <ul style="margin-bottom: -9px" id="myMenu" class="result-list vivify fadeIn rsEXC "
+  style="padding-left-start {0px;}" >
+  <h4>Character Skins</h4>
+  {{#each this}}
+  <li id="MO{{name}}" class="character-item vivify fadeIn" onclick="selectedImage = 'Skins/{{{image}}}'" >
+  <a>
+    <img onload ="purchaseCheck()" class="" src="Skins/{{image}}">
+    <h5>{{name}}</h5>
+   
+  </a>
+  
+  </li>
+  
+  
+  {{/each}}
+  </ul>
 </script>
 
 
@@ -698,11 +703,34 @@ style="padding-left-start {0px;}">
 <img id="battleBanner" src="https://vignette.wikia.nocookie.net/heros/images/d/de/Muhammad_Avdol_Infobox.png/revision/latest?cb=20200820114430&path-prefix=fr">
 
 <div class="blob-buttons">
-  <button>Info</button>
-  <button class="defocused">Skins</button>
+  <button class="blob-button" id="infoButton" onclick="skinsMenuClose()">Info</button>
+  <button class="defocused blob-button " id="skinButton" onclick="skinsMenuOpen()" >Skins</button>
 </div>
 
- 
+ <script>
+// Skins Selection
+
+function skinsMenuOpen(){
+document.getElementById('stateCardBtn').style.display="none";
+document.getElementById('stateCardStats').style.display="none";
+document.getElementById('skinMenu').style.display="block";
+document.getElementById('skinButton').style.backgroundColor = "white";
+document.getElementById('skinButton').style.color = "black";
+document.getElementById('infoButton').style.backgroundColor = "transparent";
+document.getElementById('infoButton').style.color = "white";
+}
+
+function skinsMenuClose(){
+document.getElementById('stateCardBtn').style.display="block";
+document.getElementById('stateCardStats').style.display="block";
+document.getElementById('skinMenu').style.display="none";
+document.getElementById('skinButton').style.backgroundColor = "transparent";
+document.getElementById('skinButton').style.color = "white";
+document.getElementById('infoButton').style.backgroundColor = "white";
+document.getElementById('infoButton').style.color = "black";
+}
+
+   </script>
 
 
  <div class="card-top">
@@ -716,7 +744,11 @@ style="padding-left-start {0px;}">
    </div>
  </div>
 
- <div class="card-btn">
+ <div class="skin-menu" id="skinMenu">
+<div id="skins"></div>
+ </div>
+
+ <div id="stateCardBtn" class="card-btn">
  
   <button id="addToBattleTeam" onclick="addMember(selectedCharacter,selectedImage, selectedRole,currentAbility1,currentAbility2,currentAbility3,gifLength1,gifLength2,gifLength3, currentAbilityStat1, currentAbilityStat2,currentAbilityStat3, metaCharacterCount, currentAbilityType1, currentAbilityType2,currentAbilityType3, currentBattlepoint1,currentBattlepoint2, currentBattlepoint3,currentCharacterHealthClick, currentVideo1 ,currentVideo2 ,currentVideo3,currentVideoStart1,currentVideoStart2,currentVideoStart3 );closeBattleCard()" class="prominent card-btn-item">Add To Battle Team</button>
 
@@ -729,7 +761,7 @@ style="padding-left-start {0px;}">
   var localDamage3 = 0
   </script>
 
-<div class="card-stats">
+<div id="stateCardStats" class="card-stats">
 <div class="card-stat-item" onclick="localDamage1 = document.getElementById('ability1Stat').innerHTML;selector('1');currentAttackValue = document.getElementById('ability1Stat').innerHTML;currentBattlePointCount = document.getElementById('battlePoint1').innerHTML;itemNumber = '1';stateCheck()">
   <h6><span id="battlePoint1"></span> Battle Points</h6>
   <h5><span id="ability1Stat">15</span><span id="ability1StatText"> Placeholder</span></h5>
@@ -978,6 +1010,9 @@ if (currentlyActive == "Damage"){
   <div class="select-cover vivify fadeIn"></div>
  
   <div class="selection-container vivify fadeInBottom duration-300">
+    <div class="sub-selection">
+
+    
 <p id="selectionText">Select an Enemy to Attack</p>
 
 
@@ -999,6 +1034,10 @@ if (currentlyActive == "Damage"){
       </div>
    
     </div>
+  </div>
+
+
+
   </div>
 </div>
       
