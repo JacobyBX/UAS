@@ -792,7 +792,7 @@ loadedSelectedCount = number
 
     
 <h2>Join Match</h2>
-
+<img class="vivify popOut delay-1500" id="qrcomplete" src="https://i.pinimg.com/originals/e4/af/9f/e4af9f0025a8ce68bee2cf5a1360a501.gif">
 
     <div class="join-session">
         <td><div id="status" class="status"></div></td>
@@ -1140,6 +1140,12 @@ if (currentlyActive == "Damage"){
     </div>
   </div>
 
+  <audio id="qrCode">
+ 
+    <source src="Sound Effects/qrcode.wav" type="audio/mpeg">
+      Your browser does not support the audio tag.
+  </audio>
+
   <audio id="connectedSound" controls>
  
     <source src="Assets/connected.wav" type="audio/mpeg">
@@ -1198,6 +1204,19 @@ window.onload = function() {
   <script>
     window.userStatus = "Player2";
   </script>
+  <script>
+if(window.location.href.includes("#qrconnect") == true)
+{
+
+
+document.getElementById("qrcomplete").style.display="block";
+setTimeout(function() {
+  document.getElementById("qrcomplete").style.display="none";
+  document.getElementById("receiver-id").value= window.location.href.substring(43);
+}, 2400);
+
+}
+    </script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/js/swiper.min.js'></script>
   <script>

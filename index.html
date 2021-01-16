@@ -11,7 +11,7 @@
 
   gtag('config', 'G-8H8HB206V4');
 </script>
-
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.2/css/swiper.min.css'>
       <link rel="manifest" href="manifest.json">
 <script type="text/javascript" src="gifffer.min.js"></script>
@@ -798,12 +798,44 @@ loadedSelectedCount = number
      <p id="shareCodeP">Share Battle Code With Your Friend: </p> <div id="receiver-id" class="friendID" style="font-weight: bold;" title="Copy this ID to the input on send.html."><img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></div>
     </div>
 
+    <input id="text" type="text" value="https://hogangnono.com" style="width:80%" /><br />
+<div id="qrcode"></div>
+
 <div id="match-popup-btns" class="match-popup-btns">
-  <button onclick="document.getElementById('friend-session').style.display='block';document.getElementById('battleCardOpen').play()" >Host Match</button>
+  <button onclick="document.getElementById('friend-session').style.display='block';document.getElementById('battleCardOpen').play();	qrcode.makeCode( qrValue1 + document.getElementById('receiver-id').innerHTML);" >Host Match</button>
  <a href="/join.html">
   <button>Join Match</button>
  </a> 
 </div>
+
+<script>
+  window.qrValue1 = "https://uas3.netlify.app/join.html#qrconnect-";
+  var qrcode = new QRCode("qrcode");
+
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+
+
+		elText.focus();
+		return;
+	}
+	
+
+
+
+makeCode();
+
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
+</script>
   
   </div>
   </div>
