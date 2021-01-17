@@ -512,6 +512,53 @@ document.getElementById("selectionGrid").onclick = function () {
     }
 };
 
+
+
+// Send Healing
+
+document.getElementById("healingSelectionGrid").onclick = function () {
+    if (conn && conn.open) {
+        setTimeout(function(){
+        if(enterState == "1"){
+            setTimeout(function(){
+                var msg6 = "Player2" + " " + 1 + " Healing " + document.getElementById('P1TankHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg6);
+                console.log("Sent: " + msg6)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+            }, 3000);
+        }
+        if(enterState == "2"){
+        setTimeout(function(){
+            var msg7 = "Player2" + " " + 2 + " Healing " + document.getElementById('P1DamageHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg7);
+            console.log("Sent: " + msg7)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+        }, 3000);
+    }
+
+    if(enterState == "3"){
+        setTimeout(function(){
+            var msg8 = "Player2" + " " + 3 + " Healing " + document.getElementById('P1SupportHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg8);
+            console.log("Sent: " + msg8)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+        }, 3000);
+    }
+}, 3000);
+
+    } else {
+        console.log('Connection is closed');
+        alert("Connection Error Please Reconnect")
+    }
+};
+
+
+
+
+
     // Listen for enter in message box
     sendMessageBox.onkeypress = function (e) {
         var event = e || window.event;
@@ -531,6 +578,9 @@ document.getElementById("selectionGrid").onclick = function () {
             console.log('Connection is closed');
         }
     };
+
+    
+
 
     swapButton.onclick = function () {
         if (conn && conn.open) {

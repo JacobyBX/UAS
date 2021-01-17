@@ -223,7 +223,7 @@ setTimeout(function() {
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
 
-    if(msg.includes("Player2 Healing 1")){
+    if(msg.includes("Player2 1 Healing")){
         document.getElementById('P2TankHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeTankP2").style.display="block";
         setTimeout(function(){
@@ -233,7 +233,7 @@ setTimeout(function() {
 
     }
 
-    if(msg.includes("Player2 Healing 2")){
+    if(msg.includes("Player2 2 Healing")){
         document.getElementById('P2DamageHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeDamageP2").style.display="block";
         setTimeout(function(){
@@ -242,7 +242,7 @@ setTimeout(function() {
 
     }
 
-    if(msg.includes("Player2 Healing 3")){
+    if(msg.includes("Player2 3 Healing")){
         document.getElementById('P2SupportHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeSupportP2").style.display="block";
         setTimeout(function(){
@@ -328,7 +328,8 @@ setTimeout(function() {
  
      if (lockedin2 == true && lockedin1 == true){
         document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
-         document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true
+         document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
+         document.getElementById('skinButton').style.display="none";
      }
 
  

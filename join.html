@@ -940,7 +940,7 @@ document.getElementById('matchPopup').style.display='block';
 </div>
 
 <div class="selection-shield-wrapper">
-  <div class="selection-shield">
+  <div id="shieldSelectionGrid" class="selection-shield">
     <button onclick="shieldHandler(1)" class="shield-item"></button>
     <button onclick="shieldHandler(2)" class="shield-item"></button>
     <button onclick="shieldHandler(3)" class="shield-item"></button>
@@ -948,12 +948,13 @@ document.getElementById('matchPopup').style.display='block';
 </div>
 
 <div class="selection-support-wrapper">
-  <div class="selection-shield">
-    <button onclick="healingHandler(1)" class="shield-item"></button>
-    <button onclick="healingHandler(2)" class="shield-item"></button>
-    <button onclick="healingHandler(3)" class="shield-item"></button>
+  <div id="healingSelectionGrid" class="selection-shield">
+    <button onclick="healingHandler(1);enterState = '1'" class="shield-item"></button>
+    <button onclick="healingHandler(2);enterState = '2'" class="shield-item"></button>
+    <button onclick="healingHandler(3);enterState = '3'" class="shield-item"></button>
   </div>
 </div>
+
 
 
 <script>
