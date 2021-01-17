@@ -47,9 +47,9 @@
 
 <div class="character-overflow">
 {{#each this}}
-<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';var {{name}}Health = '{{health}}';">
+<li id="jm{{name}}" class="character-item" onclick="battleCard('{{name}}','Skins/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}');swapBattleCard();selectedCharacter = '{{name}}';selectedImage = 'Skins/{{imageLink}}';var {{name}}Health = '{{health}}';">
 <a>
-  <img class="" src="Characters/{{imageLink}}">
+  <img class="" src="Skins/{{imageLink}}">
   <h5>{{name}}</h5>
   <p id="{{id}}lvl">lvl: 0</p>
 </a>
@@ -79,9 +79,9 @@
   style="padding-left-start {0px;}">
   <h4>My Skins</h4>
 {{#each this}}
-<li class="character-item" onclick="battleCard('{{name}}','Characters/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}');selectedCharacter = '{{name}}';selectedImage = 'Characters/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li class="character-item" onclick="battleCard('{{name}}','Skins/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}');selectedCharacter = '{{name}}';selectedImage = 'Skins/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
   <a>
-    <img class="" src="Characters/{{imageLink}}">
+    <img class="" src="Skins/{{imageLink}}">
     <h5>{{name}}</h5>
     <p class="M{{role}}" id="{{id}}lvl">{{role}}</p>
   </a>
@@ -256,7 +256,7 @@ document.getElementById("swapButton").style.display="block"
 
 <img id="battleBanner" src="https://vignette.wikia.nocookie.net/heros/images/d/de/Muhammad_Avdol_Infobox.png/revision/latest?cb=20200820114430&path-prefix=fr">
  <div class="card-top">
-   <img id="card-img" src="Characters/todoroki.png">
+   <img id="card-img" src="Skins/todoroki.png">
    <h6 class="role-indicator"><span id="role-indicator">Role</span><img id="role-indicator-icon" src="Assets/Tank.svg"></h6>
    <div class="card-top-text">
     
@@ -507,7 +507,7 @@ DCurrentSelected = "P2SupportIcon"
       <h3 id="BtitleTank">Select</h3>
       <p  id="P2TankIcon" class="vivify popIn delay-500"><span id="P2TankHealth"></span>/1500 HP</p>
       </div>
-<img id="BTank"  class="vivify popIn delay-100" src="Characters/chad.png">
+<img id="BTank"  class="vivify popIn delay-100" src="Skins/chad.png">
   </div>
   <div class="hero-item">
     <div class="hero-text">
@@ -515,7 +515,7 @@ DCurrentSelected = "P2SupportIcon"
       <h3 id="BtitleDamage">Select</h3>
       <p id="P2DamageIcon" class="vivify popIn delay-500"><span id="P2DamageHealth"> </span>/1200HP</p>
     </div>
-    <img id="BDamage" class="vivify popIn delay-200" src="Characters/ichigo bankai.png">
+    <img id="BDamage" class="vivify popIn delay-200" src="Skins/ichigo bankai.png">
   </div>
   <div class="hero-item">
     <div class="hero-text">
@@ -523,7 +523,7 @@ DCurrentSelected = "P2SupportIcon"
       <h3 id="BtitleSupport">Select</h3>
       <p  id="P2SupportIcon" class="vivify popIn delay-500"><span id="P2SupportHealth" ></span>/1000 HP</p>
     </div>
-    <img id="BSupport" class="vivify popIn delay-300" src="Characters/naruto kcm.png">
+    <img id="BSupport" class="vivify popIn delay-300" src="Skins/naruto kcm.png">
   </div>
  
 </div>
@@ -541,37 +541,37 @@ DCurrentSelected = "P2SupportIcon"
 
   <div class="hero-gallery">
   
-    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Characters/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item">
+    <div  onclick="battleCard(),Tank();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentTank;document.getElementById('card-img').src= 'Skins/' + currentTank.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentTank + '.png';document.getElementById('ability1Name').innerHTML= tankAbility1;document.getElementById('ability2Name').innerHTML= tankAbility2;document.getElementById('ability3Name').innerHTML= tankAbility3;" class="hero-item">
       <div class="hero-text">
        <button style="background-color: #2D6BFF;" class="shield" id="tankShield"><img src="Assets/shieldIcon.svg"><p ><span id="tankShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleTank">Select</h3>
         <p ><span id="P1TankHealth">1500</span> HP</p>
         </div>
-  <img id="CTank"  class="vivify popIn delay-400" src="Characters/avdol.png">
+  <img id="CTank"  class="vivify popIn delay-400" src="Skins/avdol.png">
   <div class="roleIcon">
     <img src="Assets/blue1.svg">
   </div>
 
     </div>
-    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Characters/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;" class="hero-item">
+    <div onclick="battleCard(),Damage();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentDamage;document.getElementById('card-img').src= 'Skins/' + currentDamage.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentDamage + '.png';document.getElementById('ability1Name').innerHTML= damageAbility1;document.getElementById('ability2Name').innerHTML= damageAbility2;document.getElementById('ability3Name').innerHTML= damageAbility3;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #E20F0F;" class="shield" id="damageShield"><img src="Assets/shieldIcon.svg"><p ><span id="damageShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleDamage">Select</h3>
         <p><span id="P1DamageHealth">1200 </span> HP</p>
       </div>
-      <img id="CDamage" class="vivify popIn delay-500" src="Characters/diane.png">
+      <img id="CDamage" class="vivify popIn delay-500" src="Skins/diane.png">
       <div class="roleIcon">
         <img src="Assets/red1.svg">
       </div>
     
     </div>
-    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Characters/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;" class="hero-item">
+    <div onclick="battleCard(),Support();document.getElementById('addToBattleTeam').style.display='none';document.getElementById('memberName').innerHTML = currentSupport;document.getElementById('card-img').src= 'Skins/' + currentSupport.toLowerCase() + '.png';document.getElementById('battleBanner').src='Banner/' + currentSupport + '.png';document.getElementById('ability1Name').innerHTML= supportAbility1;document.getElementById('ability2Name').innerHTML= supportAbility2;document.getElementById('ability3Name').innerHTML= supportAbility3;" class="hero-item">
       <div class="hero-text">
         <button style="background-color: #14E35F" class="shield" id="supportShield"><img src="Assets/shieldIcon.svg"><p ><span id="supportShieldHealth">100</span>HP Shield</p></button>
         <h3 id="CtitleSupport">Select</h3>
         <p><span id="P1SupportHealth">1000</span> HP</p>
       </div>
-      <img id="CSupport" class="vivify popIn delay-600" src="Characters/hisoka.png">
+      <img id="CSupport" class="vivify popIn delay-600" src="Skins/hisoka.png">
       <div class="roleIcon">
         <img src="Assets/green1.svg">
       </div>

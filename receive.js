@@ -177,27 +177,27 @@ setTimeout(function() {
     
         message.innerHTML = "<br><span class=\"msg-time\">" + h + ":" + m + ":" + s + "</span>  -  " + msg + message.innerHTML;
 
-       if(msg.includes("Player2 1 Init")){
+        if(msg.includes("Player2 1 Init")){
          
 
-           document.getElementById("BTank").src = "Characters/" + msg.substring(50, 63) + ".png";
-           document.getElementById("BtitleTank").innerHTML = msg.substring(50, 63)
-       }
+            document.getElementById("BTank").src = msg.substring(50, 63);
+            document.getElementById("BtitleTank").innerHTML = msg.substring(63);
+        }
+ 
+        if(msg.includes("Player2 2 Init")){
+         
 
-       if(msg.includes("Player2 2 Init")){
-        
-
-        document.getElementById("BDamage").src = "Characters/" + msg.substring(50, 63) + ".png";
-        document.getElementById("BtitleDamage").innerHTML = msg.substring(50, 63)
-    }
-
-    if(msg.includes("Player2 3 Init")){
-       
-
-        document.getElementById("BSupport").src = "Characters/" + msg.substring(50, 63) + ".png";
-        document.getElementById("BtitleSupport").innerHTML = msg.substring(50, 63)
-    }
-
+         document.getElementById("BDamage").src =  msg.substring(50, 63);
+         document.getElementById("BtitleDamage").innerHTML =msg.substring(63);
+     }
+ 
+     if(msg.includes("Player2 3 Init")){
+   
+ 
+         document.getElementById("BSupport").src = msg.substring(50, 63);;
+         document.getElementById("BtitleSupport").innerHTML =msg.substring(63);
+     }
+ 
 
     if(msg.includes("Player2 1 Health")){
        
@@ -224,21 +224,31 @@ setTimeout(function() {
     }
 
     if(msg.includes("Player2 Healing 1")){
-        
-        alert("healing 1");
+        document.getElementById('P2TankHealth').innerHTML = msg.substring(53, 63);
+        document.getElementById("healingBadgeTankP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeTankP2").style.display="none";;
+      }, 8000);
+      
 
     }
 
     if(msg.includes("Player2 Healing 2")){
-       
-        alert("healing 2");
+        document.getElementById('P2DamageHealth').innerHTML = msg.substring(53, 63);
+        document.getElementById("healingBadgeDamageP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeDamageP2").style.display="none";;
+      }, 8000);
 
     }
 
     if(msg.includes("Player2 Healing 3")){
-       
-        alert("healing 3");
-        
+        document.getElementById('P2SupportHealth').innerHTML = msg.substring(53, 63);
+        document.getElementById("healingBadgeSupportP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeSupportP2").style.display="none";;
+      }, 8000);
+
     }
 
 
@@ -332,7 +342,7 @@ setTimeout(function() {
                 document.getElementById('player2Name').innerHTML = msg.substr(66);
                 alert("Character Name2: " + msg.substr(66))
                 document.getElementById('player2Health').innerHTML = msg.substring(58, 63);
-                document.getElementById('player2Image').src= "Characters/" + msg.substr(66) + ".png"
+                document.getElementById('player2Image').src= "Skins/" + msg.substr(66) + ".png"
                 var someObj2 = {};
                 var foo2 = msg.substr(66) + "Health";
                 window.someObj2[foo2] = msg.substring(58, 63);;
@@ -341,7 +351,7 @@ setTimeout(function() {
 
             var swapCount2 = msg.includes("Swap");
             if(swapCount2 == true){
-            document.getElementById('player2Image').src= "Characters/" + msg.substr(62) + ".png"
+            document.getElementById('player2Image').src= "Skins/" + msg.substr(62) + ".png"
             document.getElementById('player2Name').innerHTML = msg.substr(62);
             document.getElementById('player2Health').innerHTML = msg.substring(55, 59);
             theglobalHealth2 = msg.substring(55, 59);
@@ -401,6 +411,50 @@ if(enemyStatCount2 == true){
             alert("Connection Error Please Reconnect")
         }
     };
+
+
+// Send Healing
+
+document.getElementById("healingSelectionGrid").onclick = function () {
+    if (conn && conn.open) {
+        setTimeout(function(){
+        if(enterState == "1"){
+            setTimeout(function(){
+                var msg6 = "Player1" + " " + 1 + " Healing " + document.getElementById('P1TankHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg6);
+                console.log("Sent: " + msg6)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+            }, 3000);
+        }
+        if(enterState == "2"){
+        setTimeout(function(){
+            var msg7 = "Player1" + " " + 2 + " Healing " + document.getElementById('P1DamageHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg7);
+            console.log("Sent: " + msg7)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+        }, 3000);
+    }
+
+    if(enterState == "3"){
+        setTimeout(function(){
+            var msg8 = "Player1" + " " + 3 + " Healing " + document.getElementById('P1SupportHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg8);
+            console.log("Sent: " + msg8)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+        }, 3000);
+    }
+}, 3000);
+
+    } else {
+        console.log('Connection is closed');
+        alert("Connection Error Please Reconnect")
+    }
+};
+
+
 
 
 // Send Damage

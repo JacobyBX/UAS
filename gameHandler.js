@@ -72,6 +72,8 @@ function addMember(name, imageUrl, role, ability1, ability2,ability3,gif1,gif2,g
      document.getElementById("titleTank").innerHTML = name;
 document.getElementById('previewHealth1').innerHTML = health;
 window.localHealthMesh1 = health;
+
+window.tankSkin = imageUrl;
     
      window.tankAbility1 = ability1;
      window.tankAbility2 = ability2;
@@ -119,6 +121,8 @@ window.localHealthMesh1 = health;
      window.supportAbility2 = ability2;
      window.supportAbility3 = ability3;
 
+     window.supportSkin = imageUrl;
+
      window.supportGifCount1 = gif1
      window.supportGifCount2 = gif2
      window.supportGifCount3 = gif3
@@ -154,6 +158,8 @@ window.localHealthMesh1 = health;
       document.getElementById("titleDamage").innerHTML = name;
       document.getElementById('previewHealth2').innerHTML = health;
       window.localHealthMesh2 = health;
+
+      window.damageSkin = imageUrl;
     
       window.damageAbility1 = ability1;
      window.damageAbility2 = ability2;
@@ -202,13 +208,16 @@ window.localHealthMesh1 = health;
       document.getElementById('P1SupportHealth').innerHTML = localHealthMesh3;
 
      
-window.p1U = userStatus + " " + 1 + " Init " + document.getElementById("titleTank").innerHTML.toLowerCase();
+window.p1U = userStatus + " " + 1 + " Init " + tankSkin + 
+" "  + document.getElementById("titleTank").innerHTML.toLowerCase();
 
 
-window.p2U = userStatus + " " + 2 + " Init " + document.getElementById("titleDamage").innerHTML.toLowerCase();
+window.p2U = userStatus + " " + 2 + " Init " + damageSkin + 
+" "  + document.getElementById("titleDamage").innerHTML.toLowerCase();
 
 
-window.p3U = userStatus + " " + 3 + " Init " + document.getElementById("titleSupport").innerHTML.toLowerCase();
+window.p3U = userStatus + " " + 3 + " Init " + supportSkin + 
+" "  + document.getElementById("titleSupport").innerHTML.toLowerCase();
 
 
 window.Healthp1U = userStatus + " " + 1 + " Health " + localHealthMesh1;

@@ -160,25 +160,26 @@ setTimeout(function() {
 
         if(msg.includes("Player1 1 Init")){
          
- 
-            document.getElementById("BTank").src = "Characters/" + msg.substring(50, 63) + ".png";
-            document.getElementById("BtitleTank").innerHTML = msg.substring(50, 63)
+
+            document.getElementById("BTank").src = msg.substring(50, 63);
+            document.getElementById("BtitleTank").innerHTML = msg.substring(63);
         }
  
         if(msg.includes("Player1 2 Init")){
-       
- 
-         document.getElementById("BDamage").src = "Characters/" + msg.substring(50, 63) + ".png";
-         document.getElementById("BtitleDamage").innerHTML = msg.substring(50, 63)
+         
+
+         document.getElementById("BDamage").src =  msg.substring(50, 63);
+         document.getElementById("BtitleDamage").innerHTML =msg.substring(63);
      }
  
      if(msg.includes("Player1 3 Init")){
-        
+   
  
-         document.getElementById("BSupport").src = "Characters/" + msg.substring(50, 63) + ".png";
-         document.getElementById("BtitleSupport").innerHTML = msg.substring(50, 63)
+         document.getElementById("BSupport").src = msg.substring(50, 63);;
+         document.getElementById("BtitleSupport").innerHTML =msg.substring(63);
      }
-
+ 
+ 
      
     if(msg.includes("Player1 1 Health")){
        
@@ -202,6 +203,35 @@ setTimeout(function() {
   
       enemyHealth3 = parseInt(msg.substring(52, 63)) 
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
+    }
+
+
+    if(msg.includes("Player1 Healing 1")){
+        
+        document.getElementById("healingBadgeTankP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeTankP2").style.display="none";;
+      }, 8000);
+      
+
+    }
+
+    if(msg.includes("Player1 Healing 2")){
+       
+        document.getElementById("healingBadgeDamageP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeDamageP2").style.display="none";;
+      }, 8000);
+
+    }
+
+    if(msg.includes("Player1 Healing 3")){
+       
+        document.getElementById("healingBadgeSupportP2").style.display="block";
+        setTimeout(function(){
+          document.getElementById("healingBadgeSupportP2").style.display="none";;
+      }, 8000);
+
     }
 
 
@@ -300,7 +330,7 @@ setTimeout(function() {
         
                     var swapCount = msg.includes("Swap");
                     if(swapCount == true){
-                    document.getElementById('player1Image').src= "Characters/" + msg.substr(62) + ".png"
+                    document.getElementById('player1Image').src= "Skins/" + msg.substr(62) + ".png"
                     document.getElementById('player1Name').innerHTML = msg.substr(62);
                     document.getElementById('player1Health').innerHTML = msg.substring(55, 59);
                     theglobalHealth = msg.substring(55, 59);
@@ -338,7 +368,7 @@ setTimeout(function() {
         
                     var swapCount2 = msg.includes("Swap");
                     if(swapCount2 == true){
-                    document.getElementById('player2Image').src= "Characters/" + msg.substr(62) + ".png"
+                    document.getElementById('player2Image').src= "Skins/" + msg.substr(62) + ".png"
                     document.getElementById('player2Name').innerHTML = msg.substr(62);
                     document.getElementById('player2Health').innerHTML = msg.substring(55, 59);
                     theglobalHealth2 = msg.substring(55, 59);

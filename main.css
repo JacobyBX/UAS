@@ -380,7 +380,7 @@ margin-top: -24px;
 
 #matchSelect {display:none}
 
-.match-popup {display:none }
+.match-popup {display: }
 
 .blob-button{padding-left: 24px;
   font-size: 15px;
