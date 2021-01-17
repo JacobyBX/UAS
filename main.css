@@ -454,6 +454,43 @@ margin-top: -24px;
 
     #friend-session {display: none;}
 
+/*---------------------------------------------Register-------------------------------------------------*/
+
+.register {position: fixed; top: 0px; left: 0px; width: 100%; height: 100vh;    background-color: rgba(0, 0, 0, 0.555);z-index: 400;}
+
+.register-container {position:fixed; bottom: 0px;background-color: white;width: 100%;;}
+
+.icon-item  {width:70px; height: 70px;display: inline-block;margin-left: 5px;pointer-events: none;}
+.icon-item > label {width: 70px; height: 70px;background-color: transparent; border: none;}
+
+.icon-item > label > img {width: 100%; height: 100%;object-fit: cover;border-radius: 50px;border: solid 3px white;transition: 0.2s ease;}
+.icon-list {height: 100px;overflow: scroll;white-space: nowrap;}
+
+.input-container {margin: auto;width: 92%;}
+
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+border: solid 3px red;
+}
+
+.URLock {position: relative;z-index: 5;width: 70px; height: 70px;    top: -3px;
+  margin-left: -77px;}
+
+
+
 /*---------------------------------------------Game Zone--------------------------------------------------*/
 
 .shield {border: none; color: white;border-radius: 50px; padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;width: 114%;

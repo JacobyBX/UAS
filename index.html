@@ -120,6 +120,53 @@
   
 </div>
 
+
+<!---------------------------Profile Icons----------------------------->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+          var template = Handlebars.compile($('#item-template73').html())
+          $('#icons').html(template(data.characters))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-template73" type="text/x-handlebars-template">
+
+  <ul style="margin-bottom: -9px"  class="icon-list"
+  >
+
+  <div id="iconSpannerM" ></div>
+
+  {{#each this}}
+  
+  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play()">
+
+    
+    <label>
+      <input type="radio" name="icon" value="small" >
+      <img loading="lazy" src="/Banner/{{name}}.png">
+   
+    </label>
+    <img class="URLock" id="URLock{{name}}" src="assets/lock.svg">
+  </div>
+
+
+  
+  
+  {{/each}}
+  </ul>
+</script>
+
+
+
+
+
+
 <!---------------------------Character Skins----------------------------->
 
 <script type="text/javascript">
@@ -905,6 +952,30 @@ $("#text").
   </div>
   </div>
 </div>
+
+
+
+
+<div class="register">
+  <div class="register-container">
+    <div class="registration">
+      <h3>Create Profile</h3>
+      <label>Profile Icon</label>
+      <div id="icons"></div>
+      <div class="input-container">
+        <label>Username</label>
+        <br>
+        <input class="connect-input" type="text" placeholder="Unique Name">
+      </div>
+  
+      <div class="card-btn">
+        <button style="background-color: #D80202">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 

@@ -1,8 +1,13 @@
+window.spannerWidth= 10;
+window.iconWidth = -80;
+window.startState = 80;
 function purchaseCheck(checkName){
 console.log("Checking Purchase Status")
-if(localStorage.getItem(checkName) == 'owned'){
+if(localStorage.getItem(checkName) == 'owned' || localStorage.getItem(checkName) == 'true' ){
 document.getElementById('MO' + checkName).style.display="inline-block";
 document.getElementById('EM' + checkName).style.display="none";
+document.getElementById('URLock' + checkName).style.zIndex = "-1";
+document.getElementById('icon' + checkName).style.pointerEvents = "all"
 }
 }
 
