@@ -223,6 +223,9 @@ setTimeout(function() {
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
 
+//Detect Healing
+
+
     if(msg.includes("Player2 1 Healing")){
         document.getElementById('P2TankHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeTankP2").style.display="block";
@@ -251,6 +254,30 @@ setTimeout(function() {
 
     }
 
+
+    //Detect Shield
+
+    if(msg.includes("Player2 1 Shield")){
+
+    
+            document.getElementById('P2TankHealth').innerHTML = msg.substring(52, 63);
+            document.getElementById("tankShieldP2").style.display="block";
+            document.getElementsByClassName("select-cover")[0].style.top = "285px";
+    }
+
+    if(msg.includes("Player2 2 Shield")){
+  
+            document.getElementById('P2DamageHealth').innerHTML = msg.substring(52, 63);
+            document.getElementById("damageShieldP2").style.display="block";   
+            document.getElementsByClassName("select-cover")[0].style.top = "285px";
+    }
+
+    if(msg.includes("Player2 3 Shield")){
+        document.getElementById('P2SupportHealth').innerHTML = msg.substring(52, 63);
+        document.getElementById("supportShieldP2").style.display="block";
+        document.getElementsByClassName("select-cover")[0].style.top = "285px";
+    }
+    
 
        //Player 2 Video Start
 
@@ -294,6 +321,13 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CTank").style.display="block";
             }, local2VideoLength);
+            if(dmgState1 == false){
+            setTimeout(function(){
+            document.getElementById("SecondaryHealth1P2").innerHTML = document.getElementById("P2TankHealth").innerHTML;
+            document.getElementById("SecondaryHealth1P1").innerHTML = document.getElementById("P1TankHealth").innerHTML;
+        }, 7000);
+        window.dmgState1 = true;
+    }
         }
     
         if(msg.includes("Player1 2 Health")){
@@ -306,6 +340,16 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CDamage").style.display="block";
             }, local2VideoLength);
+
+            if(dmgState2 == false){
+                setTimeout(function(){
+                    document.getElementById("SecondaryHealth2P2").innerHTML = document.getElementById("P2DamageHealth").innerHTML;
+                    document.getElementById("SecondaryHealth2P1").innerHTML = document.getElementById("P1DamageHealth").innerHTML;
+                }, 7000);
+                window.dmgState2 = true;
+            }
+        
+           
         }
     
         if(msg.includes("Player1 3 Health")){
@@ -318,6 +362,14 @@ setTimeout(function() {
             setTimeout(function(){
                 document.getElementById("CSupport").style.display="block";
             }, local2VideoLength);
+
+            if(dmgState3 == false){
+            setTimeout(function(){
+            document.getElementById("SecondaryHealth3P2").innerHTML = document.getElementById("P2SupportHealth").innerHTML;
+            document.getElementById("SecondaryHealth3P1").innerHTML = document.getElementById("P1SupportHealth").innerHTML;
+        }, 7000);
+        window.dmgState3 = true;
+    }
         }
 
            // Elimination Check
@@ -412,7 +464,47 @@ if(enemyStatCount2 == true){
             alert("Connection Error Please Reconnect")
         }
     };
+// Send Shield 
 
+
+document.getElementById("shieldSelectionGrid").onclick = function () {
+    if (conn && conn.open) {
+        setTimeout(function(){
+        if(enterStateS == "1"){
+            setTimeout(function(){
+                var msg6 = "Player1" + " " + 1 + " Shield " + document.getElementById('P1TankHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg6);
+                console.log("Sent: " + msg6)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+            }, 1000);
+        }
+        if(enterStateS == "2"){
+        setTimeout(function(){
+            var msg7 = "Player1" + " " + 2 + " Shield " + document.getElementById('P1DamageHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg7);
+            console.log("Sent: " + msg7)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+        }, 1000);
+    }
+
+    if(enterStateS == "3"){
+        setTimeout(function(){
+            var msg8 = "Player1" + " " + 3 + " Shield " + document.getElementById('P1SupportHealth').innerHTML;
+            sendMessageBox.value = "";
+            conn.send(msg8);
+            console.log("Sent: " + msg8)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+        }, 1000);
+    }
+}, 3000);
+
+    } else {
+        console.log('Connection is closed');
+        alert("Connection Error Please Reconnect")
+    }
+};
 
 // Send Healing
 
@@ -426,7 +518,7 @@ document.getElementById("healingSelectionGrid").onclick = function () {
                 conn.send(msg6);
                 console.log("Sent: " + msg6)
                 addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
-            }, 3000);
+            }, 1000);
         }
         if(enterState == "2"){
         setTimeout(function(){
@@ -435,7 +527,7 @@ document.getElementById("healingSelectionGrid").onclick = function () {
             conn.send(msg7);
             console.log("Sent: " + msg7)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
-        }, 3000);
+        }, 1000);
     }
 
     if(enterState == "3"){
@@ -445,7 +537,7 @@ document.getElementById("healingSelectionGrid").onclick = function () {
             conn.send(msg8);
             console.log("Sent: " + msg8)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
-        }, 3000);
+        }, 1000);
     }
 }, 3000);
 
@@ -462,41 +554,38 @@ document.getElementById("healingSelectionGrid").onclick = function () {
 
 document.getElementById("selectionGrid").onclick = function () {
     if (conn && conn.open) {
-        setTimeout(function(){
-            var msg6 = "Player2" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg6);
-            console.log("Sent: " + msg6)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
-        }, 3000);
-        setTimeout(function(){
-            var msg7 = "Player2" + " " + 2 + " Health " + document.getElementById('P2DamageHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg7);
-            console.log("Sent: " + msg7)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
-        }, 3000);
-        setTimeout(function(){
-            var msg8 = "Player2" + " " + 3 + " Health " + document.getElementById('P2SupportHealth').innerHTML;
-            sendMessageBox.value = "";
-            conn.send(msg8);
-            console.log("Sent: " + msg8)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
-        }, 3000);
-        setTimeout(function(){
-            var msg12 = "Player1" + " Video " + timeTilDelete + " " + currentVideoPlaying;
-            sendMessageBox.value = "";
-            conn.send(msg12);
-            console.log("Sent: " + msg12)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg12);
-        }, 3000);
-        setTimeout(function(){
-            var msg13 = "Player1" + " Start " + currentVideoStart;
-            sendMessageBox.value = "";
-            conn.send(msg13);
-            console.log("Sent: " + msg13)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msg13);
-        }, 3000);
+        if(enterStateO == 1){
+            setTimeout(function(){
+                var msg6 = "Player2" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg6);
+                console.log("Sent: " + msg6)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg6);
+            }, 1000);
+        }
+   
+        if(enterStateO == 2){
+            setTimeout(function(){
+                var msg7 = "Player2" + " " + 2 + " Health " + document.getElementById('P2DamageHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg7);
+                console.log("Sent: " + msg7)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg7);
+            }, 1000);
+        }
+
+        if (enterStateO == 3){
+            setTimeout(function(){
+                var msg8 = "Player2" + " " + 3 + " Health " + document.getElementById('P2SupportHealth').innerHTML;
+                sendMessageBox.value = "";
+                conn.send(msg8);
+                console.log("Sent: " + msg8)
+                addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
+            }, 1000);
+        }
+ 
+     
+     
    //Player1 Video 7750 https://youtu.be/1qHvNesC57o
    //Player1 Start 84
     } else {

@@ -54,15 +54,15 @@ damageSelection()
   if (shieldAmount == 1){
     document.getElementById("tankShield").style.display = "block";
     document.getElementById("tankShieldHealth").innerHTML = currentAttackValue;
-    tankP1Health = tankP1Health + parseInt(currentAttackValue);
-    document.getElementById("P1TankHealth").innerHTML = tankP1Health
+    localHealthMesh1 =  parseInt(localHealthMesh1) + parseInt(currentAttackValue);
+    document.getElementById("P1TankHealth").innerHTML =  localHealthMesh1
   }
   if (shieldAmount == 2){
 
   document.getElementById("damageShield").style.display = "block";
   document.getElementById("damageShieldHealth").innerHTML = currentAttackValue;
-  damageP1Health = damageP1Health + parseInt(currentAttackValue);
-  document.getElementById("P1DamageHealth").innerHTML = damageP1Health
+  localHealthMesh2 =  parseInt(localHealthMesh2) + parseInt(currentAttackValue);
+  document.getElementById("P1DamageHealth").innerHTML =  localHealthMesh2
 
   }
 
@@ -70,8 +70,8 @@ damageSelection()
 
   document.getElementById("supportShield").style.display = "block";
   document.getElementById("supportShieldHealth").innerHTML = currentAttackValue;
-  supportP1Health = supportP1Health + parseInt(currentAttackValue);
-  document.getElementById("P1SupportHealth").innerHTML = supportP1Health
+  localHealthMesh3 =  parseInt(localHealthMesh3) + parseInt(currentAttackValue);
+  document.getElementById("P1SupportHealth").innerHTML =  localHealthMesh3
 
 
   }

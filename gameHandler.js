@@ -4,6 +4,9 @@ window.currentAttackValue = 0;
 window.currentBattlePointCount = 0;
 window.local2VideoLength = "";
 window.local2Video = "";
+window.dmgState1 = false;
+window.dmgState2 = false;
+window.dmgState3 = false;
 
 if (mediaQuery.matches) {
 

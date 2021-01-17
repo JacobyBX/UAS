@@ -466,6 +466,11 @@ margin-top: -24px;
 #supportShield{display: none;}
 
 
+#damageShieldP2{display: none}
+#tankShieldP2{display: none;}
+#supportShieldP2{display: none;}
+
+
 .shield > img {float: left;}
 
 .shield > p {    display: inline-block;
