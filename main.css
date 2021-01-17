@@ -468,6 +468,8 @@ margin-top: -24px;
 
 .input-container {margin: auto;width: 92%;}
 
+.input-container > h3 {padding-top: 20px;}
+
 /* HIDE RADIO */
 [type=radio] { 
   position: absolute;
@@ -487,9 +489,16 @@ border: solid 3px red;
 }
 
 .URLock {position: relative;z-index: 5;width: 70px; height: 70px;    top: -3px;
-  margin-left: -77px;}
+  margin-left: -70px;border-radius: 50px;}
 
+  .URLock:active {background-color: red;}
 
+#URLockNaruto {z-index: -1;}
+#iconNaruto {pointer-events: all !important;}
+#URLockRukia {z-index: -1;}
+#iconRukia {pointer-events: all !important;}
+#URLockJotaro {z-index: -1;}
+#iconJotaro {pointer-events: all !important;}
 
 /*---------------------------------------------Game Zone--------------------------------------------------*/
 

@@ -152,9 +152,9 @@
       <img loading="lazy" src="/Banner/{{name}}.png">
    
     </label>
-    <img class="URLock" id="URLock{{name}}" src="assets/lock.svg">
+   
   </div>
-
+  <img onclick="document.getElementById('negativeSound').play()" class="URLock" id="URLock{{name}}" src="assets/lock.svg">
 
   
   
@@ -454,7 +454,7 @@ document.getElementById("swapButton").style.display="block"
        
      <div class="card-btn">
      
-      <button onclick="document.getElementById('battleCardOpen').play();completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
+      <button onclick="completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
     
       <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';document.getElementById('battleCardOpen').play()" class="purchase-secondary card-btn-item" >Browse Battle Card</button>
     </div>
@@ -959,8 +959,11 @@ $("#text").
 <div class="register">
   <div class="register-container">
     <div class="registration">
-      <h3>Create Profile</h3>
-      <label>Profile Icon</label>
+      <div class="input-container">
+        <h3>Create Profile</h3>
+        <label>Profile Icon</label>
+      </div>
+    
       <div id="icons"></div>
       <div class="input-container">
         <label>Username</label>
@@ -1340,6 +1343,11 @@ if (currentlyActive == "Damage"){
   
     </div>
   </div>
+  <audio id="negativeSound">
+ 
+    <source src="Sound Effects/131657__bertrof__game-sound-wrong.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
   <audio id="skinSound">
  
     <source src="Sound Effects/274179__littlerobotsoundfactory__jingle-win-synth-01.wav" type="audio/mpeg">

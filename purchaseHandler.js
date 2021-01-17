@@ -94,6 +94,7 @@ function completePurchase(){
              document.getElementById('EM' + currentSelectedPurchase).style.display="none";
          }, 3200);
     }else{
+        document.getElementById('negativeSound').play()
         alert("You do not have enough battlepoints.")
     }
 
