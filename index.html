@@ -144,7 +144,7 @@
 
   {{#each this}}
   
-  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play()">
+  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play();profileSelected = true; localStorage.setItem('ProfileIcon', '{{name}}') ">
 
     
     <label>
@@ -154,7 +154,7 @@
     </label>
    
   </div>
-  <img onclick="document.getElementById('negativeSound').play()" class="URLock" id="URLock{{name}}" src="assets/lock.svg">
+  <img onclick="document.getElementById('negativeSound').play();alert('Purchase {{name}} in the Character Shop to get this icon.')" class="URLock" id="URLock{{name}}" src="assets/lock.svg">
 
   
   
@@ -189,7 +189,7 @@
   {{#each this}}
   <li class="skinM character-item vivify fadeIn QEX{{characterName}}" onclick="selectedImage = 'skins/{{{image}}}';document.getElementById('card-img').src='skins/{{{image}}}';document.getElementById('skinSound').play();" >
   <a>
-    <img onload ="purchaseCheck()" class="" src="skins/{{image}}">
+    <img loading="lazy" onload ="purchaseCheck()" class="" src="skins/{{image}}">
     <h5>{{name}}</h5>
    
   </a>
@@ -953,10 +953,23 @@ $("#text").
   </div>
 </div>
 
+<div id="welcome" class="welcome-profile ">
+  <div class="welcome-item vivify fadeOutRight delay-2000 duration-400">
+    <div class="welcome-img-container">
+      <img id="welcomeIcon" src="Banner/Allmight.png">
+    </div>
+    <div class="welcome-text">
+      <h4>
+        Welcome
+      </h4>
+      <h2 id="welcomeName">User</h2>
+    </div>
+
+  </div>
+</div>
 
 
-
-<div class="register">
+<div id="register" class="register">
   <div class="register-container">
     <div class="registration">
       <div class="input-container">
@@ -968,11 +981,11 @@ $("#text").
       <div class="input-container">
         <label>Username</label>
         <br>
-        <input class="connect-input" type="text" placeholder="Unique Name">
+        <input id="usernameInput" oninput=" localStorage.setItem('Username', document.getElementById('usernameInput').value) " class="connect-input" type="text" placeholder="Unique Name">
       </div>
   
       <div class="card-btn">
-        <button style="background-color: #D80202">Submit</button>
+        <button onclick="authCheck()" style="background-color: #D80202">Submit</button>
       </div>
 
     </div>

@@ -7,10 +7,45 @@ window.local2Video = "";
 window.dmgState1 = false;
 window.dmgState2 = false;
 window.dmgState3 = false;
+window.profileSelected= "";
 
 if (mediaQuery.matches) {
 
 }
+
+setTimeout(function() {
+    
+  document.getElementById('welcome').style.display="none";
+},4000);
+
+window.profileIcon = localStorage.getItem('Username');
+
+function authCheck(){
+  if(profileSelected == true && document.getElementById("usernameInput").value.length >= 1){
+document.getElementById('register').style.display="none";
+document.getElementById('welcome').style.display="block";
+document.getElementById('welcomeName').innerHTML = localStorage.getItem('Username');
+document.getElementById('skinSound').play();
+document.getElementById('welcomeIcon').src="Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+setTimeout(function() {
+    
+  document.getElementById('welcome').style.display="none";
+},3000);
+
+  }else{
+  
+    if(profileSelected == ""){
+      document.getElementById('negativeSound').play();
+      alert("Error: Please Select A Profile Icon")
+    } 
+    if(document.getElementById("usernameInput").value.length == 0){
+      document.getElementById('negativeSound').play();
+      alert("Error: Please Enter A Username")
+    } 
+  }
+}
+
+
 
 window.videoState = false;
 window.currentVideoPlaying = "";

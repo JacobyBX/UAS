@@ -16,11 +16,14 @@ window.startupCount = 0;
 function starter(startName, startUserState){
     if(localStorage.getItem("newuser") == "false"){
        purchaseCheck(startName)
-       document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln");  
+   
     
     }else{
      console.log(startName);
      startupCount = startupCount + 1;
+     document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln"); 
+     
+   
      localStorage.setItem(startName, startUserState);
      localStorage.setItem("newuser", false);
      localStorage.setItem("A3muIln", 50);
