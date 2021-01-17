@@ -342,7 +342,7 @@ setTimeout(function() {
                 document.getElementById('player2Name').innerHTML = msg.substr(66);
                 alert("Character Name2: " + msg.substr(66))
                 document.getElementById('player2Health').innerHTML = msg.substring(58, 63);
-                document.getElementById('player2Image').src= "Skins/" + msg.substr(66) + ".png"
+                document.getElementById('player2Image').src= "skins/" + msg.substr(66) + ".png"
                 var someObj2 = {};
                 var foo2 = msg.substr(66) + "Health";
                 window.someObj2[foo2] = msg.substring(58, 63);;
@@ -351,7 +351,7 @@ setTimeout(function() {
 
             var swapCount2 = msg.includes("Swap");
             if(swapCount2 == true){
-            document.getElementById('player2Image').src= "Skins/" + msg.substr(62) + ".png"
+            document.getElementById('player2Image').src= "skins/" + msg.substr(62) + ".png"
             document.getElementById('player2Name').innerHTML = msg.substr(62);
             document.getElementById('player2Health').innerHTML = msg.substring(55, 59);
             theglobalHealth2 = msg.substring(55, 59);
