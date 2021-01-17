@@ -205,19 +205,17 @@ setTimeout(function() {
  document.getElementById('P2SupportHealth').innerHTML = parseInt(msg.substring(52, 63)) 
     }
 
-
     if(msg.includes("Player1 Healing 1")){
-        
+        document.getElementById('P2TankHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeTankP2").style.display="block";
         setTimeout(function(){
           document.getElementById("healingBadgeTankP2").style.display="none";;
       }, 8000);
-      
-
+    
     }
 
     if(msg.includes("Player1 Healing 2")){
-       
+        document.getElementById('P2DamageHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeDamageP2").style.display="block";
         setTimeout(function(){
           document.getElementById("healingBadgeDamageP2").style.display="none";;
@@ -226,7 +224,7 @@ setTimeout(function() {
     }
 
     if(msg.includes("Player1 Healing 3")){
-       
+        document.getElementById('P2SupportHealth').innerHTML = msg.substring(53, 63);
         document.getElementById("healingBadgeSupportP2").style.display="block";
         setTimeout(function(){
           document.getElementById("healingBadgeSupportP2").style.display="none";;
