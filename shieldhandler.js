@@ -139,8 +139,8 @@ damageSelection()
                 setTimeout(function(){
                     document.getElementById("healingBadgeTank").style.display="none";;
                 }, 10000);
-                tankP1Health = tankP1Health + healingAmountTotal;
-                document.getElementById("P1TankHealth").innerHTML = tankP1Health;
+                localHealthMesh1 = parseInt(localHealthMesh1) + healingAmountTotal;
+                document.getElementById("P1TankHealth").innerHTML = localHealthMesh1;
             }
             if (healingAmount == 2){
                
@@ -149,8 +149,8 @@ damageSelection()
               setTimeout(function(){
                 document.getElementById("healingBadgeDamage").style.display="none";;
             }, 10000);
-            damageP1Health = damageP1Health + healingAmountTotal;
-            document.getElementById("P1DamageHealth").innerHTML = damageP1Health;
+            localHealthMesh2 = parseInt(localHealthMesh2) + healingAmountTotal;
+            document.getElementById("P1DamageHealth").innerHTML = localHealthMesh2;
             }
           
             if (healingAmount == 3){
@@ -159,8 +159,8 @@ damageSelection()
               setTimeout(function(){
                 document.getElementById("healingBadgeSupport").style.display="none";;
             }, 10000);
-            supportP1Health = supportP1Health + healingAmountTotal;
-            document.getElementById("P1SupportHealth").innerHTML = supportP1Health;
+            localHealthMesh3 = parseInt(localHealthMesh3) + healingAmountTotal;
+            document.getElementById("P1SupportHealth").innerHTML = localHealthMesh3;
           
             }
             

@@ -380,7 +380,9 @@ margin-top: -24px;
 
 #matchSelect {display:none}
 
-.match-popup {display: }
+.match-popup {display: none}
+
+.battle-point-wrapper{}
 
 .blob-button{padding-left: 24px;
   font-size: 15px;

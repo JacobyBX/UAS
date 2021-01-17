@@ -140,7 +140,7 @@
   style="padding-left-start {0px;}" >
   <h4>Character Skins</h4>
   {{#each this}}
-  <li class="skinM character-item vivify fadeIn QEX{{characterName}}" onclick="selectedImage = 'skins/{{{image}}}'" >
+  <li class="skinM character-item vivify fadeIn QEX{{characterName}}" onclick="selectedImage = 'skins/{{{image}}}';document.getElementById('card-img').src='skins/{{{image}}}';document.getElementById('skinSound').play();" >
   <a>
     <img onload ="purchaseCheck()" class="" src="skins/{{image}}">
     <h5>{{name}}</h5>
@@ -175,7 +175,7 @@
 style="padding-left-start {0px;}">
 <h4>Owned Characters</h4>
 {{#each this}}
-<li id="MO{{name}}" class="character-item owned vivify popIn" onclick="MCase = true;battleCard('{{name}}','skins/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '{{battlePoint1}}', '{{battlePoint2}}', '{{battlePoint3}},{{videoLink1}}','{{videoLink1}}', '{{videoLink2}}','{{videoLink3}}','{{videoStart1}}','{{videoStart2}}','{{videoStart3}}' );selectedCharacter = '{{name}}';selectedImage = 'skins/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
+<li id="MO{{name}}" class="character-item owned vivify popIn" onclick="MCase = true;battleCard('{{name}}','skins/{{imageLink}}', '{{abilityStat1}}', '{{abilityType1}}','{{abilityName1}}', '{{abilityStat2}}', '{{abilityType2}}','{{abilityName2}}', '{{abilityStat3}}', '{{abilityType3}}','{{abilityName3}}', '{{abilityStat4}}', '{{abilityType4}}','{{abilityName4}}', '{{ultimateType}}', '{{ultimateName}}', '{{ultimateStat}}', '{{health}}', '{{banner}}','{{gifLength1}}','{{gifLength2}}','{{gifLength3}}', '{{health}}', '1', '1', '1','{{videoLink1}}','{{videoLink1}}', '{{videoLink2}}','{{videoLink3}}','{{videoStart1}}','{{videoStart2}}','{{videoStart3}}' );selectedCharacter = '{{name}}';selectedImage = 'skins/{{imageLink}}';selectedRole = '{{role}}';{{role}}('{{abilityName1}}','{{abilityName2}}','{{ultimateName}}');">
 <a>
   <img onload ="purchaseCheck()" class="" src="skins/{{imageLink}}">
   <h5>{{name}}</h5>
@@ -730,23 +730,25 @@ style="padding-left-start {0px;}">
 // Skins Selection
 
 function skinsMenuOpen(){
-document.getElementById('stateCardBtn').style.display="none";
+
 document.getElementById('stateCardStats').style.display="none";
 document.getElementById('skinMenu').style.display="block";
 document.getElementById('skinButton').style.backgroundColor = "white";
 document.getElementById('skinButton').style.color = "black";
 document.getElementById('infoButton').style.backgroundColor = "transparent";
 document.getElementById('infoButton').style.color = "white";
+document.getElementById("battleCardOpen").play()
 }
 
 function skinsMenuClose(){
-document.getElementById('stateCardBtn').style.display="block";
+
 document.getElementById('stateCardStats').style.display="block";
 document.getElementById('skinMenu').style.display="none";
 document.getElementById('skinButton').style.backgroundColor = "transparent";
 document.getElementById('skinButton').style.color = "white";
 document.getElementById('infoButton').style.backgroundColor = "white";
 document.getElementById('infoButton').style.color = "black";
+document.getElementById("battleCardClose").play()
 }
 
    </script>
@@ -763,9 +765,7 @@ document.getElementById('infoButton').style.color = "black";
    </div>
  </div>
 
- <div class="skin-menu" id="skinMenu">
-<div id="skins"></div>
- </div>
+ 
 
  <div id="stateCardBtn" class="card-btn">
  
@@ -773,6 +773,10 @@ document.getElementById('infoButton').style.color = "black";
 
   <button id="swapButton" onclick="closeBattleCard()" class="prominent card-btn-item">Swap To Game</button>
 </div>
+
+<div class="skin-menu" id="skinMenu">
+  <div id="skins"></div>
+   </div>
 
 <script>
   var localDamage1 = 0
@@ -1259,25 +1263,29 @@ if (currentlyActive == "Damage"){
   
     </div>
   </div>
-
-  <audio id="connectedSound" controls>
+  <audio id="skinSound">
+ 
+    <source src="Sound Effects/274179__littlerobotsoundfactory__jingle-win-synth-01.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio id="connectedSound" >
  
     <source src="Assets/connected.wav" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 
-  <audio id="battleCardOpen" controls>
+  <audio id="battleCardOpen" >
  
     <source src="Sound Effects/50561__broumbroum__sf3-sfx-menu-select.wav" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 
-  <audio id="battleCardClose" controls>
+  <audio id="battleCardClose" >
  
     <source src="Sound Effects/close.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
-  <audio id="opener" controls>
+  <audio id="opener" >
  
     <source src="Audio/Opener.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
