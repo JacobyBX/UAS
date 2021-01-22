@@ -28,7 +28,7 @@ document.getElementById('welcomeName').innerHTML = localStorage.getItem('Usernam
 document.getElementById('skinSound').play();
 document.getElementById('welcomeIcon').src="Banner/" + localStorage.getItem('ProfileIcon') + ".png";
 setTimeout(function() {
-    
+  window.location='#';
   document.getElementById('welcome').style.display="none";
 },3000);
 
