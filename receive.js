@@ -254,6 +254,14 @@ setTimeout(function() {
 
     }
 
+   // Detect Username
+   if(msg.includes("Player2 Username")){
+
+    document.getElementById('enemy-name').innerHTML = msg.substring(51, 63)
+ 
+
+}
+
 
     //Detect Shield
 
@@ -648,6 +656,14 @@ document.getElementById("selectionGrid").onclick = function () {
             conn.send(msg4);
             console.log("Sent: " + msg4)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg4);
+        }, 3000);
+
+        setTimeout(function(){
+            var msgO = userNameStatus;
+            sendMessageBox.value = "";
+            conn.send(msgO);
+            console.log("Sent: " + msgO)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO);
         }, 3000);
      window.lockedin1 = true;
 document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to Lock In...";

@@ -13,19 +13,30 @@ document.getElementById('icon' + checkName).style.pointerEvents = "all"
 
 window.startupCount = 0;
 
+if (localStorage.getItem("useractive") == "false"){
+    document.getElementById('register').style.display = 'none'; 
+}else{
+    setTimeout(function(){
+        document.getElementById('register').style.display = 'block';
+       
+    }, 1000);
+}
+
 function starter(startName, startUserState){
-    if(localStorage.getItem("newuser") == "false"){
-       purchaseCheck(startName)
+    if(localStorage.getItem("alt") == "false"){
+        purchaseCheck(startName)
+       
    
-    
     }else{
+      
+
      console.log(startName);
      startupCount = startupCount + 1;
      document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln"); 
      
    
      localStorage.setItem(startName, startUserState);
-     localStorage.setItem("newuser", false);
+     localStorage.setItem("alt", false);
      localStorage.setItem("A3muIln", 50);
      if(startupCount == 40 ){
      

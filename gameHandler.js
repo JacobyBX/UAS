@@ -8,6 +8,9 @@ window.dmgState1 = false;
 window.dmgState2 = false;
 window.dmgState3 = false;
 window.profileSelected= "";
+window.userNameStatus = userStatus + " Username " + localStorage.getItem('Username');
+
+document.getElementById('player1Name').innerHTML =localStorage.getItem('Username')
 
 if (mediaQuery.matches) {
 
@@ -22,17 +25,24 @@ window.profileIcon = localStorage.getItem('Username');
 
 function authCheck(){
   if(profileSelected == true && document.getElementById("usernameInput").value.length >= 1){
+    window.location='#';
+    localStorage.setItem("useractive", false);
 document.getElementById('register').style.display="none";
 document.getElementById('welcome').style.display="block";
 document.getElementById('welcomeName').innerHTML = localStorage.getItem('Username');
 document.getElementById('skinSound').play();
 document.getElementById('welcomeIcon').src="Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+document.getElementById('profileIcon').src='Banner/' + localStorage.getItem('ProfileIcon') + '.png';
+document.getElementById('player1Name').innerHTML =localStorage.getItem('Username');
+window.userNameStatus = userStatus + " Username" + localStorage.getItem('Username');
 setTimeout(function() {
-  window.location='#';
+
   document.getElementById('welcome').style.display="none";
 },3000);
 
   }else{
+
+
   
     if(profileSelected == ""){
       document.getElementById('negativeSound').play();

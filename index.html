@@ -592,8 +592,10 @@ setTimeout(function() {
   <img src="Assets/cash.svg">
   <p class="vivify popIn" id="visualCash">0</p>
 </div>
+
+<img id="profileIcon" class="profile-icon" src="https://www.dickson-constant.com/medias/images/catalogue/api/m654-grey-680.jpg">
 <div class="hero-preview">
-  <img class="hero-logo" src="Assets/logo.svg">
+  <img onload="document.getElementById('profileIcon').src='Banner/' + localStorage.getItem('ProfileIcon') + '.png';" class="hero-logo" src="Assets/logo.svg">
 
 
     </script>
@@ -1031,7 +1033,7 @@ document.getElementById('matchPopup').style.display='block';
 <div id="endGame" class="endGame">
   <div class="endGame-banner">
     <h3>You Lost</h3>
-    <h2>Player1 Name</h2>
+    <h2 >Player1 Name</h2>
     <h3>You Lost</h3>
   </div>
 </div>
@@ -1221,7 +1223,7 @@ if (currentlyActive == "Damage"){
     
 <div class="play-area">
   <div class="play-status">
-<h2>Player1</h2>
+<h2 id="player1Name">Player1</h2>
 <div class="battle-point-wrapper">
   <p id="battlePointCountWrapper" class="vivify blink"><span id="battlePointCount">20</span> Battle Points</p>
 </div>
@@ -1404,6 +1406,9 @@ if (currentlyActive == "Damage"){
     Your browser does not support the audio tag.
   </audio>
 
+  <script>
+    window.userStatus = "Player1";
+  </script>
   <script src="shieldhandler.js"></script>
 <script src="gameHandler.js"></script>
   <script src="receive.js" id="commuicationScript">

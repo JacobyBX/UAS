@@ -120,6 +120,53 @@
   
 </div>
 
+
+<!---------------------------Profile Icons----------------------------->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/ultimateAnimeShowdown/characters', function (data) {
+          var template = Handlebars.compile($('#item-template73').html())
+          $('#icons').html(template(data.characters))
+      })
+  })
+</script>
+
+<script>
+</script>
+
+<script id="item-template73" type="text/x-handlebars-template">
+
+  <ul style="margin-bottom: -9px"  class="icon-list"
+  >
+
+  <div id="iconSpannerM" ></div>
+
+  {{#each this}}
+  
+  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play();profileSelected = true; localStorage.setItem('ProfileIcon', '{{name}}') ">
+
+    
+    <label>
+      <input type="radio" name="icon" value="small" >
+      <img loading="lazy" src="/Banner/{{name}}.png">
+   
+    </label>
+   
+  </div>
+  <img onclick="document.getElementById('negativeSound').play();alert('Purchase {{name}} in the Character Shop to get this icon.')" class="URLock" id="URLock{{name}}" src="assets/lock.svg">
+
+  
+  
+  {{/each}}
+  </ul>
+</script>
+
+
+
+
+
+
 <!---------------------------Character Skins----------------------------->
 
 <script type="text/javascript">
@@ -142,7 +189,7 @@
   {{#each this}}
   <li class="skinM character-item vivify fadeIn QEX{{characterName}}" onclick="selectedImage = 'skins/{{{image}}}';document.getElementById('card-img').src='skins/{{{image}}}';document.getElementById('skinSound').play();" >
   <a>
-    <img onload ="purchaseCheck()" class="" src="skins/{{image}}">
+    <img loading="lazy" onload ="purchaseCheck()" class="" src="skins/{{image}}">
     <h5>{{name}}</h5>
    
   </a>
@@ -407,7 +454,7 @@ document.getElementById("swapButton").style.display="block"
        
      <div class="card-btn">
      
-      <button onclick="document.getElementById('battleCardOpen').play();completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
+      <button onclick="completePurchase()" class="prominent-purchase card-btn-item">Complete Purchase</button>
     
       <button  onclick="  document.getElementById('battle-card').style.display='block';document.getElementById('addToBattleTeam').style.display='none';document.getElementById('battleCardOpen').play()" class="purchase-secondary card-btn-item" >Browse Battle Card</button>
     </div>
@@ -545,8 +592,10 @@ setTimeout(function() {
   <img src="Assets/cash.svg">
   <p class="vivify popIn" id="visualCash">0</p>
 </div>
+
+<img id="profileIcon" class="profile-icon" src="https://www.dickson-constant.com/medias/images/catalogue/api/m654-grey-680.jpg">
 <div class="hero-preview">
-  <img class="hero-logo" src="Assets/logo.svg">
+  <img onload="document.getElementById('profileIcon').src='Banner/' + localStorage.getItem('ProfileIcon') + '.png';" class="hero-logo" src="Assets/logo.svg">
 
 
     </script>
@@ -887,6 +936,47 @@ loadedSelectedCount = number
 </div>
 
 
+<div id="welcome" class="welcome-profile ">
+  <div class="welcome-item vivify fadeOutRight delay-2000 duration-400">
+    <div class="welcome-img-container">
+      <img id="welcomeIcon" src="Banner/Allmight.png">
+    </div>
+    <div class="welcome-text">
+      <h4>
+        Welcome
+      </h4>
+      <h2 id="welcomeName">User</h2>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="register" class="register">
+  <div class="register-container">
+    <div class="registration">
+      <div class="input-container">
+        <h3>Create Profile</h3>
+        <label>Profile Icon</label>
+      </div>
+    
+      <div id="icons"></div>
+      <div class="input-container">
+        <label>Username</label>
+        <br>
+        <input id="usernameInput" oninput=" localStorage.setItem('Username', document.getElementById('usernameInput').value) " class="connect-input" type="text" placeholder="Unique Name">
+      </div>
+  
+      <div class="card-btn">
+        <button onclick="authCheck()" style="background-color: #D80202">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 
   <div class="match-select vivify fadeInBottom" id="matchSelect">
     <div class="match-select-container">
@@ -924,7 +1014,7 @@ document.getElementById('matchPopup').style.display='block';
 <div id="endGame" class="endGame">
   <div class="endGame-banner">
     <h3>You Lost</h3>
-    <h2>Player1 Name</h2>
+    <h2 >Player1 Name</h2>
     <h3>You Lost</h3>
   </div>
 </div>
@@ -1114,7 +1204,7 @@ if (currentlyActive == "Damage"){
     
 <div class="play-area">
   <div class="play-status">
-<h2>Player1</h2>
+<h2 id="player1Name">Player1</h2>
 <div class="battle-point-wrapper">
   <p id="battlePointCountWrapper" class="vivify blink"><span id="battlePointCount">20</span> Battle Points</p>
 </div>
@@ -1249,6 +1339,11 @@ if (currentlyActive == "Damage"){
   
     </div>
   </div>
+  <audio id="negativeSound">
+ 
+    <source src="Sound Effects/131657__bertrof__game-sound-wrong.wav" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
   <audio id="skinSound">
  
     <source src="Sound Effects/274179__littlerobotsoundfactory__jingle-win-synth-01.wav" type="audio/mpeg">
@@ -1291,6 +1386,9 @@ if (currentlyActive == "Damage"){
     <source src="Sound Effects/352661__foolboymedia__complete-chime.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
+  <script>
+    window.userStatus = "Player2";
+  </script>
 
   <script src="shieldhandler.js"></script>
 <script src="gameHandler.js"></script>
