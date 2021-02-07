@@ -1035,19 +1035,19 @@ document.getElementById('matchPopup').style.display='block';
       <img class="top-slash vivify fadeInTop" src="Assets/top slash.svg">
       <img  class="bottom-slash vivify fadeInBottom" src="Assets/bottom slash.svg">
 
-      <img class="first-starting vivify fadeInLeft delay-300 duration-400" src="Banner/Advol.png">
-      <img class="second-starting vivify fadeInRight delay-300 duration-400" src="Banner/Kisuke.png">
+      <img id="player2PreviewImg" class="first-starting vivify fadeInLeft delay-300 duration-400" src="Banner/Advol.png">
+      <img id="player1PreviewImg" class="second-starting vivify fadeInRight delay-300 duration-400" src="Banner/Kisuke.png">
 
       <div class="startup-center-wrapper">
         <img src="assets/vs overlay.svg" class="centered-startup vivify flip delay-100">
       </div>
 
     <div class="username-top">
-      <p class="vivify pulsate infinite">Player1</p>
+      <p id="player1Preview" class="vivify pulsate infinite">Player1</p>
     </div>
 
        <div class="username-bottom">
-      <p class="vivify pulsate infinite">Player2</p>
+      <p id="player2Preview" class="vivify pulsate infinite">Player2</p>
     </div>
     </div>
 
@@ -1061,10 +1061,10 @@ document.getElementById('matchPopup').style.display='block';
 
 
 
-    <div class="gameView">
-
+    <div class="gameView vivify fadeIn delay-2000">
+<div class="subGameView" style="background-color: white;">
       <div style="display: none !important;" id="attackPopover" class="attack-popover ">
-      <video style="display: none !important;" id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay></video>>
+      <video style="display: none !important;" id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay></video>
       </div>
     
       
@@ -1345,7 +1345,7 @@ if (currentlyActive == "Damage"){
 <script type="text/javascript">
  
 </script>
-   
+   </div>
     </div>
   </div>
 

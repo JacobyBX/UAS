@@ -262,6 +262,17 @@ setTimeout(function() {
 
 }
 
+// Detect Profile Icon
+
+   // Detect Username
+   if(msg.includes("Player2 Profile")){
+document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63)  + ".png";
+   
+ 
+
+}
+
+
 
     //Detect Shield
 
@@ -390,6 +401,8 @@ setTimeout(function() {
         document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
          document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
          document.getElementById('skinButton').style.display="none";
+         document.getElementById('player1Preview').innerHTML = document.getElementById('enemy-name').innerHTML;
+         document.getElementById('player2Preview').innerHTML = document.getElementById('player1Name').innerHTML
      }
 
  

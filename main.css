@@ -575,9 +575,9 @@ border: solid 3px red;
 
 .second-starting {position: fixed; height: 50vh;bottom: 0px;width: 100%;object-fit: cover;border-top: solid 4px white;}
 
-.top-slash {position: fixed; width: 100%;left: 0px; top: -90px; object-fit: scale-down;z-index: 15;}
+.top-slash {position: fixed; width: 100%;left: 0px; top: -115px; z-index: 15;object-fit: cover;background-color: white;height: 180px;}
 
-.bottom-slash {position: fixed; bottom: -90px;left: 0px;width: 100%;object-fit: scale-down;z-index: 15;}
+.bottom-slash {position: fixed; bottom: -115px;left: 0px;width: 100%;z-index: 15;object-fit: cover;background-color: white;height: 180px;}
 
 .centered-startup {}
 
@@ -735,9 +735,9 @@ border: solid 3px red;
 
 .character-overflow > li {white-space: nowrap;display: inline-block;display: none;}
 
-.gameZone {position: fixed;left: 0px;top: 0px; width: 100%; height: 100vh;background-color: white;z-index: 150;display:none;overflow: scroll;}
+.gameZone {position: fixed;left: 0px;top: 0px; width: 100%; height: 100vh;background-color: transparent;z-index: 150;display:none;overflow: scroll;}
 
-.gameView {width: 100%;height: 247px;}
+.gameView {width: 100%;height: 247px;background-color: white;}
 
 .players {display: inline-block;width: 49%;}
 .player-bar {width: 150px; background-color: white;border-radius: 50px;padding:2px}
