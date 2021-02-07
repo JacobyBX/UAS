@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="180" viewBox="0 0 375 180">
+  <defs>
+    <clipPath id="clip-bottom_slash">
+      <rect width="375" height="180"/>
+    </clipPath>
+  </defs>
+  <g id="bottom_slash" data-name="bottom slash" clip-path="url(#clip-bottom_slash)">
+    <path id="Path_71" data-name="Path 71" d="M0-11.781,375,13.667V162H0Z" transform="translate(0 18)" fill="#fff"/>
+  </g>
+</svg>

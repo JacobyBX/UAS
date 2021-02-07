@@ -397,7 +397,7 @@ margin-top: -24px;
 
 #matchSelect {display:none}
 
-.match-popup {}
+.match-popup {display: none;}
 
 .battle-point-wrapper{}
 
@@ -551,6 +551,41 @@ border: solid 3px red;
 #iconJotaro {pointer-events: all !important;}
 
 /*---------------------------------------------Game Zone--------------------------------------------------*/
+
+.username-top {position: fixed; top: 0px; left: 0px; width: 100%; z-index: 50;}
+
+.username-top > p {    width: 100%;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 600;
+  margin-top: 14px;}
+
+  
+.username-bottom {position: fixed; bottom: 0px; left: 0px; width: 100%; z-index: 50;}
+
+.username-bottom > p {    width: 100%;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 14px;}
+
+.gameStarting {position: fixed; top: 0px; left: 0px; width: 100%; height: 100vh;background-color: rgba(0, 0, 0, 0.432);z-index: 1500;}
+
+.first-starting {position: fixed; height: 50vh;top: 0px;width: 100%;object-fit: cover;}
+
+.second-starting {position: fixed; height: 50vh;bottom: 0px;width: 100%;object-fit: cover;border-top: solid 4px white;}
+
+.top-slash {position: fixed; width: 100%;left: 0px; top: -90px; object-fit: scale-down;z-index: 15;}
+
+.bottom-slash {position: fixed; bottom: -90px;left: 0px;width: 100%;object-fit: scale-down;z-index: 15;}
+
+.centered-startup {}
+
+  .startup-center-wrapper {position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);}
 
 .shield {border: none; color: white;border-radius: 50px; padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;width: 114%;
     margin-left: -5px;
