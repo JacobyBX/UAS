@@ -519,7 +519,18 @@ if(msg.includes("Player2 Turn")){
 
 document.getElementById("selectionGrid").onclick = function () {
 
+  
+    setTimeout(function() {
+        document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+        document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
+        document.getElementById('notif-icon').src = opponentIcon;
+        document.getElementById('play-area').style.pointerEvents = "none";
+        document.getElementById('ingame-notif').style.display="block";
+      },50);
 
+      setTimeout(function() {
+        document.getElementById('ingame-notif').style.display="none";
+      },12000);
 
     if (conn && conn.open) {
 
@@ -574,6 +585,20 @@ document.getElementById("selectionGrid").onclick = function () {
     
   // Send message
   document.getElementById("lockInCharacter").onclick = function () {
+
+  
+    setTimeout(function() {
+        document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+        document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
+        document.getElementById('notif-icon').src = opponentIcon;
+        document.getElementById('play-area').style.pointerEvents = "none";
+        document.getElementById('ingame-notif').style.display="block";
+      },50);
+
+      setTimeout(function() {
+        document.getElementById('ingame-notif').style.display="none";
+      },12000);
+
     if (conn && conn.open) {
 
         setTimeout(function(){
@@ -662,6 +687,20 @@ document.getElementById("selectionGrid").onclick = function () {
 
 
 document.getElementById("shieldSelectionGrid").onclick = function () {
+
+      
+    setTimeout(function() {
+        document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+        document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
+        document.getElementById('notif-icon').src = opponentIcon;
+        document.getElementById('play-area').style.pointerEvents = "none";
+        document.getElementById('ingame-notif').style.display="block";
+      },50);
+
+      setTimeout(function() {
+        document.getElementById('ingame-notif').style.display="none";
+      },12000);
+
     if (conn && conn.open) {
 
         setTimeout(function(){
