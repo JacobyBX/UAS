@@ -10,6 +10,7 @@ window.dmgState3 = false;
 window.profileSelected= "";
 window.userNameStatus = userStatus + " Username " + localStorage.getItem('Username');
 window.profileIconStatus = userStatus + " Profile " + localStorage.getItem('ProfileIcon')  + ".png";
+window.playerSelectionCheckHP = 0;
 
 document.getElementById('player1PreviewImg').src = "Banner/" + localStorage.getItem('ProfileIcon')  + ".png";
 document.getElementById('player1Name').innerHTML =localStorage.getItem('Username')

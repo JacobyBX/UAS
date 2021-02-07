@@ -270,9 +270,27 @@ setTimeout(function() {
 
 if(msg.includes("Player1 Profile")){
     document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63) ;
-       
+    window.opponentIcon = "Banner/" + msg.substring(51, 63);
+ 
      
     
+    }
+
+    //Detect Player Turn
+
+if(msg.includes("Player2 Turn")){
+    document.getElementById('play-area').style.pointerEvents = "all";
+    
+    setTimeout(function() {
+        document.getElementById('notif-text').innerHTML = "It's Your Turn";
+        document.getElementById('notif-subText').innerHTML = "Go!!";
+        document.getElementById('notif-icon').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+        document.getElementById('ingame-notif').style.display="block";
+      },50);
+
+      setTimeout(function() {
+        document.getElementById('ingame-notif').style.display="none";
+      },12000);
     }
     
 
@@ -376,8 +394,41 @@ if(msg.includes("Player1 Profile")){
         document.getElementById("lockin-indicator").innerHTML = "Match Starting...";
         document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
         message.innerHTML = "";
+        document.getElementById('player1Preview').innerHTML = document.getElementById('enemy-name').innerHTML;
+        document.getElementById('player2Preview').innerHTML = document.getElementById('player1Name').innerHTML;
+
+        window.player2SumHealth = parseInt(document.getElementById('P2TankHealth').innerHTML) + parseInt(document.getElementById('P2DamageHealth').innerHTML) + parseInt(document.getElementById('P2SupportHealth').innerHTML);
+
+        window.player1SumHealth = parseInt(document.getElementById('P1TankHealth').innerHTML) + parseInt(document.getElementById('P1DamageHealth').innerHTML) + parseInt(document.getElementById('P1SupportHealth').innerHTML);
+
+        if ( player2SumHealth > player1SumHealth && playerSelectionCheckHP == 0){
+            playerSelectionCheckHP = 1;
+            document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+            document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
+            document.getElementById('notif-icon').src = opponentIcon;
+            document.getElementById('play-area').style.pointerEvents = "none";
+            setTimeout(function() {
+
+                document.getElementById('ingame-notif').style.display="none";
+              },9500);
+          
+            
+        }else{
+           if(playerSelectionCheckHP == 0){
+          
+
+               playerSelectionCheckHP = 1;
+               document.getElementById('notif-text').innerHTML = "It's Your Turn";
+               document.getElementById('notif-subText').innerHTML = "Go!!";
+               document.getElementById('notif-icon').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+               setTimeout(function() {
+    
+                   document.getElementById('ingame-notif').style.display="none";
+                 },9500);
+           
+           }
         addMessage("Msgs cleared");
-    }
+    }}
     
 
         var theglobalHealth = "21"
@@ -467,7 +518,19 @@ if(msg.includes("Player1 Profile")){
 // Send Damage
 
 document.getElementById("selectionGrid").onclick = function () {
+
+
+
     if (conn && conn.open) {
+
+        setTimeout(function(){
+            var msgO1 = "Player1 Turn";
+            sendMessageBox.value = "";
+            conn.send(msgO1);
+            console.log("Sent: " + msgO1)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO1);
+        }, 3000);
+
         if(enterStateO == 1){
             setTimeout(function(){
                 var msg6 = "Player1" + " " + 1 + " Health " + document.getElementById('P2TankHealth').innerHTML;
@@ -512,6 +575,15 @@ document.getElementById("selectionGrid").onclick = function () {
   // Send message
   document.getElementById("lockInCharacter").onclick = function () {
     if (conn && conn.open) {
+
+        setTimeout(function(){
+            var msgO2 = "Player1 Turn";
+            sendMessageBox.value = "";
+            conn.send(msgO2);
+            console.log("Sent: " + msgO2)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO2);
+        }, 3000);
+
         setTimeout(function(){
             var msg = p1U;
         sendMessageBox.value = "";
@@ -555,6 +627,13 @@ document.getElementById("selectionGrid").onclick = function () {
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg8);
         }, 3000);
         setTimeout(function(){
+            var msgM = profileIconStatus;
+            sendMessageBox.value = "";
+            conn.send(msgM);
+            console.log("Sent: " + msgM)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgM);
+        }, 3000);
+        setTimeout(function(){
             var msg4 = "Locked In 2";
             sendMessageBox.value = "";
             conn.send(msg4);
@@ -568,6 +647,7 @@ document.getElementById("selectionGrid").onclick = function () {
             console.log("Sent: " + msgO)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msgO);
         }, 3000);
+     
      window.lockedin2 = true;
      document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to Lock In...";
 
@@ -583,6 +663,15 @@ document.getElementById("selectionGrid").onclick = function () {
 
 document.getElementById("shieldSelectionGrid").onclick = function () {
     if (conn && conn.open) {
+
+        setTimeout(function(){
+            var msgO3 = "Player1 Turn";
+            sendMessageBox.value = "";
+            conn.send(msgO3);
+            console.log("Sent: " + msgO3)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO3);
+        }, 3000);
+
         setTimeout(function(){
         if(enterStateS == "1"){
             setTimeout(function(){

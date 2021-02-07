@@ -1042,6 +1042,18 @@ document.getElementById('matchPopup').style.display='block';
 
 
     <div class="gameView">
+
+      <div id="ingame-notif" class="ingame-notif">
+        <div class="notif-wrapper vivify fadeInRight duration-400 delay-5750">
+          <img id="notif-icon" class="notif-icon" src="banner/Advol.png">
+          <div class="notif-text">
+            <h3 id="notif-text">It's null's Turn</h3>
+            <p id="notif-subText">Wait Your Turn </p>
+          </div>
+        </div>
+      
+      </div>
+
       <div class="subGameView" style="background-color: white;">
       <div style="display: none !important;" id="attackPopover" class="attack-popover ">
       <video style="display: none !important;" id="attackVideo" data-yt2html5="https://youtu.be/iAqdQQv-gLQ" playsinline loop muted autoplay></video>>
@@ -1222,7 +1234,7 @@ if (currentlyActive == "Damage"){
 </div>
 
     
-<div class="play-area">
+<div id="play-area" class="play-area">
   <div class="play-status">
 <h2 id="player1Name">Player1</h2>
 <div class="battle-point-wrapper">
