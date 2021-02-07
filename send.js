@@ -266,6 +266,16 @@ setTimeout(function() {
 
 }
 
+// Detect Profile Icon
+
+if(msg.includes("Player1 Profile")){
+    document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63) ;
+       
+     
+    
+    }
+    
+
 
     
        //Player 1 Video Start
@@ -307,7 +317,7 @@ setTimeout(function() {
         document.getElementById("CTank").style.display="none";
         setTimeout(function(){
             document.getElementById("CTank").style.display="block";
-        }, 1000);
+        }, 100);
         if(dmgState1 == false){
             setTimeout(function(){
             document.getElementById("SecondaryHealth1P2").innerHTML = document.getElementById("P2TankHealth").innerHTML;
@@ -326,7 +336,7 @@ setTimeout(function() {
         document.getElementById("CDamage").style.display="none";
         setTimeout(function(){
             document.getElementById("CDamage").style.display="block";
-        }, 1000);
+        }, 100);
         if(dmgState2 == false){
             setTimeout(function(){
                 document.getElementById("SecondaryHealth2P2").innerHTML = document.getElementById("P2DamageHealth").innerHTML;
@@ -346,7 +356,7 @@ setTimeout(function() {
         document.getElementById("CSupport").style.display="none";
         setTimeout(function(){
             document.getElementById("CSupport").style.display="block";
-        }, 1000);
+        }, 100);
         if(dmgState3 == false){
             setTimeout(function(){
             document.getElementById("SecondaryHealth3P2").innerHTML = document.getElementById("P2SupportHealth").innerHTML;

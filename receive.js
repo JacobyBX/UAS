@@ -264,7 +264,6 @@ setTimeout(function() {
 
 // Detect Profile Icon
 
-   // Detect Username
    if(msg.includes("Player2 Profile")){
 document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63)  + ".png";
    
@@ -402,7 +401,7 @@ document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 
          document.getElementById('gameZone').style.display='block';document.getElementById('startTheBattle').style.display='none';battleStarted = true;
          document.getElementById('skinButton').style.display="none";
          document.getElementById('player1Preview').innerHTML = document.getElementById('enemy-name').innerHTML;
-         document.getElementById('player2Preview').innerHTML = document.getElementById('player1Name').innerHTML
+         document.getElementById('player2Preview').innerHTML = document.getElementById('player1Name').innerHTML;
      }
 
  
@@ -677,6 +676,14 @@ document.getElementById("selectionGrid").onclick = function () {
             conn.send(msgO);
             console.log("Sent: " + msgO)
             addMessage("<span class=\"selfMsg\">Self: </span>" + msgO);
+        }, 3000);
+
+        setTimeout(function(){
+            var msgM = profileIconStatus;
+            sendMessageBox.value = "";
+            conn.send(msgM);
+            console.log("Sent: " + msgM)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgM);
         }, 3000);
      window.lockedin1 = true;
 document.getElementById("lockin-indicator").innerHTML = "Waiting for Opponent to Lock In...";
