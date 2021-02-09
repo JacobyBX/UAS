@@ -11,6 +11,9 @@ window.profileSelected= "";
 window.userNameStatus = userStatus + " Username " + localStorage.getItem('Username');
 window.profileIconStatus = userStatus + " Profile " + localStorage.getItem('ProfileIcon')  + ".png";
 window.playerSelectionCheckHP = 0;
+window.player1HealthCheck1 = true;
+window.player1HealthCheck2 = true; 
+window.player1HealthCheck3 = true; 
 
 document.getElementById('player1PreviewImg').src = "Banner/" + localStorage.getItem('ProfileIcon')  + ".png";
 document.getElementById('player1Name').innerHTML =localStorage.getItem('Username')
@@ -27,6 +30,8 @@ setTimeout(function() {
 window.profileIcon = localStorage.getItem('Username');
 
 function authCheck(){
+
+
   if(profileSelected == true && document.getElementById("usernameInput").value.length >= 1){
     window.location='#';
     localStorage.setItem("useractive", false);
@@ -78,40 +83,7 @@ console.log("Video Check....")
 videoCheck();
 
 
-function EliminationCheckL() {
 
-    if(localHealthMesh1 < 1){
-        document.getElementById("player1CH").style.filter="saturate(0)"; 
-        document.getElementById("player1CH").style.opacity="0.5"; 
-        document.getElementById("player1CH").style.pointerEvents = "none"; 
-     
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh2 < 1){
-        document.getElementById("player2CH").style.filter="saturate(0)"; 
-        document.getElementById("player2CH").style.opacity="0.5"; 
-        document.getElementById("player2CH").style.pointerEvents = "none";  
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-  
-      if(localHealthMesh3 < 1){
-        document.getElementById("player3CH").style.filter="saturate(0)"; 
-        document.getElementById("player3CH").style.opacity="0.5"; 
-        document.getElementById("player3CH").style.pointerEvents = "none";
-      }else{
-        console.log("Character Not Eliminated By Action")
-      }
-
-    console.log("Elimination Check....")
-    
-        setTimeout(EliminationCheckL, 4000);
-    }
-    
-    EliminationCheckL();
-    
 
 
 

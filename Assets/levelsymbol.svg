@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7f6b06"/>
+      <stop offset="1" stop-color="#c97f00"/>
+    </linearGradient>
+    <clipPath id="clip-levelsymbol">
+      <rect width="22" height="22"/>
+    </clipPath>
+  </defs>
+  <g id="levelsymbol" clip-path="url(#clip-levelsymbol)">
+    <g id="Group_9" data-name="Group 9" transform="translate(-161 -276)">
+      <g id="Group_8" data-name="Group 8" transform="translate(-128 246)">
+        <circle id="Ellipse_6" data-name="Ellipse 6" cx="11" cy="11" r="11" transform="translate(289 30)" fill="url(#linear-gradient)"/>
+        <g id="monetization_on-24px" transform="translate(289.864 30.864)">
+          <path id="Path_22" data-name="Path 22" d="M0,0H20.728V20.728H0Z" fill="none"/>
+          <circle id="Ellipse_7" data-name="Ellipse 7" cx="8.5" cy="8.5" r="8.5" transform="translate(1.636 1.636)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="upgrade-24px" transform="translate(160 277)">
+        <rect id="Rectangle_145" data-name="Rectangle 145" width="24" height="24" fill="none"/>
+        <path id="Path_48" data-name="Path 48" d="M11,7.99V16h2V7.99h3L12,4,8,7.99Z" fill="#c27d00"/>
+      </g>
+    </g>
+  </g>
+</svg>

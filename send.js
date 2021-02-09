@@ -270,8 +270,9 @@ setTimeout(function() {
 
 if(msg.includes("Player1 Profile")){
     document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63) ;
-    window.opponentIcon = "Banner/" + msg.substring(51, 63);
- 
+   
+        window.opponentIcon = "Banner/" + msg.substring(51, 63);
+
      
     
     }
@@ -333,6 +334,11 @@ if(msg.includes("Player2 Turn")){
         document.getElementById("CTank").classList.add("shake");
         document.getElementById("CTank").classList.add("duration-1200");
         document.getElementById("CTank").style.display="none";
+        if(msg.substring(52, 63) <= 0){
+            document.getElementById("player1CH").style.filter="saturate(0)"; 
+            document.getElementById("player1CH").style.opacity="0.5"; 
+            document.getElementById("player1CH").style.pointerEvents = "none"; 
+        }
         setTimeout(function(){
             document.getElementById("CTank").style.display="block";
         }, 100);
@@ -352,6 +358,11 @@ if(msg.includes("Player2 Turn")){
         document.getElementById("CDamage").classList.add("shake");
         document.getElementById("CDamage").classList.add("duration-1200");
         document.getElementById("CDamage").style.display="none";
+        if(msg.substring(52, 63) <= 0){
+            document.getElementById("player1CH").style.filter="saturate(0)"; 
+            document.getElementById("player1CH").style.opacity="0.5"; 
+            document.getElementById("player1CH").style.pointerEvents = "none"; 
+        }
         setTimeout(function(){
             document.getElementById("CDamage").style.display="block";
         }, 100);
@@ -372,6 +383,11 @@ if(msg.includes("Player2 Turn")){
         document.getElementById("CSupport").classList.add("shake");
         document.getElementById("CSupport").classList.add("duration-1200");
         document.getElementById("CSupport").style.display="none";
+        if(msg.substring(52, 63) <= 0){
+            document.getElementById("player3CH").style.filter="saturate(0)"; 
+            document.getElementById("player3CH").style.opacity="0.5"; 
+            document.getElementById("player3CH").style.pointerEvents = "none"; 
+        }
         setTimeout(function(){
             document.getElementById("CSupport").style.display="block";
         }, 100);
@@ -403,28 +419,35 @@ if(msg.includes("Player2 Turn")){
 
         if ( player2SumHealth > player1SumHealth && playerSelectionCheckHP == 0){
             playerSelectionCheckHP = 1;
-            document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
-            document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
-            document.getElementById('notif-icon').src = opponentIcon;
+            document.getElementById('notif-text2').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+            document.getElementById('notif-subText2').innerHTML = "Wait Your Turn.";
+            document.getElementById('notif-icon2').src = opponentIcon;
             document.getElementById('play-area').style.pointerEvents = "none";
             setTimeout(function() {
 
-                document.getElementById('ingame-notif').style.display="none";
+                document.getElementById('ingame-notif2').style.display="block";
+              },5000);
+            setTimeout(function() {
+
+                document.getElementById('ingame-notif2').style.display="none";
               },9500);
           
             
         }else{
            if(playerSelectionCheckHP == 0){
           
+            playerSelectionCheckHP = 1;
+            document.getElementById('notif-text2').innerHTML = "It's Your Turn";
+            document.getElementById('notif-subText2').innerHTML = "Go!!";
+            document.getElementById('notif-icon2').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+            setTimeout(function() {
 
-               playerSelectionCheckHP = 1;
-               document.getElementById('notif-text').innerHTML = "It's Your Turn";
-               document.getElementById('notif-subText').innerHTML = "Go!!";
-               document.getElementById('notif-icon').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
-               setTimeout(function() {
-    
-                   document.getElementById('ingame-notif').style.display="none";
-                 },9500);
+                document.getElementById('ingame-notif2').style.display="block";
+              },5000);
+            setTimeout(function() {
+
+                document.getElementById('ingame-notif2').style.display="none";
+              },9500);
            
            }
         addMessage("Msgs cleared");
@@ -587,27 +610,10 @@ document.getElementById("selectionGrid").onclick = function () {
   document.getElementById("lockInCharacter").onclick = function () {
 
   
-    setTimeout(function() {
-        document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
-        document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
-        document.getElementById('notif-icon').src = opponentIcon;
-        document.getElementById('play-area').style.pointerEvents = "none";
-        document.getElementById('ingame-notif').style.display="block";
-      },50);
 
-      setTimeout(function() {
-        document.getElementById('ingame-notif').style.display="none";
-      },12000);
 
     if (conn && conn.open) {
 
-        setTimeout(function(){
-            var msgO2 = "Player1 Turn";
-            sendMessageBox.value = "";
-            conn.send(msgO2);
-            console.log("Sent: " + msgO2)
-            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO2);
-        }, 3000);
 
         setTimeout(function(){
             var msg = p1U;
@@ -752,7 +758,30 @@ document.getElementById("shieldSelectionGrid").onclick = function () {
 // Send Healing
 
 document.getElementById("healingSelectionGrid").onclick = function () {
+
+
+    setTimeout(function() {
+        document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+        document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
+        document.getElementById('notif-icon').src = opponentIcon;
+        document.getElementById('play-area').style.pointerEvents = "none";
+        document.getElementById('ingame-notif').style.display="block";
+      },50);
+
+      setTimeout(function() {
+        document.getElementById('ingame-notif').style.display="none";
+      },12000);
+
     if (conn && conn.open) {
+
+        setTimeout(function(){
+            var msgO3 = "Player1 Turn";
+            sendMessageBox.value = "";
+            conn.send(msgO3);
+            console.log("Sent: " + msgO3)
+            addMessage("<span class=\"selfMsg\">Self: </span>" + msgO3);
+        }, 3000);
+
         setTimeout(function(){
         if(enterState == "1"){
             setTimeout(function(){

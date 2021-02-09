@@ -266,8 +266,10 @@ setTimeout(function() {
 
    if(msg.includes("Player2 Profile")){
 document.getElementById('player2PreviewImg').src= "Banner/" + msg.substring(51, 63) ;
-   window.opponentIcon = "Banner/" + msg.substring(51, 63);
- 
+   
+
+    window.opponentIcon = "Banner/" + msg.substring(51, 63);
+
 
 }
 
@@ -352,6 +354,16 @@ if(msg.includes("Player1 Turn")){
             document.getElementById("CTank").classList.add("shake");
             document.getElementById("CTank").classList.add("duration-1200");
             document.getElementById("CTank").style.display="none";
+            if(msg.substring(52, 63) <= 0){
+                document.getElementById("player1CH").style.filter="saturate(0)"; 
+                document.getElementById("player1CH").style.opacity="0.5"; 
+                document.getElementById("player1CH").style.pointerEvents = "none"; 
+                window.player1HealthCheck1 = false;
+            }
+            if(window.player1HealthCheck1 == false & window.player1HealthCheck2 == false & window.player1HealthCheck3 == false  ){
+                document.getElementById('endgame-popover').style.display='block';
+                document.getElementById('winnerUsername').innerHTML= document.getElementById('enemy-name').innerHTML;
+             }
             setTimeout(function(){
                 document.getElementById("CTank").style.display="block";
             }, local2VideoLength);
@@ -360,6 +372,7 @@ if(msg.includes("Player1 Turn")){
             document.getElementById("SecondaryHealth1P2").innerHTML = document.getElementById("P2TankHealth").innerHTML;
             document.getElementById("SecondaryHealth1P1").innerHTML = document.getElementById("P1TankHealth").innerHTML;
         }, 7000);
+      
         window.dmgState1 = true;
     }
         }
@@ -371,6 +384,16 @@ if(msg.includes("Player1 Turn")){
             document.getElementById("CDamage").classList.add("shake");
             document.getElementById("CDamage").classList.add("duration-1200");
             document.getElementById("CDamage").style.display="none";
+            if(msg.substring(52, 63) <= 0){
+                document.getElementById("player2CH").style.filter="saturate(0)"; 
+                document.getElementById("player2CH").style.opacity="0.5"; 
+                document.getElementById("player2CH").style.pointerEvents = "none"; 
+                window.player1HealthCheck2 = false;
+            }
+            if(window.player1HealthCheck1 == false & window.player1HealthCheck2 == false & window.player1HealthCheck3 == false  ){
+                document.getElementById('endgame-popover').style.display='block';
+                document.getElementById('winnerUsername').innerHTML= document.getElementById('enemy-name').innerHTML;
+             }
             setTimeout(function(){
                 document.getElementById("CDamage").style.display="block";
             }, local2VideoLength);
@@ -393,6 +416,16 @@ if(msg.includes("Player1 Turn")){
             document.getElementById("CSupport").classList.add("shake");
             document.getElementById("CSupport").classList.add("duration-1200");
             document.getElementById("CSupport").style.display="none";
+            if(msg.substring(52, 63) <= 0){
+                document.getElementById("player3CH").style.filter="saturate(0)"; 
+                document.getElementById("player3CH").style.opacity="0.5"; 
+                document.getElementById("player3CH").style.pointerEvents = "none";
+                window.player1HealthCheck3 = false; 
+            }
+            if(window.player1HealthCheck1 == false & window.player1HealthCheck2 == false & window.player1HealthCheck3 == false  ){
+                document.getElementById('endgame-popover').style.display='block';
+                document.getElementById('winnerUsername').innerHTML= document.getElementById('enemy-name').innerHTML;
+            }
             setTimeout(function(){
                 document.getElementById("CSupport").style.display="block";
             }, local2VideoLength);
@@ -425,24 +458,32 @@ if(msg.includes("Player1 Turn")){
 
          if (player1SumHealth > player2SumHealth && playerSelectionCheckHP == 0){
             playerSelectionCheckHP = 1;
-            document.getElementById('notif-text').innerHTML = "It's Your Turn";
-            document.getElementById('notif-subText').innerHTML = "Go!!";
-            document.getElementById('notif-icon').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
+            document.getElementById('notif-text2').innerHTML = "It's Your Turn";
+            document.getElementById('notif-subText2').innerHTML = "Go!!";
+            document.getElementById('notif-icon2').src = "Banner/" + localStorage.getItem('ProfileIcon') + ".png";
             setTimeout(function() {
 
-                document.getElementById('ingame-notif').style.display="none";
+                document.getElementById('ingame-notif2').style.display="block";
+              },5000);
+            setTimeout(function() {
+
+                document.getElementById('ingame-notif2').style.display="none";
               },9500);
            
          }else{
             if(playerSelectionCheckHP == 0){
                 playerSelectionCheckHP = 1;
-                document.getElementById('notif-text').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
-                document.getElementById('notif-subText').innerHTML = "Wait Your Turn.";
-                document.getElementById('notif-icon').src = opponentIcon;
+                document.getElementById('notif-text2').innerHTML = "It's " + document.getElementById('enemy-name').innerHTML + "'s Turn";
+                document.getElementById('notif-subText2').innerHTML = "Wait Your Turn.";
+                document.getElementById('notif-icon2').src = opponentIcon;
                 document.getElementById('play-area').style.pointerEvents = "none";
                 setTimeout(function() {
 
-                    document.getElementById('ingame-notif').style.display="none";
+                    document.getElementById('ingame-notif2').style.display="block";
+                  },5000);
+                setTimeout(function() {
+
+                    document.getElementById('ingame-notif2').style.display="none";
                   },9500);
                
             }

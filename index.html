@@ -97,6 +97,7 @@
       <li> <button onclick= "document.getElementById('matchPopup').style.display='block';document.getElementById('battleCardOpen').play()">Show Connection Screen</button></li>
       <li> <button onclick= "document.getElementById('matchPopup').style.display='none';document.getElementById('battleCardOpen').play()">Close Connection Screen</button></li>
       <li> <button onclick= "document.getElementById('startTheBattle').style.display='none';document.getElementById('battleCardOpen').play()">Close Lockin Popup</button></li>
+      <li> <button onclick= "document.getElementById('startTheBattle').style.display='block';document.getElementById('battleCardOpen').play()">Show Lockin Popup</button></li>
     </ul> 
 <hr>
     <div class="localStore">
@@ -144,7 +145,7 @@
 
   {{#each this}}
   
-  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play();profileSelected = true; localStorage.setItem('ProfileIcon', '{{name}}') ">
+  <div id="icon{{name}}" class="icon-item" onclick="document.getElementById('skinSound').play();profileSelected = true; localStorage.setItem('ProfileIcon', '{{name}}') ;profileIconVariable()">
 
     
     <label>
@@ -162,7 +163,11 @@
   </ul>
 </script>
 
-
+<script>
+function profileIconVariable(){
+  window.profileIconStatus = userStatus + " Profile " + localStorage.getItem('ProfileIcon')  + ".png";
+}
+  </script>
 
 
 
@@ -1063,9 +1068,49 @@ document.getElementById('matchPopup').style.display='block';
 
 
     <div class="gameView vivify fadeIn delay-2000">
+<div id="endgame-popover" class="endgame-wrapper">
+  <div class="endgame-popover vivify fadeInBottom delay-1000 duration-400">
+    <div class="card-btn">
+      <div class="winner-indicator">
+        <div class="winner-icon">
+          <img src="Banner/Rukia.png">
+        
+        </div>
+        <p>Winner!</p>
+        <h2 id="winnerUsername">Username</h2>
+      </div>
+      <div class="loser-indicator">
+        <p>Loser</p>
+        <h5>Null</h5>
+      </div>
+      <p >Reward</p>
+      <div class="reward-container">
+        <div class="reward-item">
+          <img src="Assets/cashsymbol.svg">
+          <h5><span id="rewardAmount">+50 Currency</span></h5>
+        </div>
+      </div>
+      <button  class="card-btn-item" style="background-color: #D80202">Leave Party</button>
+    
+   
+    </div>
+  </div>
+</div>
+     
+
+      <div id="ingame-notif2" class="ingame-notif">
+        <div class="notif-wrapper vivify fadeInRight duration-400 delay-1000">
+          <img id="notif-icon2" class="notif-icon" src="banner/Advol.png">
+          <div class="notif-text">
+            <h3 id="notif-text2">It's null's Turn</h3>
+            <p id="notif-subText2">Wait Your Turn </p>
+          </div>
+        </div>
+      
+      </div>
 
       <div id="ingame-notif" class="ingame-notif">
-        <div class="notif-wrapper vivify fadeInRight duration-400 delay-5750">
+        <div class="notif-wrapper vivify fadeInRight duration-400 delay-1000">
           <img id="notif-icon" class="notif-icon" src="banner/Advol.png">
           <div class="notif-text">
             <h3 id="notif-text">It's null's Turn</h3>
@@ -1386,12 +1431,19 @@ if (currentlyActive == "Damage"){
       <div class="card-btn">
         <p id="lockin-indicator" >Ready to Lock In?</p>
         <button id="lockInCharacter"  class="card-btn-item" style="background-color: #D80202">Lock In Characters</button>
-
+        <button   class="card-btn-item" style="    background-color: #ffffff;
+        border: solid 1px lightgray;
+        color: black;" onclick="document.getElementById('startTheBattle').style.display='none';document.getElementById('lockin-fab').style.display='block';document.getElementById('battleCardClose').play();">Cancel Lock In </button>
      
       </div>
   
     </div>
   </div>
+
+  <div id="lockin-fab" class="lockin-fab-wrapper">
+    <i onclick="document.getElementById('startTheBattle').style.display='block';document.getElementById('battleCardOpen').play();" class="  material-icons lockin-fab vivify popIn delay-1000" >play_arrow</i>
+  </div>
+
   <audio id="negativeSound">
  
     <source src="Sound Effects/131657__bertrof__game-sound-wrong.wav" type="audio/mpeg">
@@ -1553,6 +1605,7 @@ function shieldMeshHandler(){
   document.getElementsByClassName("selection-shield-wrapper")[0].style.display = "block";
   document.getElementsByClassName("selection-support-wrapper")[0].style.display = "none";
 }
+
 
 new YouTubeToHtml5();
     </script>
