@@ -359,9 +359,9 @@ if(msg.includes("Player2 Turn")){
         document.getElementById("CDamage").classList.add("duration-1200");
         document.getElementById("CDamage").style.display="none";
         if(msg.substring(52, 63) <= 0){
-            document.getElementById("player1CH").style.filter="saturate(0)"; 
-            document.getElementById("player1CH").style.opacity="0.5"; 
-            document.getElementById("player1CH").style.pointerEvents = "none"; 
+            document.getElementById("player2CH").style.filter="saturate(0)"; 
+            document.getElementById("player2CH").style.opacity="0.5"; 
+            document.getElementById("player2CH").style.pointerEvents = "none"; 
         }
         setTimeout(function(){
             document.getElementById("CDamage").style.display="block";

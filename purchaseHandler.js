@@ -25,7 +25,7 @@ if (localStorage.getItem("useractive") == "false"){
 function starter(startName, startUserState){
     if(localStorage.getItem("alt") == "false"){
         purchaseCheck(startName)
-       
+        document.getElementById("visualCash").innerHTML = localStorage.getItem("A3muIln"); 
    
     }else{
       

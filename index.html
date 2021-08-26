@@ -277,7 +277,7 @@ style="padding-left-start {0px;}">
 </ul>
 </script>
     </head>
-    <body>
+    <body >
 
       
 
@@ -433,6 +433,10 @@ document.getElementById("swapButton").style.display="block"
   window.MCase = false;
 
       </script>
+
+      <div id="o-loader" class="overall-loading">
+        <img class="o-loader vivify blink infinite" src="assets/damageicon.svg">
+      </div>
 
       <div id="purchase-complete" class="purchase-complete">
 <div class="complete-wrapper vivify fadeInTop">
@@ -1036,7 +1040,7 @@ document.getElementById('matchPopup').style.display='block';
   <div class="gameZone" id="gameZone">
 
 
-    <div class="gameStarting vivify fadeOutLeft duration-300 delay-5500">
+    <div class="gameStarting vivify fadeOutLeft duration-300 delay-4500">
       <img class="top-slash vivify fadeInTop" src="Assets/top slash.svg">
       <img  class="bottom-slash vivify fadeInBottom" src="Assets/bottom slash.svg">
 
@@ -1492,6 +1496,11 @@ if (currentlyActive == "Damage"){
     Your browser does not support the audio tag.
   </audio>
 
+  <audio id="gameStartingMP3">
+    <source src="Sound Effects/Saturn.mp3">
+      Your browser does not support the audio tag.
+  </audio>
+
   <script>
     window.userStatus = "Player1";
   </script>
@@ -1609,6 +1618,6 @@ function shieldMeshHandler(){
 
 new YouTubeToHtml5();
     </script>
-  <script src="purchaseHandler.js"></script>
+  <script onload= "document.getElementById('o-loader').style.display='none';" src="purchaseHandler.js"></script>
     </body>
 </html>

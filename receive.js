@@ -837,6 +837,8 @@ document.getElementById("selectionGrid").onclick = function () {
             addMessage("<span class=\"selfMsg\">Self: </span>" + msg4);
         }, 3000);
 
+        document.getElementById('gameStartingMP3').play();
+
         setTimeout(function(){
             var msgO = userNameStatus;
             sendMessageBox.value = "";
